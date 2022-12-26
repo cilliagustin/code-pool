@@ -1,14 +1,20 @@
-/* General Styling */
+/* #### General Styling #### */
 
 :root {
     --main-gray: rgb(39,49,62);
     --highlight-gray: rgb(50,61,77);
     --dark-gray: rgb(28,39,50);
-    --white: rgb(250,253,247);
+    --text-gray: rgb(118,118,118);
+    --highlight-blue: rgb(91,191,186);
+    --white: rgb(229,229,229);
 }
 
 body{
     background: var(--highlight-gray);
+}
+
+.highlight-blue{
+    color: var(--highlight-blue);
 }
 
 /* navbar */
@@ -124,6 +130,8 @@ nav[data-open="true"] button span:last-child{
     transform: rotate(225deg);
 }
 
+/* footer */
+
 footer{
     width: 100%;
     display: flex;
@@ -152,6 +160,92 @@ footer .links a i{
     margin:0 3px;
 }
 
+/* #### Index #### */
+
+/* Main banner */
+
+.main-banner{
+    margin-top: 40px;
+    background:
+        radial-gradient(at top left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 40%),
+        radial-gradient(at bottom left, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at top right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at bottom right, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 50%),
+        linear-gradient(var(--dark-gray), var(--dark-gray));
+    
+    min-height: calc( 100vh - 40px);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 40px;
+}
+
+.main-banner h1{
+    width: 100%;
+}
+
+.main-banner h1 span{
+    color: var(--white);
+    font-size: 47px;
+}
+
+.main-banner h1 span:first-child{
+    display: block;
+}
+
+.main-banner h1 .cursor{
+    position: relative;
+    color: rgba(255, 255, 255, 0);
+}
+.main-banner h1 .cursor::before{
+    position: absolute;
+    opacity: 1;
+    content: "";
+    top: 10px;
+    left: 5px;
+    height: 47px;
+    width: 30px;
+    background: white;
+    position: absolute;
+    animation: blink 1.3s infinite;
+}
+
+.main-banner p{
+    max-width: 80%;
+    color: var(--text-gray);
+    margin-top: 3rem;
+    margin-bottom: 7rem;
+}
+
+/* small devices */
+@media (min-width: 576px) { 
+    /* #### Index #### */
+    /* Main banner */
+
+    .main-banner{
+        align-items: center;
+    }
+
+    .main-banner h1{
+        text-align: center;
+    }
+
+    .main-banner h1 span{
+        font-size: 70px;
+    }
+    .main-banner h1 .cursor::before{
+        top: 14px;
+        height: 70px;
+        width: 40px;
+    }
+    .main-banner p{
+        font-size: 1.4rem;
+        max-width: 90%;
+    }
+}
+
+
 /* medium devices */
 @media (min-width: 768px){
     /* navbar */
@@ -172,5 +266,42 @@ footer .links a i{
     }
     .overlay{
         display: none;
+    }
+
+    /* #### Index #### */
+    /* Main banner */
+
+    .main-banner h1 span{
+        font-size: 94px;
+    }
+    .main-banner h1 .cursor::before{
+        top: 18px;
+        height: 93px;
+        width: 55px;
+    }
+    .main-banner p{
+        font-size: 1.6rem;
+        max-width: 85%;
+    }
+}
+
+
+
+
+@keyframes blink{
+    0%{
+        opacity: 0;
+    }
+    49%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    99%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
     }
 }
