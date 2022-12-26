@@ -12,7 +12,7 @@
     <title>Codepool</title>
 </head>
 <body>
-    <!-- navbar -->
+    <!-- NAVBAR -->
     <nav data-open="false">
         <a href="#">Logo</a>
         <button id="hamb">
@@ -27,11 +27,20 @@
         </div>
     </nav>
     <div data-open="false" class="overlay" id="overlay"></div>
-
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-        
+    
+    <!-- CONTENT -->
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>Agustin Cilli - <span id="footerYear"></span></p>
+        <div class="links">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </footer>
     
     <script src="{% static 'js/script.js' %}"></script> 
 </body>

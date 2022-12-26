@@ -3,6 +3,7 @@ const navButton = document.getElementById("hamb");
 const overlay = document.getElementById("overlay");
 
 
+// #### NAVBAR ####
 // #### Navbar collapse ####
 
 navButton.addEventListener("click",()=>{
@@ -21,6 +22,16 @@ function windowResize(mediaQuery) {
   if(mediaQuery.matches) {
     navbar.setAttribute("data-open", "false");
     overlay.setAttribute("data-open", "false");
-   }
+}
 };
 mediaQuery.addEventListener('change', windowResize);
+
+// #### FOOTER ####
+// add year to footer
+function addYear(){
+    document.getElementById("footerYear").innerHTML = new Date().getFullYear();
+}
+
+window.onload = addYear
+
+

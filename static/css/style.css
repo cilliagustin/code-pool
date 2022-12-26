@@ -124,6 +124,34 @@ nav[data-open="true"] button span:last-child{
     transform: rotate(225deg);
 }
 
+footer{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--main-gray);
+}
+
+footer p{
+    margin: 0;
+    font-size: 18px;
+    color: var(--white);
+}
+
+footer .links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .links a i{
+    color: var(--white);
+    font-size: 22px;
+    margin:0 3px;
+}
+
 /* medium devices */
 @media (min-width: 768px){
     /* navbar */
