@@ -13,11 +13,37 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col new-components-title">
+            <div class="col-8 offset-2 new-components-title">
                 <h2>Leatest Components</h2>
+                <i class="fa-solid fa-bolt"></i>
                 <p>This were the latest components created by the community, copy and pastem into you projects!</p>
             </div>
         </div>
+        <div class="row">
+            {% for post in post_list %}
+                <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4">
+                    <div class="preview-card">
+                        <div class="preview-card-header">
+                            <h3>{{ post.title }}</h3>
+                            <p class="author">Author: {{ post.author }}</p>
+                            <p class="created-on">Created on: {{ post.created_on }}</p>
+                            <a href="#" class="blue-btn"><span class="layer"></span><span class="text">View Code</span></a>
+                            <button class="blue-btn"><span class="layer"></span><span class="text">Full Screen</span></button>
+                        </div>
+                        <div class="preview-card-body">
+                            <textarea data-code-html >{{ post.html_content }}</textarea>
+                            <textarea data-code-css >{{ post.css_content }}</textarea>
+                            <textarea data-code-js >{{ post.js_content }}</textarea>
+                            <iframe src="https://cilliagustin.github.io/blank-website/" title="blank canvas"></iframe>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+
+
+
+    
 
 {%endblock%}
