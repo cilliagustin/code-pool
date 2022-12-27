@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 
 STATUS = ((0, 'Unpublished'), (1, 'Published'))
-CATEGORY = (('Button', 'Button'), ('Navbar', 'Navbar'), ('Card', 'Card'), ('Miscellaneous', 'Miscellaneous'))
+CATEGORY = ((0, 'Button'), (1, 'Navbar'), (2, 'Card'), (3, 'Miscellaneous'))
 
 # Create your models here.
 
@@ -19,7 +19,7 @@ class Post(models.Model):
     js_content = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    category = models.IntegerField(choices=CATEGORY, default='Miscellaneous')
+    category = models.IntegerField(choices=CATEGORY, default=3)
 
     class Meta:
         ordering = ['-created_on']
