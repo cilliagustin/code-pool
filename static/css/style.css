@@ -7,6 +7,12 @@
     --text-gray: rgb(118,118,118);
     --highlight-blue: rgb(91,191,186);
     --white: rgb(229,229,229);
+    --black-texture-background:
+        radial-gradient(at top left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 40%),
+        radial-gradient(at bottom left, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at top right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at bottom right, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 50%),
+        linear-gradient(var(--dark-gray), var(--dark-gray));
 }
 
 body{
@@ -15,6 +21,50 @@ body{
 
 .highlight-blue{
     color: var(--highlight-blue);
+}
+
+.blue-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 4px;
+    height: 28px;
+    width: 110px;
+    border: none;
+    background: linear-gradient(45deg, rgb(161 162 231), var(--highlight-blue) 60%);
+    border-radius: 3px;
+    text-decoration: none;
+    position: relative;
+}
+
+.blue-btn .layer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background:var(--black-texture-background);
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: .8s ease-out;
+}
+
+.blue-btn .text{
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transform: translate(31%, 18%);
+}
+
+.blue-btn:hover .layer{
+    opacity: 0;
 }
 
 /* navbar */
@@ -166,13 +216,7 @@ footer .links a i{
 
 .main-banner{
     margin-top: 40px;
-    background:
-        radial-gradient(at top left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 40%),
-        radial-gradient(at bottom left, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 60%),
-        radial-gradient(at top right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 60%),
-        radial-gradient(at bottom right, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 50%),
-        linear-gradient(var(--dark-gray), var(--dark-gray));
-    
+    background:var(--black-texture-background);
     min-height: calc( 100vh - 40px);
     display: flex;
     flex-flow: column;
@@ -218,6 +262,103 @@ footer .links a i{
     margin-bottom: 7rem;
 }
 
+/* Preview Cards */
+
+.new-components-title{
+    text-align: center;
+}
+
+.new-components-title h2,
+.new-components-title i,
+.new-components-title p{
+    color: var(--white);
+}
+
+.new-components-title h2,
+.new-components-title i{
+    font-size: 2rem;
+}
+
+.preview-card{
+    background:var(--black-texture-background);
+    width: 100%;
+    min-height: 450px;
+    height: 55vh;
+    max-height: 600px;
+    margin: .75rem 0;
+    border-radius: 4px;
+    border: 1px solid var(--dark-gray);
+    display: flex;
+    flex-flow: column;
+    overflow: hidden;
+}
+
+.preview-card .preview-card-header{
+    width: 100%;
+    max-height: 170px;
+    background:var(--black-texture-background);
+    display: grid;
+    grid-template-areas: 
+    "title title"
+    "author author"
+    "createdOn createdOn"
+    "link fullScreen";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    column-gap: 10px;
+    padding: 10px 5px;
+}
+
+.preview-card .preview-card-header h3{
+    grid-area: title;
+    text-align: center;
+    margin: 0;
+    color: var(--white);
+}
+
+.preview-card .preview-card-header p{
+    margin: 0;
+    color: var(--text-gray);
+}
+
+.preview-card .preview-card-header .author{
+    grid-area: author;
+}
+
+.preview-card .preview-card-header .created-on{
+    grid-area: createdOn;
+    margin-bottom: 1rem;
+    font-size: 14px;
+}
+
+.preview-card .preview-card-header a.blue-btn{
+    grid-area: link;
+    justify-self: end;
+}
+
+.preview-card .preview-card-header button.blue-btn{
+    grid-area: fullScreen;
+    justify-self: start;
+}
+
+.preview-card .preview-card-body{
+    width: 100%;
+    flex-grow: 1;
+    background: var(--white);
+}
+
+.preview-card .preview-card-body textarea{
+    display: none;
+}
+
+.preview-card .preview-card-body iframe{
+    height: 100%;
+    width: 100%;
+}
+
+/* #### MediaQueries #### */
+
 /* small devices */
 @media (min-width: 576px) { 
     /* #### Index #### */
@@ -242,6 +383,12 @@ footer .links a i{
     .main-banner p{
         font-size: 1.4rem;
         max-width: 90%;
+    }
+
+    /* Preview Cards */
+    .new-components-title h2,
+    .new-components-title i{
+        font-size: 2.5rem;
     }
 }
 
@@ -283,10 +430,15 @@ footer .links a i{
         font-size: 1.6rem;
         max-width: 85%;
     }
+
+    /* Preview Cards */
+    .new-components-title h2,
+    .new-components-title i{
+        font-size: 3rem;
+    }
 }
 
-
-
+/* #### Animations #### */
 
 @keyframes blink{
     0%{
