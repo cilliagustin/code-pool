@@ -97,8 +97,6 @@ function initTypewriter() {
   new TypeWriter(titleWord, words);
 }
 
-  // Init typewritter On DOM Load
-document.addEventListener('DOMContentLoaded', initTypewriter);
 
 
 // Display preview cards
@@ -113,13 +111,18 @@ function displayPreviewCards(){
   })
 }
 
-  // Init typewritter On DOM Load
-  document.addEventListener('DOMContentLoaded', displayPreviewCards);
 
 
 
+//init index functions
+function runIndexFunctions(){
+  if(!document.querySelector(".main-banner") === null){
+    initTypewriter()
+    displayPreviewCards()
+  }
+}
 
-
+document.addEventListener('DOMContentLoaded', runIndexFunctions);
 
 
 
