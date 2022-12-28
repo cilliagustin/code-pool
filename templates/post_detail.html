@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col p-0">
+            <div id="code-editor" class="code-editor" data-open="true">
+                <div class="code-editor-header">
+                    <h1>{{ post.title}}</h1>
+                    <p class="author">Created by: {{ post.author}}</p>
+                    <p class="updated-on">Last modified: {{ post.updated_date}}</p>
+                    <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>
+                    <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"><span>{</span>CSS<span>}</span></button>
+                    <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"><span>(</span>JS<span>)</span></button>
+                </div>
+                <div class="code-editor-code">
+                    <textarea name="htmlCode" id="htmlCode" data-open="true" data-code-type="html">{{ post.html_content }}</textarea>
+                    <textarea name="cssCode" id="cssCode" data-open="false" data-code-type="css">{{ post.css_content }}</textarea>
+                    <textarea name="jsCode" id="jsCode" data-open="false" data-code-type="js">{{ post.js_content }}</textarea>
+                </div>
+                <div class="code-editor-iframe">
+                    <iframe src="https://cilliagustin.github.io/blank-website/" title="blank canvas"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
