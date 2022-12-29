@@ -28,8 +28,8 @@
                             <h3>{{ post.title }}</h3>
                             <p class="author">Author: {{ post.author }}</p>
                             <p class="updated-on">Last modified: {{ post.updated_date}}</p>
-                            <a href="{% url 'post_detail' post.slug %}" class="blue-btn"><span class="layer"></span><span class="text">View Code</span></a>
-                            <button class="blue-btn"><span class="layer"></span><span class="text">Full Screen</span></button>
+                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn"><p>View Code</p></a>
+                            <button class="custom-btn"><p>Full Screen</p></button>
                         </div>
                         <div class="preview-card-body">
                             <textarea data-code-html >{{ post.html_content }}</textarea>
