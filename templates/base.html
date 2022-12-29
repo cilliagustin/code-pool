@@ -21,9 +21,30 @@
             <span></span>
         </button>
         <div class="links">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="#">Browse</a>
-            <a href="#">New</a>
+            <ul>
+                
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+                <li>
+                    <a href="#">Browse</a>
+                </li>
+                <li>
+                    <a href="#">New</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'account_logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a  href="{% url 'account_signup' %}">Register</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_login' %}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
         </div>
     </nav>
     <div data-open="false" class="overlay" id="overlay"></div>
