@@ -25,6 +25,36 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 comments">
+            <h2>Comments</h2>
+        </div>
+        <div class="col-12 col-lg-8">
+            {% for comment in comments %}
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <p class="author"><span>{{ comment.author }}</span> wrote:</p>
+                    </div>
+                    <p class="comment">{{ comment.body }}</p>
+                    <div class="comment-footer">
+                        <p class="date">Written on {{ comment.created_on }}</p>
+                    </div>
+                </div>
+            {% empty %}
+            <div class="comment-card">
+                <div class="comment-header">
+                    <p class="author"><span>This post does not have any comments yet...</span></p>
+                </div>
+                <p class="comment">Write the first comment to start the conversation!</p>
+                <div class="comment-footer"> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-12 col-lg-4">
+            <!-- add form after authentication -->
+        </div>
+    </div>
 </div>
 
 {%endblock%}
