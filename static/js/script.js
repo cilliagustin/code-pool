@@ -5,6 +5,7 @@ const navButton = document.getElementById("hamb");
 const overlay = document.getElementById("overlay");
 const codeEditor = document.getElementById("code-editor");
 const codeEditorBtns = document.querySelectorAll(".code-editor-btn");
+const authFormInputs = document.querySelectorAll(".auth-card form p input[type='text'], .auth-card form p input[type='password']")
 
 
 // ##### GENERAL FUNCTIONS #####
@@ -206,8 +207,6 @@ function codeEditorWindowResize(mediumMediaQuery){
   }
 }
 
-
-
 //#### Init post detail functions ####
 function postDetailFunctions(){
   if(codeEditor !== null){
@@ -229,6 +228,26 @@ document.addEventListener('DOMContentLoaded', postDetailFunctions);
 
 
 mediumMediaQuery.addEventListener('change', codeEditorWindowResize);
+
+
+// ##### AUTH PAGES #####
+
+// #### Add active class to label ####
+
+function checkInputContent(input){
+  let parent = input.parentElement;
+  if(input.value.length === 0){
+    parent.classList.add("empty")
+  } else {
+    parent.classList.remove("empty")
+  }
+}
+
+authFormInputs.forEach(input => {
+  input.addEventListener('input', () =>{
+    checkInputContent(input)
+  })
+})
 
 
 

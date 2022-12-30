@@ -606,22 +606,99 @@ footer .links a i{
 }
 
 .auth .auth-card form{
-    background: red;
     flex-grow: 1;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: flex-start;
+    padding-top: 2rem;
 }
 
 .auth .auth-card form p{
     position: relative;
-    background: green;
+    background: none;
+    margin-bottom: 1.5rem;
+    width: 90%;
+    height: 35px;
+    padding: 1px;
 }
+
+
+.auth .auth-card form p label{
+    position: absolute;
+    z-index: 2;
+    background: none;
+    font-size: .8rem;
+    top: -9px;
+    left: 14px;
+    padding: 0 3px;
+    transform: scale(.8);
+    border: 1px solid var(--highlight-blue);
+    border-top: none;
+    border-bottom: none;
+    background: rgb(22,31,40);
+    color: var(--highlight-blue);
+    padding: 0 3px;
+}
+
+.auth .auth-card form p.empty label{
+    background: none;
+    color: var(--cream);
+    font-size: .8rem;
+    top: 8px;
+    left: 10px;
+    transform: scale(1);
+    border: none;
+}
+
+.auth .auth-card form p input[type="text"],
+.auth .auth-card form p input[type="password"]{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid var(--cream);
+    background: inherit;
+    color: var(--highlight-blue);
+    padding-left: 5px;
+}
+
+.auth .auth-card form p input[type="text"],
+.auth .auth-card form p input[type="password"]{
+    border-color: var(--highlight-blue);
+}
+
+.auth .auth-card form p.empty input[type="text"],
+.auth .auth-card form p.empty input[type="password"]{
+    border-color: var(--cream);
+}
+
+.auth .auth-card form p input:focus-visible{
+    outline: none;
+}
+
+.auth .auth-card form p input:-webkit-autofill{
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.auth .auth-card form p input[type="text"]::placeholder,
+.auth .auth-card form p input[type="password"]::placeholder{
+    color: rgba(255, 0, 0, 0);
+}
+
+
+
+
 
 .auth .auth-card form button{
     margin-top: auto;
     margin-bottom: 5px;
+}
+
+.auth .auth-card form button p{
+    margin: 0;
+    background: none;
+    height: auto;
 }
 
 
