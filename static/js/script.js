@@ -5,7 +5,7 @@ const navButton = document.getElementById("hamb");
 const overlay = document.getElementById("overlay");
 const codeEditor = document.getElementById("code-editor");
 const codeEditorBtns = document.querySelectorAll(".code-editor-btn");
-const authFormInputs = document.querySelectorAll(".auth-card form p input[type='text'], .auth-card form p input[type='password']")
+const authFormInputs = document.querySelectorAll(".auth-card form p input[type='text'], .auth-card form p input[type='password'], .auth-card form p input[type='email']")
 
 
 // ##### GENERAL FUNCTIONS #####
@@ -231,26 +231,38 @@ mediumMediaQuery.addEventListener('change', codeEditorWindowResize);
 
 
 // ##### AUTH PAGES #####
+// #### Add active class to input "p" wrapper ####
 
-// #### Add active class to label ####
-
-function checkInputContent(input){
-  let parent = input.parentElement;
-  if(input.value.length === 0){
-    parent.classList.add("empty")
-  } else {
-    parent.classList.remove("empty")
-  }
-}
-
+//remove empty class on focus
 authFormInputs.forEach(input => {
-  input.addEventListener('input', () =>{
-    checkInputContent(input)
+  input.addEventListener('focus', ()=>{
+    let parent = input.parentElement;
+    parent.classList.remove("empty");
+  })
+})
+
+//add empty class when focus removed if input value is empty
+authFormInputs.forEach(input => {
+  input.addEventListener('focusout', ()=>{
+    if(input.value.length === 0){
+      let parent = input.parentElement;
+      parent.classList.add("empty");
+    }
   })
 })
 
 
 
+function checkAuthEmptyInputs(){
+  if(document.getElementById("auth-signup") !== null){
+    authFormInputs.forEach(input => {
+      let parent = input.parentElement;
+      parent.classList.add("empty");
+    })
+  }
+}
+
+document.addEventListener('DOMContentLoaded', checkAuthEmptyInputs);
 
 
 

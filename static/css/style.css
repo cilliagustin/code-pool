@@ -5,6 +5,7 @@
     --main-gray: rgb(39,49,62);
     --highlight-gray: rgb(50,61,77);
     --dark-gray: rgb(28,39,50);
+    --darkest-gray: rgb(22,31,40);
     --text-gray: rgb(118,118,118);
     --highlight-blue: rgb(91,191,186);
     --cream: rgb(191, 192, 192);
@@ -575,7 +576,7 @@ footer .links a i{
 }
 
 .auth .auth-card{
-    background: var(--black-texture-background);
+    background: var(--darkest-gray);
     min-height: 350px;
     width: 300px;
     border-radius: 3px;
@@ -584,6 +585,7 @@ footer .links a i{
     flex-flow: column;
     align-items: center;
     justify-content: flex-start;
+    margin: 1.5rem 0;
 }
 
 .auth .auth-card .card-header{
@@ -636,13 +638,13 @@ footer .links a i{
     border: 1px solid var(--highlight-blue);
     border-top: none;
     border-bottom: none;
-    background: rgb(22,31,40);
+    background: var(--darkest-gray);
     color: var(--highlight-blue);
     padding: 0 3px;
+    transition: 1s all ease-out;
 }
 
 .auth .auth-card form p.empty label{
-    background: none;
     color: var(--cream);
     font-size: .8rem;
     top: 8px;
@@ -652,7 +654,8 @@ footer .links a i{
 }
 
 .auth .auth-card form p input[type="text"],
-.auth .auth-card form p input[type="password"]{
+.auth .auth-card form p input[type="password"],
+.auth .auth-card form p input[type="email"]{
     width: 100%;
     height: 100%;
     border: none;
@@ -661,15 +664,18 @@ footer .links a i{
     background: inherit;
     color: var(--highlight-blue);
     padding-left: 5px;
+    transition: 1s all ease-out;
 }
 
 .auth .auth-card form p input[type="text"],
-.auth .auth-card form p input[type="password"]{
+.auth .auth-card form p input[type="password"],
+.auth .auth-card form p input[type="email"]{
     border-color: var(--highlight-blue);
 }
 
 .auth .auth-card form p.empty input[type="text"],
-.auth .auth-card form p.empty input[type="password"]{
+.auth .auth-card form p.empty input[type="password"],
+.auth .auth-card form p.empty input[type="email"]{
     border-color: var(--cream);
 }
 
@@ -682,23 +688,62 @@ footer .links a i{
 }
 
 .auth .auth-card form p input[type="text"]::placeholder,
-.auth .auth-card form p input[type="password"]::placeholder{
+.auth .auth-card form p input[type="password"]::placeholder,
+.auth .auth-card form p input[type="email"]::placeholder{
     color: rgba(255, 0, 0, 0);
 }
 
+.auth .auth-card form p label[for="id_remember"]{
+    transition: none;
+    background: none;
+    position: relative;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    border: none;
+    font-size: 1rem;
+}
 
-
-
+.auth .auth-card form p input[type="checkbox"]{
+    position: relative;
+    top: 1px;
+}
 
 .auth .auth-card form button{
     margin-top: auto;
     margin-bottom: 5px;
 }
 
+.auth .auth-card form button::before{
+    background: var(--darkest-gray);
+}
+
 .auth .auth-card form button p{
     margin: 0;
     background: none;
     height: auto;
+}
+
+.signout{
+    margin-top: 40px;
+    min-height: calc(100vh - 115px);
+}
+
+.signout h1{
+    margin: 1.5rem 0 1rem;
+    color: var(--cream);
+}
+
+.signout p{
+    color: var(--text-gray);
+}
+
+.signout form button::before{
+    background: var(--highlight-gray);
+}
+
+.signout form button p{
+    color: var(--cream);
 }
 
 
