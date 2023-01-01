@@ -566,6 +566,45 @@ footer .links a i{
     color: var(--white);
 }
 
+.user-comment h2{
+    color: var(--white);
+    text-align: center;
+}
+
+.user-comment p{
+    color: var(--text-gray);
+}
+
+.user-comment p span,
+.user-comment p a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+.user-comment form label{
+    color: var(--white);
+}
+
+.user-comment form textarea{
+    resize: none;
+    margin: .5rem 0;
+}
+
+.user-comment form .custom-btn{
+    margin: 0 auto .5rem;
+}
+.user-comment form .custom-btn::before{
+    background: var(--highlight-gray);
+}
+
+.user-comment form .custom-btn p{
+    color: var(--cream);
+}
+
+.user-comment form .custom-btn:hover p{
+    color: var(--highlight-gray);
+}
+
 /* #### Authentication pages #### */
 .auth{
     margin-top: 40px;
