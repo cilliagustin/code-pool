@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 
-STATUS = ((0, 'Unpublished'), (1, 'Published'))
 CATEGORY = ((0, 'Button'), (1, 'Navbar'), (2, 'Card'), (3, 'Miscellaneous'))
 
 # Create your models here.
@@ -18,7 +18,6 @@ class Post(models.Model):
     css_content = models.TextField()
     js_content = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
     category = models.IntegerField(choices=CATEGORY, default=3)
 
     class Meta:
@@ -26,6 +25,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post_detail', kwargs={"slug": self.slug})
 
 
 class Comment(models.Model):
