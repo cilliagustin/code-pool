@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -11,15 +11,20 @@ class PostList(generic.ListView):
 
 
 class Canvas(generic.ListView):
-    queryset = None
+    model = Post
     template_name = 'canvas.html'
 
 
 class CreatePost(generic.CreateView):
     model = Post
+    form_class = PostForm
     template_name = 'add_post.html'
-    fields = ('title', 'slug', 'author', 'html_content', 'css_content','js_content', 'category')
 
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 
 class PostDetail(View):
