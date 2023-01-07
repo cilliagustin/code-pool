@@ -2,13 +2,29 @@
 
 {% block content %}
 
-<h1>hi</h1>
-<h1>hi</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit"></button>
-</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 create-edit-post">
+            <h1>Add a new component</h1>
+            <div class="form-group">
+                <form method="POST" class="mb-5">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="d-flex justify-content-center">
+                        <button id="preview-code" class="custom-btn"><p>Preview your code</p></button>
+                        <button type="submit" class="custom-btn"><p>Submit</p></button>
+                    </div>
+                </form>
+            </div>
+            <div class="create-edit-iframe-container d-flex flex-column justify-content-start align-items-center">
+                <h2 class="my-3">Code Preview</h2>
+                <iframe src="../canvas.html" title="blank canvas"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
     
