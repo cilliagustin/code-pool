@@ -25,6 +25,10 @@ body{
     background: var(--highlight-gray);
 }
 
+textarea{
+    resize: none;
+}
+
 .highlight-blue{
     color: var(--highlight-blue);
 }
@@ -369,6 +373,15 @@ footer .links a i{
     width: 110px;
 }
 
+.preview-card .preview-card-header a.custom-btn{
+    grid-area: link;
+    justify-self: end;
+}
+
+.preview-card .preview-card-header button.custom-btn{
+    grid-area: fullScreen;
+}
+
 .preview-card .preview-card-body{
     width: 100%;
     flex-grow: 1;
@@ -605,6 +618,64 @@ footer .links a i{
     color: var(--highlight-gray);
 }
 
+/* #### Create/Edit Posts #### */
+.create-edit-post{
+    margin-top: 40px;
+}
+
+.create-edit-post h1{
+    color: var(--white);
+    text-align: center;
+}
+
+.create-edit-post form p label{
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+
+.create-edit-post form p label[for="post-slug"],
+.create-edit-post form p #post-slug{
+    display: none;
+}
+
+
+.create-edit-post form div button{
+    margin: 0 5px;
+}
+
+.create-edit-post form div button::before{
+    background: var(--highlight-gray);
+}
+
+
+.create-edit-post .create-edit-iframe-container{
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease-out;
+}
+
+.create-edit-post .create-edit-iframe-container.open{
+    min-height: 300px;
+    height: 70vh;
+    margin-bottom: 3rem;
+}
+
+.create-edit-post .create-edit-iframe-container h2{
+    color: var(--text-gray);
+}
+
+.create-edit-post .create-edit-iframe-container iframe{
+    flex-grow: 1;
+    width: 100%;
+    background: white;
+}
+
+
+
+
+
+
 /* #### Authentication pages #### */
 .auth{
     margin-top: 40px;
@@ -818,7 +889,6 @@ footer .links a i{
 .signout form button p{
     color: var(--cream);
 }
-
 
 /* #### MediaQueries #### */
 
