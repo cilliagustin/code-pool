@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 create-edit-post">
+            {% if user.username == post.author.username %}
+                <h1>Delete this post</h1>
+                <h3>Delete {{ post.title }}</h3>
+                <div class="form-group">
+                    <form method="POST" class="mb-5">
+                        {% csrf_token %}
+                        <strong>Are you sure you want to delete this post? This process is irreversible.</strong>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="custom-btn"><p>Submit</p></button>
+                        </div>
+                    </form>
+                </div>
+            {% else %}
+            <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                <div class="alert alert-danger" role="alert">
+                    Sorry, only <span class="fw-bold">{{ post.author }}</span> can delete this post.
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+{%endblock%}
