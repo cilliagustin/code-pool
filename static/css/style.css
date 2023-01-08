@@ -7,7 +7,6 @@
     --dark-gray: rgb(28,39,50);
     --darkest-gray: rgb(22,31,40);
     --text-gray: rgb(118,118,118);
-    --highlight-blue: rgb(91,191,186);
     --cream: rgb(191, 192, 192);
     --white: rgb(229,229,229);
     --black-texture-background:
@@ -19,7 +18,9 @@
     --html-orange:rgb(247,98,28);
     --css-blue:rgb(0,167,221);
     --js-yellow:rgb(247,193,52);
-    --btn-yellow:rgb(255,205,57);
+    --blue: rgb(91,191,186);
+    --yellow:rgb(255,205,57);
+    --red:rgb(132,32,41);
 }
 
 body{
@@ -31,7 +32,7 @@ textarea{
 }
 
 .highlight-blue{
-    color: var(--highlight-blue);
+    color: var(--blue);
 }
 
 .custom-btn{
@@ -55,7 +56,7 @@ textarea{
     top: 0;
     left: 0;
     z-index: 0;
-    background: var(--black-texture-background);
+    background: var(--highlight-gray);
 }
 
 .custom-btn::after{
@@ -92,7 +93,79 @@ textarea{
 }
 
 .custom-btn:hover p{
+    color: var(--highlight-gray);
+}
+
+.custom-btn.black::before{
+    background: var(--black-texture-background);
+}
+
+.custom-btn.black p{
+    color: var(--cream);
+}
+
+.custom-btn.black:hover p{
     color: var(--dark-gray);
+}
+
+.custom-btn.yellow{
+    border-color: var(--yellow);
+}
+
+.custom-btn.yellow::before{
+    background: var(--black-texture-background);
+}
+
+.custom-btn.yellow::after{
+    background: var(--yellow);
+}
+
+.custom-btn.yellow p{
+    color: var(--yellow);
+}
+
+.custom-btn.yellow:hover p{
+    color: var(--dark-gray);
+}
+
+.custom-btn.blue{
+    border-color:var(--blue);
+}
+
+.custom-btn.blue::before{
+    background: var(--black-texture-background);
+}
+
+.custom-btn.blue::after{
+    background: var(--blue);
+}
+
+.custom-btn.blue p{
+    color: var(--blue);
+}
+
+.custom-btn.blue:hover p{
+    color: var(--dark-gray);
+}
+
+.custom-btn.red{
+    border: 2px solid var(--red);
+}
+
+.custom-btn.red::before{
+    background: var(--black-texture-background);
+}
+
+.custom-btn.red::after{
+    background: var(--red);
+}
+
+.custom-btn.red p{
+    color: var(--red);
+}
+
+.custom-btn.red:hover p{
+    color: var(--white);
 }
 
 
@@ -359,6 +432,14 @@ footer .links a i{
     color: var(--text-gray);
 }
 
+.preview-card .preview-card-header  .custom-btn p{
+    color: var(--cream);
+}
+
+.preview-card .preview-card-header  .custom-btn:hover p{
+    color: var(--dark-gray);
+}
+
 .preview-card .preview-card-header .author{
     grid-area: author;
 }
@@ -457,37 +538,6 @@ footer .links a i{
 
 .code-editor .code-editor-header .edit-fav-container .custom-btn p{
     margin: 0;
-}
-
-.code-editor .code-editor-header .edit-fav-container a.custom-btn{
-    border-color: var(--highlight-blue);
-}
-
-.code-editor .code-editor-header .edit-fav-container a.custom-btn:after{
-    background: var(--highlight-blue);
-}
-
-.code-editor .code-editor-header .edit-fav-container a.custom-btn p{
-    color: var(--highlight-blue);
-}
-
-.code-editor .code-editor-header .edit-fav-container a.custom-btn:hover p{
-    color: var(--darkest-gray);
-}
-.code-editor .code-editor-header .edit-fav-container button.custom-btn{
-    border-color: var(--btn-yellow);
-}
-
-.code-editor .code-editor-header .edit-fav-container button.custom-btn:after{
-    background: var(--btn-yellow);
-}
-
-.code-editor .code-editor-header .edit-fav-container button.custom-btn p{
-    color: var(--btn-yellow);
-}
-
-.code-editor .code-editor-header .edit-fav-container button.custom-btn:hover p{
-    color: var(--darkest-gray);
 }
 
 .code-editor .code-editor-header #htmlBtn{
@@ -603,13 +653,13 @@ footer .links a i{
     margin: 0;
 }
 .comment-card .comment-header p{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .comment-card .comment{
     flex-grow: 1;
     padding: 5px 7px;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .comment-card .comment-footer{
@@ -653,9 +703,6 @@ footer .links a i{
 .user-comment form .custom-btn{
     margin: 0 auto .5rem;
 }
-.user-comment form .custom-btn::before{
-    background: var(--highlight-gray);
-}
 
 .user-comment form .custom-btn p{
     color: var(--cream);
@@ -664,6 +711,7 @@ footer .links a i{
 .user-comment form .custom-btn:hover p{
     color: var(--highlight-gray);
 }
+
 
 /* #### Create/Edit Posts #### */
 .create-edit-post{
@@ -790,7 +838,7 @@ footer .links a i{
     border-radius: 5px;
     border: 1px solid var(--cream);
     background: none;
-    color: var(--highlight-blue);
+    color: var(--blue);
     padding-left: 5px;
     transition: 1s all ease-out;
 }
@@ -802,7 +850,7 @@ footer .links a i{
 .auth .auth-card form .wrapper input:valid,
 .auth .auth-card form .wrapper input:focus,
 .auth .auth-card form .wrapper input:-webkit-autofill{
-    border-color: var(--highlight-blue);
+    border-color: var(--blue);
 }
 
 .auth .auth-card form .wrapper input:-webkit-autofill{
@@ -830,11 +878,11 @@ footer .links a i{
 .auth .auth-card form .wrapper input:valid ~ label,
 .auth .auth-card form .wrapper input:focus ~ label,
 .auth .auth-card form .wrapper input:-webkit-autofill ~ label{
-    color: var(--highlight-blue);
+    color: var(--blue);
     top: -10px;
     left: 18px;
-    border-left: 1px solid var(--highlight-blue);
-    border-right: 1px solid var(--highlight-blue);
+    border-left: 1px solid var(--blue);
+    border-right: 1px solid var(--blue);
     transform: scale(.8);
 }
 
@@ -862,7 +910,7 @@ footer .links a i{
 }
 
 .auth .auth-card form .wrapper-checkbox input:checked ~ .checkbox-text{
-    color: var(--highlight-blue);
+    color: var(--blue);
 }
 
 .auth .auth-card form .wrapper-checkbox input:checked ~ .checkbox-text .question{
@@ -877,7 +925,7 @@ footer .links a i{
     margin-left: 5px;
     height: 15px;
     width: 15px;
-    border: 1px solid var(--highlight-blue);
+    border: 1px solid var(--blue);
     background: none;
     border-radius: 3px;
     display: flex;
@@ -892,7 +940,7 @@ footer .links a i{
 }
 
 .auth .auth-card form .wrapper-checkbox input:checked ~ .checkbox-check{
-    background: var(--highlight-blue);
+    background: var(--blue);
 }
 
 .auth .auth-card form .wrapper-checkbox input:checked ~ .checkbox-check i{
