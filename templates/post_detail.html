@@ -12,6 +12,14 @@
                     <h1>{{ post.title}}</h1>
                     <p class="author">Created by: {{ post.author}}</p>
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
+                    {% if user.is_authenticated %}
+                    <div class="edit-fav-container d-flex justify-content-center align-items-center">
+                        {% if user.username == post.author.username %}
+                        <a href="{% url 'edit_post' post.slug %}" class="custom-btn"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
+                        {% endif %}
+                        <button class="custom-btn"><p>Favorites <i class="fa-regular fa-star"></i></p></button>
+                    </div>
+                    {% endif %}
                     <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>
                     <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"><span>{</span>CSS<span>}</span></button>
                     <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"><span>(</span>JS<span>)</span></button>
