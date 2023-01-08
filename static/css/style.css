@@ -19,6 +19,7 @@
     --html-orange:rgb(247,98,28);
     --css-blue:rgb(0,167,221);
     --js-yellow:rgb(247,193,52);
+    --btn-yellow:rgb(255,205,57);
 }
 
 body{
@@ -415,11 +416,12 @@ footer .links a i{
 .code-editor .code-editor-header{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1.5fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr auto 1fr;
     grid-template-areas: 
     "title title title"
     "author author author"
     "date date date"
+    "editFavDiv editFavDiv editFavDiv"
     "htmlBtn cssBtn jsBtn";
     background: var(--black-texture-background);
     color: var(--white);
@@ -441,6 +443,51 @@ footer .links a i{
 
 .code-editor .code-editor-header .updated-on{
     grid-area: date;
+}
+
+.code-editor .code-editor-header .edit-fav-container{
+    grid-area: editFavDiv;
+}
+
+.code-editor .code-editor-header .edit-fav-container .custom-btn{
+    margin: 5px 5px;
+    height: 30px;
+    width: 115px;
+}
+
+.code-editor .code-editor-header .edit-fav-container .custom-btn p{
+    margin: 0;
+}
+
+.code-editor .code-editor-header .edit-fav-container a.custom-btn{
+    border-color: var(--highlight-blue);
+}
+
+.code-editor .code-editor-header .edit-fav-container a.custom-btn:after{
+    background: var(--highlight-blue);
+}
+
+.code-editor .code-editor-header .edit-fav-container a.custom-btn p{
+    color: var(--highlight-blue);
+}
+
+.code-editor .code-editor-header .edit-fav-container a.custom-btn:hover p{
+    color: var(--darkest-gray);
+}
+.code-editor .code-editor-header .edit-fav-container button.custom-btn{
+    border-color: var(--btn-yellow);
+}
+
+.code-editor .code-editor-header .edit-fav-container button.custom-btn:after{
+    background: var(--btn-yellow);
+}
+
+.code-editor .code-editor-header .edit-fav-container button.custom-btn p{
+    color: var(--btn-yellow);
+}
+
+.code-editor .code-editor-header .edit-fav-container button.custom-btn:hover p{
+    color: var(--darkest-gray);
 }
 
 .code-editor .code-editor-header #htmlBtn{
@@ -621,6 +668,7 @@ footer .links a i{
 /* #### Create/Edit Posts #### */
 .create-edit-post{
     margin-top: 40px;
+    min-height: calc(100vh - 115px);
 }
 
 .create-edit-post h1{
