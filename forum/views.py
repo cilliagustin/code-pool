@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, EditForm
 
 
 class PostList(generic.ListView):
@@ -25,6 +25,12 @@ class CreatePost(generic.CreateView):
         self.object.author = self.request.user
         self.object.save()
         return super().form_valid(form)
+
+
+class EditPost(generic.UpdateView):
+    model = Post
+    form_class = EditForm
+    template_name = 'edit_post.html'
 
 
 class PostDetail(View):
