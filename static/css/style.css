@@ -719,9 +719,15 @@ footer .links a i{
     min-height: calc(100vh - 115px);
 }
 
-.create-edit-post h1{
+.create-edit-post h1,
+.create-edit-post h3{
     color: var(--white);
     text-align: center;
+}
+
+.create-edit-post form strong{
+    color: var(--text-gray);
+    font-size: 16px;
 }
 
 .create-edit-post form p label{
