@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 create-edit-post">
+            {% if user.username == post.author.username %}
+                <h1>Edit your Post</h1>
+                <div class="form-group">
+                    <form method="POST" class="mb-5">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="d-flex justify-content-center">
+                            <button id="preview-code" class="custom-btn"><p>Preview your code</p></button>
+                            <button type="submit" class="custom-btn"><p>Submit</p></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="create-edit-iframe-container d-flex flex-column justify-content-start align-items-center">
+                    <h2 class="my-3">Code Preview</h2>
+                    <iframe src="../canvas.html" title="blank canvas"></iframe>
+                </div>
+            {% else %}
+            <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                <div class="alert alert-danger" role="alert">
+                    Sorry, only <span class="fw-bold">{{ post.author }}</span> can edit this post.
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+{%endblock%}
