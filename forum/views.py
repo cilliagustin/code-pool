@@ -33,6 +33,10 @@ class EditPost(generic.UpdateView):
     template_name = 'edit_post.html'
 
 
+class DeletePost(generic.DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
