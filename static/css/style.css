@@ -169,8 +169,8 @@ textarea{
 }
 
 
-/* navbar */
-nav{
+/* Navbar */
+#navbar{
     width: 100%;
     height: 40px;
     display: flex;
@@ -182,13 +182,13 @@ nav{
     z-index: 3;
 }
 
-nav a{
+#navbar a{
     text-decoration: none;
     color: white;
     margin-right: auto;
 }
 
-nav button{
+#navbar button{
     height: 21px;
     width: 21px;
     border: none;
@@ -197,7 +197,7 @@ nav button{
     background: none;
 }
 
-nav button span{
+#navbar button span{
     position: absolute;
     background: white;
     height: 2px;
@@ -206,23 +206,23 @@ nav button span{
     transition: all 1s ease-in;
 }
 
-nav button span:first-child{
+#navbar button span:first-child{
     top: 6px;
     width: 12px;
 }
 
-nav button span:nth-child(2){
+#navbar button span:nth-child(2){
     top: 10px;
     width: 18px;
 }
 
-nav button span:last-child{
+#navbar button span:last-child{
     width: 12px;
     top: 14px;
     left: 7.5px;
 }
 
-nav .links{
+#navbar .links{
     position: absolute;
     background: inherit;
     min-height: calc(100vh - 40px);
@@ -232,7 +232,7 @@ nav .links{
     transition: all 1s ease-in-out;
 }
 
-nav .links ul{
+#navbar .links ul{
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
@@ -240,11 +240,11 @@ nav .links ul{
     list-style-type: none;
 }
 
-nav .links ul li{
+#navbar .links ul li{
     display: inline;
 }
 
-nav .links ul li a{
+#navbar .links ul li a{
     margin: 8px 0 0;
 }
 
@@ -264,7 +264,7 @@ nav .links ul li a{
 
     /* Navbar open */
 
-nav[data-open="true"] .links{
+#navbar[data-open="true"] .links{
     right: 0%;
 }
 
@@ -273,18 +273,18 @@ nav[data-open="true"] .links{
     pointer-events: all;
 }
 
-nav[data-open="true"] button span:first-child{
+#navbar[data-open="true"] button span:first-child{
     top: 7.5px;
     left: 2.5px;
     transform: rotate(225deg);
 }
 
-nav[data-open="true"] button span:nth-child(2){
+#navbar[data-open="true"] button span:nth-child(2){
     top: 10px;
     transform: rotate(135deg);
 }
 
-nav[data-open="true"] button span:last-child{
+#navbar[data-open="true"] button span:last-child{
     top: 12.5px;
     left: 7px;
     transform: rotate(225deg);
@@ -365,14 +365,22 @@ footer .links a i{
     animation: blink 1.3s infinite;
 }
 
+.main-banner.posts h1{
+    display: inline;
+    width: auto;
+    position: relative;
+}
+
+.main-banner.posts h1 span{
+    display: inline;
+}
+
 .main-banner p{
     max-width: 80%;
     color: var(--text-gray);
     margin-top: 3rem;
     margin-bottom: 7rem;
 }
-
-/* Preview Cards */
 
 .new-components-title{
     text-align: center;
@@ -388,6 +396,8 @@ footer .links a i{
 .new-components-title i{
     font-size: 2rem;
 }
+
+/* Preview Cards */
 
 .preview-card{
     background:var(--black-texture-background);
@@ -773,11 +783,6 @@ footer .links a i{
     background: white;
 }
 
-
-
-
-
-
 /* #### Authentication pages #### */
 .auth{
     margin-top: 40px;
@@ -1030,11 +1035,11 @@ footer .links a i{
 
 /* medium devices */
 @media (min-width: 768px){
-    /* navbar */
-    nav button{
+    /* Navbar */
+    #navbar button{
         display: none;
     }
-    nav .links{
+    #navbar .links{
         position: relative;
         min-height: auto;
         min-width: auto;
@@ -1043,12 +1048,12 @@ footer .links a i{
         display: block;
         transition: none;
     }
-    nav .links ul{
+    #navbar .links ul{
         flex-flow: row;
         align-items: center;
         margin-bottom: 0;
     }
-    nav .links ul li a{
+    #navbar .links ul li a{
         margin: 0 8px 0;
     }
     .overlay{
