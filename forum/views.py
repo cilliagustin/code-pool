@@ -5,10 +5,17 @@ from .models import Post
 from .forms import CommentForm, PostForm, EditForm
 
 
-class PostList(generic.ListView):
+class IndexPostList(generic.ListView):
     model = Post
     queryset = Post.objects.order_by('-created_on')
     template_name = 'index.html'
+
+
+class AllPostList(generic.ListView):
+    model = Post
+    queryset = Post.objects.order_by('-created_on')
+    template_name = 'posts.html'
+    paginate_by = 6
 
 
 class Canvas(generic.ListView):
