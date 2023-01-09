@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col main-banner posts">
+                <h1><span>Posts</span><span class="cursor">.</span></h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            {% for post in post_list %}
+                <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4">
+                    <div class="preview-card">
+                        <div class="preview-card-header">
+                            <h3>{{ post.title }}</h3>
+                            <p class="author">Author: {{ post.author }}</p>
+                            <p class="updated-on">Last modified: {{ post.updated_date}}</p>
+                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><p>View Code</p></a>
+                            <button class="custom-btn black"><p>Full Screen</p></button>
+                        </div>
+                        <div class="preview-card-body">
+                            <textarea data-code-html >{{ post.html_content }}</textarea>
+                            <textarea data-code-css >{{ post.css_content }}</textarea>
+                            <textarea data-code-js >{{ post.js_content }}</textarea>
+                            <!-- <iframe src="canvas.html" title="blank canvas"></iframe> -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="col-12">
+                {% if is_paginated %}
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="custom-btn"><p>&laquo; PREV</p></a></li>
+                        {% endif %}
+                        {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="custom-btn"><p>NEXT &raquo;</p></a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+{%endblock%}
