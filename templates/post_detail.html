@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% block title %}- Post - {{ post.title }}{% endblock %}
 {% block content %}
 
 {% load crispy_forms_tags %}
@@ -85,3 +86,7 @@
 </div>
 
 {%endblock%}
+
+{% block page_scripts %}
+  <script src="{% static 'js/post_detail.js' %}"></script> 
+{% endblock %}

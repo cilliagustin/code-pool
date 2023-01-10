@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% block title %}Add Post{% endblock %}
 {% block content %}
 
 
@@ -27,6 +28,8 @@
 
 
 
-    
-
 {%endblock%}
+
+{% block page_scripts %}
+  <script src="{% static 'js/add_edit_post.js' %}"></script> 
+{% endblock %}
