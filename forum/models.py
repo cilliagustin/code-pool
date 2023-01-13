@@ -4,9 +4,17 @@ from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 
-CATEGORY = ((0, 'Button'), (1, 'Navbar'), (2, 'Card'), (3, 'Miscellaneous'))
-
 # Create your models here.
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+ 
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -18,7 +26,7 @@ class Post(models.Model):
     css_content = models.TextField()
     js_content = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    category = models.IntegerField(choices=CATEGORY, default=3)
+    category = models.ForeignKey(Category, max_length=60, on_delete=models.CASCADE, related_name= 'catego')
 
     class Meta:
         ordering = ['-created_on']
