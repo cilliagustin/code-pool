@@ -11,6 +11,24 @@
         </div>
     </div>
 
+    <nav id="filter-navigation">
+        <ul>
+            {% for category in categories %}
+            <li>
+                <a href="{% url 'category' category %}"> {{ category }}</a>
+            </li>  
+            {% endfor %}
+            <li>
+                <a href="#">favourites</a>
+            </li>  
+            <li>
+                <a class="active" href="{% url 'posts' %}">All posts</a>
+            </li>  
+        </ul>
+    </nav>
+
+    
+
     <div class="container-fluid">
         <div class="row">
             {% for post in post_list %}
