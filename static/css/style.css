@@ -320,6 +320,67 @@ footer .links a i{
     margin:0 3px;
 }
 
+/* Filter posts navigation */
+
+#filter-navigation{
+    background: var(--darkest-gray);
+    width: min(90%, 400px);
+    margin: 1.5rem auto;
+    border-radius: 4px;
+}
+
+#filter-navigation ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(4, 30px);
+    align-items: center;
+    justify-items: center;
+}
+
+#filter-navigation ul li:last-child{
+    grid-column: 1/3;
+}
+
+#filter-navigation ul li a{
+    text-decoration: none;
+    color: var(--text-gray);
+    text-transform: capitalize;
+}
+
+#filter-navigation ul li a{
+    text-decoration: none;
+    color: var(--text-gray);
+    text-transform: capitalize;
+    position: relative;
+    transition: all .5s ease-in-out;
+}
+
+#filter-navigation ul li a.active,
+#filter-navigation ul li a:hover{
+    color: var(--white);
+}
+
+#filter-navigation ul li a::before{
+    content: "";
+    background: var(--white);
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transition: all .5s ease-in-out;
+}
+
+#filter-navigation ul li a:hover::before,
+#filter-navigation ul li a.active::before{
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
 /* #### Index #### */
 
 /* Main banner */
@@ -337,6 +398,7 @@ footer .links a i{
 
 .main-banner h1{
     width: 100%;
+    text-transform: capitalize;
 }
 
 .main-banner h1 span{
@@ -363,6 +425,10 @@ footer .links a i{
     background: white;
     position: absolute;
     animation: blink 1.3s infinite;
+}
+
+.main-banner.posts{
+    min-height: calc( 55vh - 40px);
 }
 
 .main-banner.posts h1{
@@ -1059,6 +1125,22 @@ footer .links a i{
     .overlay{
         display: none;
     }
+
+    /* Filter posts navigation */
+
+    #filter-navigation{
+        width: 550px;
+    }
+
+    #filter-navigation ul{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 35px);
+    }
+
+    #filter-navigation ul li:last-child{
+        grid-column: 1/4;
+    }
+
 
     /* #### Index #### */
     /* Main banner */
