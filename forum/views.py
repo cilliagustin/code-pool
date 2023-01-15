@@ -17,6 +17,11 @@ class AllPostList(generic.ListView):
     template_name = 'posts.html'
     paginate_by = 6
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
 
 class PostDetail(View):
 
@@ -71,6 +76,7 @@ class FilterCategory(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
         context['category'] = self.kwargs['category']
         return context
 
