@@ -27,7 +27,7 @@
                     <a href="{% url 'home' %}">Home</a>
                 </li>
                 <li>
-                    <a href="#">Browse Posts</a>
+                    <a href="{% url 'posts' %}">Browse Posts</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li>
