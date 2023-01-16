@@ -4,15 +4,12 @@ from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 
-# Create your models here.
-
-
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
         verbose_name_plural = "Categories"
- 
+
     def __str__(self):
         return self.name
 
@@ -20,13 +17,20 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='forum_posts')
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='forum_posts'
+        )
     updated_date = models.DateTimeField(auto_now=True)
     html_content = models.TextField()
     css_content = models.TextField()
     js_content = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(Category, max_length=60, on_delete=models.CASCADE, related_name= 'catego')
+    category = models.ForeignKey(
+        Category, max_length=60, on_delete=models.CASCADE,
+        related_name='catego')
+    favorites = models.ManyToManyField(
+        User, related_name="forum_favorutes", blank=True
+        )
 
     class Meta:
         ordering = ['-created_on']
