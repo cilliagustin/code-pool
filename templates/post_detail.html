@@ -19,7 +19,14 @@
                         <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
                         <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
                         {% endif %}
-                        <button class="custom-btn yellow"><p>Favorites <i class="fa-regular fa-star"></i></p></button>
+                        <form class="d-inline" action="{% url 'post_favorite' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if is_favorite %}
+                                <button type="submit" class="custom-btn yellow-inverted"><p>Favorite <i class="fa-solid fa-star"></i></p></button>
+                            {% else %}
+                                <button type="submit" class="custom-btn yellow"><p>Add to Favorite <i class="fa-regular fa-star"></i></p></button>
+                            {% endif %}
+                        </form>
                     </div>
                     {% endif %}
                     <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>

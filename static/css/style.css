@@ -85,7 +85,7 @@ textarea{
     margin: 0;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
-    font-size: .8em;
+    font-size: .7em;
     color: var(--cream);
     position: relative;
     z-index: 3;
@@ -126,6 +126,26 @@ textarea{
 
 .custom-btn.yellow:hover p{
     color: var(--dark-gray);
+}
+
+.custom-btn.yellow-inverted{
+    border-color: var(--yellow);
+}
+
+.custom-btn.yellow-inverted::before{
+    background: var(--yellow);
+}
+
+.custom-btn.yellow-inverted::after{
+    background: var(--black-texture-background);
+}
+
+.custom-btn.yellow-inverted p{
+    color: var(--dark-gray);
+}
+
+.custom-btn.yellow-inverted:hover p{
+    color: var(--yellow);
 }
 
 .custom-btn.blue{
