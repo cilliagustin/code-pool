@@ -101,6 +101,21 @@ class FilterCategory(generic.ListView):
         return Post.objects.filter(category=category)
 
 
+class FilterFavorite(generic.ListView):
+    model = Post
+    template_name = 'favorites.html'
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
+    def get_queryset(self):
+        user = self.request.user
+        return Post.objects.filter(favorites=user)
+
+
 class CreatePost(generic.CreateView):
     model = Post
     form_class = PostForm
