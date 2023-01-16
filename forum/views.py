@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import Post, Category
 from .forms import CommentForm, PostForm, EditForm
@@ -29,6 +30,9 @@ class PostDetail(View):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
+        is_favorite = False
+        if post.favorites.filter(id=self.request.user.id).exists():
+            is_favorite = True
 
         return render(
             request,
@@ -36,6 +40,7 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
+                "is_favorite": is_favorite,
                 "commented": False,
                 "comment_form": CommentForm()
             },
@@ -67,6 +72,17 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+class PostFavorite(View):
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+        if post.favorites.filter(id=self.request.user.id).exists():
+            post.favorites.remove(request.user)
+        else:
+            post.favorites.add(request.user)
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 class FilterCategory(generic.ListView):
