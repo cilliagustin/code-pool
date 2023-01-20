@@ -34,9 +34,9 @@
                     <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"><span>(</span>JS<span>)</span></button>
                 </div>
                 <div class="code-editor-code">
-                    <textarea name="htmlCode" id="htmlCode" data-open="true" data-code-type="html">{{ post.html_content }}</textarea>
-                    <textarea name="cssCode" id="cssCode" data-open="false" data-code-type="css">{{ post.css_content }}</textarea>
-                    <textarea name="jsCode" id="jsCode" data-open="false" data-code-type="js">{{ post.js_content }}</textarea>
+                    <textarea name="htmlCode" id="htmlCode" data-open="true" data-code-type="html" readonly>{{ post.html_content }}</textarea>
+                    <textarea name="cssCode" id="cssCode" data-open="false" data-code-type="css" readonly>{{ post.css_content }}</textarea>
+                    <textarea name="jsCode" id="jsCode" data-open="false" data-code-type="js" readonly>{{ post.js_content }}</textarea>
                 </div>
                 <div class="code-editor-iframe">
                     <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
