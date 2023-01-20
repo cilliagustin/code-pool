@@ -39,7 +39,7 @@
                     <textarea name="jsCode" id="jsCode" data-open="false" data-code-type="js">{{ post.js_content }}</textarea>
                 </div>
                 <div class="code-editor-iframe">
-                    <iframe src="canvas.html" title="blank canvas"></iframe>
+                    <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
                 </div>
             </div>
         </div>
