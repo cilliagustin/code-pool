@@ -53,7 +53,8 @@ class Post(models.Model):
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    value = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    value = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)])
 
 
 class Comment(models.Model):

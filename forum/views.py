@@ -53,7 +53,9 @@ class RatingView(View):
         post = get_object_or_404(Post, slug=kwargs['slug'])
         user = request.user
         value = request.POST.get("value")
-        rating, created = Rating.objects.update_or_create(user=user, post=post, defaults={'value': value})
+        rating, created = Rating.objects.update_or_create(
+            user=user, post=post, defaults={'value': value}
+            )
         return redirect("post_detail", slug=kwargs['slug'])
 
 
