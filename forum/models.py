@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
@@ -40,6 +42,18 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={"slug": self.slug})
+
+    def avg_rating(self):
+        ratings = Rating.objects.filter(post=self)
+        if ratings.exists():
+            return round(ratings.aggregate(Avg('value'))['value__avg'], 2)
+        return None
+
+
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    value = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
 
 
 class Comment(models.Model):
