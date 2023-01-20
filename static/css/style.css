@@ -23,6 +23,14 @@
     --red:rgb(132,32,41);
 }
 
+
+.rating-section{
+    position: absolute;
+    background: red;
+    top: 50px;
+    left: 50px;
+}
+
 body{
     background: var(--highlight-gray);
     font-family: 'Roboto', sans-serif;
