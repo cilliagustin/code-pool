@@ -14,37 +14,67 @@
                     <p class="author">Created by: {{ post.author}}</p>
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
                     {% if user.is_authenticated %}
-                    <div class="rating-section">
-                        <h4>Rate this post</h4>
-                        <form method="post" action="{% url 'post_rating' post.slug %}">
-                            {% csrf_token %}
-                            <button type="submit" name="value" value="1">1</button>
-                            <button type="submit" name="value" value="2">2</button>
-                            <button type="submit" name="value" value="3">3</button>
-                            <button type="submit" name="value" value="4">4</button>
-                            <button type="submit" name="value" value="5">5</button>
-                        </form>
-                        {% if avg_rating %}
-                        <p>Average rating: {{ avg_rating }}</p>
-                    {% endif %}
-                    </div>
-                    <div class="edit-fav-container d-flex justify-content-center align-items-center">
-                        {% if user.username == post.author.username %}
-                        <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
-                        <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
-                        {% endif %}
-
-
-                        <form class="d-inline" action="{% url 'post_favorite' post.slug %}" method="POST">
-                            {% csrf_token %}
-                            {% if is_favorite %}
-                                <button type="submit" class="custom-btn yellow-inverted"><p>Favorite <i class="fa-solid fa-star"></i></p></button>
-                            {% else %}
-                                <button type="submit" class="custom-btn yellow"><p>Add to Favorite <i class="fa-regular fa-star"></i></p></button>
+                        <div class="edit-fav-container d-flex justify-content-center align-items-center">
+                            {% if user.username == post.author.username %}
+                            <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
+                            <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
                             {% endif %}
-                        </form>
-                    </div>
+
+
+                            <form class="d-inline" action="{% url 'post_favorite' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if is_favorite %}
+                                    <button type="submit" class="custom-btn yellow-inverted"><p>Favorite <i class="fa-solid fa-star"></i></p></button>
+                                {% else %}
+                                    <button type="submit" class="custom-btn yellow"><p>Add to Favorite <i class="fa-regular fa-star"></i></p></button>
+                                {% endif %}
+                            </form>
+                        </div>
                     {% endif %}
+                    <div class="rating-section d-flex flex-column justify-content-start align-items-center">
+                        {% if user.is_authenticated %}
+                            <h4>Rate this post</h4>
+                            <form method="post" id="rating-form" data-rating="{{ user_rating|default:'none' }}" action="{% url 'post_rating' post.slug %}">
+                                {% csrf_token %}
+                                <button type="submit" class="star-btn" name="value" value="1"><i class="fa-regular fa-star"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="2"><i class="fa-regular fa-star"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="3"><i class="fa-regular fa-star"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="4"><i class="fa-regular fa-star"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="5"><i class="fa-regular fa-star"></i></button>
+                            </form>
+                            {% if user_rating %}
+                                <p>Your rating: {{ user_rating }}</p>
+                            {% else %}
+                                <p>You haven't rated this post yet</p>
+                            {% endif %}
+                        {% endif %}
+                        {% if avg_rating %}
+                            <h5>Average rating ({{ avg_rating }})</h5>
+                            <div class="avg-star-container">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <div class="full-star-container" data-avg-rating="{{ avg_rating }}">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        {% else %}
+                            <h5>No one has rated this post yet</h5>
+                            <div class="avg-star-container">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        {% endif %}
+                    </div>
                     <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>
                     <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"><span>{</span>CSS<span>}</span></button>
                     <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"><span>(</span>JS<span>)</span></button>
