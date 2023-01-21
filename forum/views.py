@@ -30,6 +30,7 @@ class PostDetail(View):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
+        user_rating = post.user_rating(request.user)
         is_favorite = False
         if post.favorites.filter(id=self.request.user.id).exists():
             is_favorite = True
@@ -38,6 +39,8 @@ class PostDetail(View):
             request,
             "post_detail.html",
             {
+                "user": request.user,
+                "user_rating": user_rating,
                 "post": post,
                 "comments": comments,
                 "is_favorite": is_favorite,
