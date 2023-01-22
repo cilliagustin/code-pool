@@ -7,8 +7,8 @@ urlpatterns = [
     path('posts', views.AllPostList.as_view(), name='posts'),
     path('posts/<slug:slug>', views.PostDetail.as_view(), name='post_detail'),
     path(
-        'add_remove_favorite/<slug:slug>',
-        views.PostFavorite.as_view(), name='post_favorite'),
+        'add_remove_bookmark/<slug:slug>',
+        views.PostBookmark.as_view(), name='post_bookmark'),
     path(
         "post/<slug:slug>/rate/",
         views.RatingView.as_view(), name="post_rating"),
@@ -16,8 +16,8 @@ urlpatterns = [
         'posts/filter/category/<str:category>',
         views.FilterCategory.as_view(), name='category'),
     path(
-        'posts/filter/favorites',
-        views.FilterFavorite.as_view(), name='favorites_posts'),
+        'posts/filter/bookmarked',
+        views.FilterBookmark.as_view(), name='bookmark_posts'),
     path(
         'posts/edit_post/<slug:slug>',
         views.EditPost.as_view(), name='edit_post'),

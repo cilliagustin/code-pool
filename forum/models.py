@@ -30,7 +30,7 @@ class Post(models.Model):
     category = models.ForeignKey(
         Category, max_length=60, on_delete=models.CASCADE,
         related_name='catego')
-    favorites = models.ManyToManyField(
+    bookmark = models.ManyToManyField(
         User, related_name="forum_favorutes", blank=True
         )
 

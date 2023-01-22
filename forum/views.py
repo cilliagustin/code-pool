@@ -30,10 +30,10 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         user_rating = None
-        is_favorite = False
+        is_bookmarked = False
         if request.user.is_authenticated:
             user_rating = post.user_rating(request.user)
-            is_favorite = post.favorites.filter(id=request.user.id).exists()
+            is_bookmarked = post.bookmark.filter(id=request.user.id).exists()
 
         return render(
             request,
@@ -43,7 +43,7 @@ class PostDetail(View):
                 "user_rating": user_rating,
                 "post": post,
                 "comments": comments,
-                "is_favorite": is_favorite,
+                "is_bookmarked": is_bookmarked,
                 "commented": False,
                 "comment_form": CommentForm(),
                 "avg_rating": post.avg_rating(),
@@ -62,14 +62,14 @@ class RatingView(View):
         return redirect("post_detail", slug=kwargs['slug'])
 
 
-class PostFavorite(View):
+class PostBookmark(View):
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
-        if post.favorites.filter(id=self.request.user.id).exists():
-            post.favorites.remove(request.user)
+        if post.bookmark.filter(id=self.request.user.id).exists():
+            post.bookmark.remove(request.user)
         else:
-            post.favorites.add(request.user)
+            post.bookmark.add(request.user)
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
@@ -89,9 +89,9 @@ class FilterCategory(generic.ListView):
         return Post.objects.filter(category=category)
 
 
-class FilterFavorite(generic.ListView):
+class FilterBookmark(generic.ListView):
     model = Post
-    template_name = 'favorites.html'
+    template_name = 'bookmarked.html'
     paginate_by = 6
 
     def get_context_data(self, **kwargs):
@@ -101,7 +101,7 @@ class FilterFavorite(generic.ListView):
 
     def get_queryset(self):
         user = self.request.user
-        return Post.objects.filter(favorites=user)
+        return Post.objects.filter(bookmark=user)
 
 
 class CreatePost(generic.CreateView):
