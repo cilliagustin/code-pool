@@ -647,7 +647,11 @@ footer .links a i{
     border: none;
     height: auto;
     width: auto;
-    padding: 0 3px;
+    padding: 0;
+}
+
+.code-editor .code-editor-header .rating-section #rating-form .star-btn i{
+    pointer-events: none;
 }
 
 .code-editor .code-editor-header .rating-section p{
@@ -658,7 +662,7 @@ footer .links a i{
 .code-editor .code-editor-header .rating-section .avg-star-container i{
     color: var(--yellow);
     font-size: 1.5rem;
-    padding: 0 1px;
+    padding: 0 3px;
 }
 
 .code-editor .code-editor-header .rating-section .avg-star-container{
