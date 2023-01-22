@@ -1,3 +1,37 @@
+// #### STAR BTN CONTROL ####
+// Fill stars on hover
+starBtns.forEach(btn=>{
+    btn.addEventListener('mouseover', (e)=>{
+        const val = e.target.getAttribute("value");
+        starBtns.forEach(btn=>{
+            compareVal(btn, val)
+        })
+    })
+})
+
+starBtns.forEach(btn=>{
+    btn.addEventListener('mouseleave', fillUserRating)
+})
+
+function fillUserRating(){
+    const val = ratingForm.getAttribute("data-rating");
+    if(!isNaN(val)){
+        starBtns.forEach(btn=>{
+            compareVal(btn, val)
+        })
+    }
+}
+
+function compareVal(btn, val){
+    if(btn.getAttribute("value") <= val){
+        btn.firstChild.classList.remove("fa-regular", "text-secondary");
+        btn.firstChild.classList.add("fa-solid");
+    } else {
+        btn.firstChild.classList.remove("fa-solid");
+        btn.firstChild.classList.add("fa-regular", "text-secondary");
+    }
+}
+
 // #### CODE EDITOR BUTTON CONTROL ####
 codeEditorBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -74,8 +108,6 @@ function codeEditorWindowResize(mediumMediaQuery) {
 mediumMediaQuery.addEventListener('change', codeEditorWindowResize);
 
 
-
-
 //#### Init post detail functions #### 
 document.addEventListener('DOMContentLoaded', () => {
     let iframe = document.querySelector(".code-editor-iframe iframe");
@@ -83,5 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let cssCode = document.getElementById("cssCode").value
     let jsCode = document.getElementById("jsCode").value
 
+    //get the users rating
+    fillUserRating();
+    // get the avg rating
+    displayAvgRating(starContainer);
+    // run code editor
     runEditor(iframe, htmlCode, cssCode, jsCode)
+
 });

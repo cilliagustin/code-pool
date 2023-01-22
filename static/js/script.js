@@ -3,6 +3,9 @@ const largeMediaQuery = window.matchMedia('(min-width: 768px)');
 const navbar = document.querySelector("nav");
 const navButton = document.getElementById("hamb");
 const overlay = document.getElementById("overlay");
+const ratingForm = document.getElementById("rating-form");
+const starBtns = document.querySelectorAll(".star-btn");
+const starContainer = document.getElementById("full-star-container");
 const codeEditor = document.getElementById("code-editor");
 const codeEditorBtns = document.querySelectorAll(".code-editor-btn");
 const previewCode = document.getElementById("preview-code");
@@ -49,11 +52,21 @@ function runEditor(iframe, htmlCode, cssCode, jsCode) {
   iframeContent.close();
 }
 
-// #### init general functions
-// Init addYear On DOM Load
-document.addEventListener('DOMContentLoaded', addYear);
-
-
+// #### DISPLAY AVG RATING ####
+function displayAvgRating(container){
+  let val = container.getAttribute("data-avg-rating");
+  let integer = parseInt((val.charAt(0)));
+  let digits = (val.substring(2,4));
+  let stars = container.querySelectorAll("i");
+  stars.forEach(star=>{
+    if(star.getAttribute("data-value") <= integer + 1){
+      star.style.opacity = "1";
+    } else {
+      star.style.opacity = "0";
+    }
+  })
+  stars[integer].style.clipPath = `polygon(0 0, ${digits}% 0, ${digits}% 100%, 0% 100%)`;
+}
 
 // #### Display preview cards ####
 //Used on index and post templates
@@ -68,3 +81,6 @@ function displayPreviewCards(){
   })
 }
 
+// #### init general functions
+// Init addYear On DOM Load
+document.addEventListener('DOMContentLoaded', addYear);
