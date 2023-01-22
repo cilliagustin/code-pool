@@ -6,6 +6,7 @@ const overlay = document.getElementById("overlay");
 const ratingForm = document.getElementById("rating-form");
 const starBtns = document.querySelectorAll(".star-btn");
 const starContainer = document.getElementById("full-star-container");
+const starContainers = document.querySelectorAll(".full-star-container");
 const codeEditor = document.getElementById("code-editor");
 const codeEditorBtns = document.querySelectorAll(".code-editor-btn");
 const previewCode = document.getElementById("preview-code");
@@ -65,7 +66,9 @@ function displayAvgRating(container){
       star.style.opacity = "0";
     }
   })
-  stars[integer].style.clipPath = `polygon(0 0, ${digits}% 0, ${digits}% 100%, 0% 100%)`;
+  if(integer < 5){
+    stars[integer].style.clipPath = `polygon(0 0, ${digits}% 0, ${digits}% 100%, 0% 100%)`;
+  }
 }
 
 // #### Display preview cards ####

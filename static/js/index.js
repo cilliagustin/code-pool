@@ -61,6 +61,10 @@ function initTypewriter() {
 document.addEventListener('DOMContentLoaded', ()=>{
     // Typewriter
     initTypewriter()
+    //show avg-rating stars
+    starContainers.forEach(container=>{
+        displayAvgRating(container);
+    })
     // show content on preview cards
     displayPreviewCards()
 });

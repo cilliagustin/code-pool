@@ -33,11 +33,9 @@
         <div class="row">
             {% for post in post_list %}
                 <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4">
-                    <div class="preview-card">
-                        <div class="preview-card-header">
-                            <h3>{{ post.title }}</h3>
-                            <p class="author">Author: {{ post.author }}</p>
-                            <p class="updated-on">Last modified: {{ post.updated_date}}</p>
+                    <div class="preview-card d-flex flex-column">
+                        <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
+                            <h3 class="my-3">{{ post.title }}</h3>
                             <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><p>View Code</p></a>
                             <button class="custom-btn black"><p>Full Screen</p></button>
                         </div>
@@ -46,6 +44,41 @@
                             <textarea data-code-css >{{ post.css_content }}</textarea>
                             <textarea data-code-js >{{ post.js_content }}</textarea>
                             <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
+                        </div>
+                        <div class="preview-card-footer d-flex flex-wrap justify-content-start align-items-start">
+                            <p class="author">Author: <span class="text-white">{{ post.author }}</span></p>
+                            <p class="updated-on">Last modified: <span class="text-white">{{ post.updated_date}}</span></p>
+                            <div class="rating-section d-flex flex-column justify-content-start align-items-center">
+                                {% if post.avg_rating %}
+                                    <h4 class="text-secondary">Average rating ({{ post.avg_rating }})</h4>
+                                    <div class="avg-star-container d-flex align-items-center">
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <div id="full-star-container" class="full-star-container d-flex align-items-center" data-avg-rating="{{ post.avg_rating }}">
+                                            <i class="fa-solid fa-star" data-value="1"></i>
+                                            <i class="fa-solid fa-star" data-value="2"></i>
+                                            <i class="fa-solid fa-star" data-value="3"></i>
+                                            <i class="fa-solid fa-star" data-value="4"></i>
+                                            <i class="fa-solid fa-star" data-value="5"></i>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <h4 class="text-secondary">No rating available</h4>
+                                    <div class="avg-star-container">
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                        <i class="fa-regular fa-star text-secondary"></i>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <a href="{% url 'category' post.category %}" class="category-label d-flex align-items-center justify-content-center" data-category="{{ post.category }}">
+                                <p>{{ post.category }}</p>
+                            </a>
                         </div>
                     </div>
                 </div>
