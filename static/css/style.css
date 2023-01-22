@@ -21,6 +21,7 @@
     --blue: rgb(91,191,186);
     --yellow:rgb(255,205,57);
     --red:rgb(132,32,41);
+    --green:rgb(71,159,118);
 }
 
 body{
@@ -110,24 +111,40 @@ textarea{
     color: var(--dark-gray);
 }
 
-.custom-btn.yellow-inverted{
-    border-color: var(--yellow);
+.custom-btn.green{
+    border-color: var(--green);
 }
 
-.custom-btn.yellow-inverted{
-    background: var(--yellow);
+.custom-btn.green::after{
+    background: var(--green);
 }
 
-.custom-btn.yellow-inverted::after{
-    background: var(--black-texture-background);
+.custom-btn.green p{
+    color: var(--green);
 }
 
-.custom-btn.yellow-inverted p{
+.custom-btn.green:hover p{
     color: var(--dark-gray);
 }
 
-.custom-btn.yellow-inverted:hover p{
-    color: var(--yellow);
+.custom-btn.green-inverted{
+    border-color: var(--green);
+}
+
+.custom-btn.green-inverted{
+    background: var(--green);
+}
+
+.custom-btn.green-inverted::after{
+    background: var(--black-texture-background);
+}
+
+.custom-btn.green-inverted p{
+    color: var(--dark-gray);
+}
+
+.custom-btn.green-inverted:hover p{
+    color: var(--green);
 }
 
 .custom-btn.blue{
@@ -637,19 +654,15 @@ footer .links a i{
     margin: 0;
 }
 
-.code-editor .code-editor-header .rating-section #rating-form .star-btn i{
+.code-editor .code-editor-header .rating-section #rating-form .star-btn i,
+.code-editor .code-editor-header .rating-section .avg-star-container i{
     color: var(--yellow);
     font-size: 1.5rem;
+    padding: 0 1px;
 }
 
 .code-editor .code-editor-header .rating-section .avg-star-container{
     position: relative;
-}
-
-.code-editor .code-editor-header .rating-section .avg-star-container i{
-    color: var(--yellow);
-    font-size: 1.2rem;
-    padding: 0 1px;
 }
 
 .code-editor .code-editor-header .rating-section .avg-star-container .full-star-container{
@@ -1204,6 +1217,23 @@ footer .links a i{
     .new-components-title h2,
     .new-components-title i{
         font-size: 3rem;
+    }
+
+    /* #### Post detail #### */
+    /* Code editor */ 
+    .code-editor .code-editor-header{
+        grid-template-rows: 1.5fr 1fr auto auto 1fr;
+        grid-template-areas: 
+        "title title title"
+        "author date date"
+        "editFavDiv editFavDiv editFavDiv"
+        "ratingDiv ratingDiv ratingDiv"
+        "htmlBtn cssBtn jsBtn";
+    }
+
+    .code-editor .code-editor-header .updated-on{
+        justify-self: end;
+        margin-right: 8px;
     }
 }
 

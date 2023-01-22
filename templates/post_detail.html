@@ -19,20 +19,19 @@
                             <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
                             <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
                             {% endif %}
-
-
-                            <form class="d-inline" action="{% url 'post_favorite' post.slug %}" method="POST">
+                            <form class="d-inline" action="{% url 'post_bookmark' post.slug %}" method="POST">
                                 {% csrf_token %}
-                                {% if is_favorite %}
-                                    <button type="submit" class="custom-btn yellow-inverted"><p>Favorite <i class="fa-solid fa-star"></i></p></button>
+                                {% if is_bookmarked %}
+                                    <button type="submit" class="custom-btn green-inverted"><p>Bookmarked <i class="fa-solid fa-bookmark"></i></p></button>
                                 {% else %}
-                                    <button type="submit" class="custom-btn yellow"><p>Add to Favorite <i class="fa-regular fa-star"></i></p></button>
+                                    <button type="submit" class="custom-btn green"><p>Bookmark <i class="fa-regular fa-bookmark"></i></p></button>
                                 {% endif %}
                             </form>
                         </div>
                     {% endif %}
-                    <div class="rating-section d-flex flex-column justify-content-start align-items-center">
+                    <div class="rating-section d-flex flex-column justify-content-start align-items-center flex-md-row justify-content-md-center align-items-md-start">
                         {% if user.is_authenticated %}
+                        <div class="user-rating mx-md-3 d-flex flex-column justify-content-start align-items-center">
                             <h4>Rate this post</h4>
                             <form method="post" id="rating-form" data-rating="{{ user_rating|default:'none' }}" action="{% url 'post_rating' post.slug %}">
                                 {% csrf_token %}
@@ -45,35 +44,38 @@
                             {% if user_rating %}
                                 <p>Your rating: {{ user_rating }}</p>
                             {% else %}
-                                <p>You haven't rated this post yet</p>
+                                <p class="text-muted">You haven't rated this post yet</p>
                             {% endif %}
+                        </div>
                         {% endif %}
-                        {% if avg_rating %}
-                            <h5>Average rating ({{ avg_rating }})</h5>
-                            <div class="avg-star-container">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <div class="full-star-container" data-avg-rating="{{ avg_rating }}">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
+                        <div class="avg-rating mx-md-3 d-flex flex-column justify-content-start align-items-center flex-column justify-content-start align-items-center">
+                            {% if avg_rating %}
+                                <h4>Average rating ({{ avg_rating }})</h4>
+                                <div class="avg-star-container">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <div class="full-star-container" data-avg-rating="{{ avg_rating }}">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
                                 </div>
-                            </div>
-                        {% else %}
-                            <h5>No one has rated this post yet</h5>
-                            <div class="avg-star-container">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                        {% endif %}
+                            {% else %}
+                                <h4 class="text-secondary">No rating available</h4>
+                                <div class="avg-star-container">
+                                    <i class="fa-regular fa-star text-secondary"></i>
+                                    <i class="fa-regular fa-star text-secondary"></i>
+                                    <i class="fa-regular fa-star text-secondary"></i>
+                                    <i class="fa-regular fa-star text-secondary"></i>
+                                    <i class="fa-regular fa-star text-secondary"></i>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
                     <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>
                     <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"><span>{</span>CSS<span>}</span></button>
