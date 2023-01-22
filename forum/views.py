@@ -25,15 +25,15 @@ class AllPostList(generic.ListView):
 
 
 class PostDetail(View):
-    
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
-        user_rating = post.user_rating(request.user)
+        user_rating = None
         is_favorite = False
-        if post.favorites.filter(id=self.request.user.id).exists():
-            is_favorite = True
+        if request.user.is_authenticated:
+            user_rating = post.user_rating(request.user)
+            is_favorite = post.favorites.filter(id=request.user.id).exists()
 
         return render(
             request,
