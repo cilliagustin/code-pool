@@ -32,6 +32,47 @@ function compareVal(btn, val){
     }
 }
 
+// #### COPY CODE TO CLIPBOARD
+copyBtns.forEach(btn=>{
+    btn.addEventListener("click", e =>{
+        const codeType = e.target.previousElementSibling.getAttribute("data-code-type");
+        const code = document.querySelector(`textarea[data-code-type="${codeType}"]`);
+        code.select();
+        code.setSelectionRange(0, 99999); // For mobile devices
+        navigator.clipboard.writeText(code.value);
+
+        // Alert the copied text
+
+        const alertPlaceholder = document.querySelector("#liveAlertPlaceholder");
+        const content = '<div class="alert alert-success alert-dismissible" role="alert"><p>Text copied!</p><button type="button" class="btn-close" data-bs-dismiss="alert" onclick="closePopUp()"></button></div>'
+        if (alertPlaceholder.innerHTML.length === 0) {
+            createPopUp(content);
+        } else {
+            closePopUp();
+            createPopUp(content);
+        }
+
+    })
+})
+
+
+function createPopUp(content) {
+    const alertPlaceholder = document.querySelector("#liveAlertPlaceholder");
+    alertPlaceholder.innerHTML = content;
+    timeoutToClose = setTimeout(closePopUp, 2000);
+}
+
+let timeoutToClose;
+
+function closePopUp() {
+    clearTimeout(timeoutToClose);
+    let popUpContent = document.querySelector("#liveAlertPlaceholder");
+    if (popUpContent.innerHTML.length >0) {
+        popUpContent.innerHTML = "";
+    }
+}
+
+
 // #### CODE EDITOR BUTTON CONTROL ####
 codeEditorBtns.forEach(btn => {
     btn.addEventListener("click", () => {

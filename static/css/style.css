@@ -544,6 +544,14 @@ footer .links a i {
     transform-origin: center;
 }
 
+/* Bootstrap Alert */
+#liveAlertPlaceholder{
+    position: fixed;
+    top: 45px;
+    left: 5px;
+    z-index: 20;
+}
+
 /* #### Index #### */
 
 /* Main banner */
@@ -718,16 +726,34 @@ footer .links a i {
     padding: 0 3px;
 }
 
-.code-editor .code-editor-header #htmlBtn {
+.code-editor .code-editor-header .html-button-container {
     grid-area: htmlBtn;
 }
 
-.code-editor .code-editor-header #cssBtn {
+.code-editor .code-editor-header .css-button-container {
     grid-area: cssBtn;
 }
 
-.code-editor .code-editor-header #jsBtn {
+.code-editor .code-editor-header .js-button-container {
     grid-area: jsBtn;
+}
+
+.code-editor .code-editor-header div .code-editor-btn{
+    height: 100%;
+    flex-grow: 1;
+}
+
+.code-editor .code-editor-header div .copy-btn{
+    height: 100%;
+    width: auto;
+    border: none;
+    background: var(--darkest-gray);
+}
+
+.code-editor .code-editor-header div .copy-btn i{
+    font-size: 1rem;
+    margin: 0 3px;
+    pointer-events: none;
 }
 
 .code-editor .code-editor-header .code-editor-btn {
@@ -738,17 +764,23 @@ footer .links a i {
 }
 
 .code-editor .code-editor-header .code-editor-btn#htmlBtn:hover span,
-.code-editor .code-editor-header .code-editor-btn#htmlBtn[data-open="true"] span {
+.code-editor .code-editor-header .code-editor-btn#htmlBtn[data-open="true"] span, 
+.code-editor .code-editor-header .code-editor-btn#htmlBtn:hover~.copy-btn i,
+.code-editor .code-editor-header .code-editor-btn#htmlBtn[data-open="true"]~.copy-btn i{
     color: var(--html-orange);
 }
 
 .code-editor .code-editor-header .code-editor-btn#cssBtn:hover span,
-.code-editor .code-editor-header .code-editor-btn#cssBtn[data-open="true"] span {
+.code-editor .code-editor-header .code-editor-btn#cssBtn[data-open="true"] span, 
+.code-editor .code-editor-header .code-editor-btn#cssBtn:hover~.copy-btn i,
+.code-editor .code-editor-header .code-editor-btn#cssBtn[data-open="true"]~.copy-btn i{
     color: var(--css-blue);
 }
 
 .code-editor .code-editor-header .code-editor-btn#jsBtn:hover span,
-.code-editor .code-editor-header .code-editor-btn#jsBtn[data-open="true"] span {
+.code-editor .code-editor-header .code-editor-btn#jsBtn[data-open="true"] span,
+.code-editor .code-editor-header .code-editor-btn#jsBtn:hover~.copy-btn i,
+.code-editor .code-editor-header .code-editor-btn#jsBtn[data-open="true"]~.copy-btn i{
     color: var(--js-yellow);
 }
 
@@ -757,8 +789,12 @@ footer .links a i {
 }
 
 .code-editor .code-editor-header .code-editor-btn[data-open="true"] {
-    background: var(--main-gray);
+    background: var(--highlight-gray);
     color: var(--white);
+}
+
+.code-editor .code-editor-header .code-editor-btn[data-open="true"]~.copy-btn{
+    background: var(--main-gray);
 }
 
 .code-editor .code-editor-code {

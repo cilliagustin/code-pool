@@ -5,6 +5,7 @@
 
 {% load crispy_forms_tags %}
 
+<div id="liveAlertPlaceholder"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col p-0">
@@ -77,9 +78,18 @@
                             {% endif %}
                         </div>
                     </div>
-                    <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>
-                    <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"><span>{</span>CSS<span>}</span></button>
-                    <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"><span>(</span>JS<span>)</span></button>
+                    <div class="html-button-container d-flex justify-content-center align-items-center">
+                        <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>
+                        <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="css-button-container d-flex justify-content-center align-items-center">
+                        <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"><span>{</span>CSS<span>}</span></button>
+                        <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="js-button-container d-flex justify-content-center align-items-center">
+                        <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"><span>(</span>JS<span>)</span></button>
+                        <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                    </div>
                 </div>
                 <div class="code-editor-code">
                     <textarea name="htmlCode" id="htmlCode" data-open="true" data-code-type="html" readonly>{{ post.html_content }}</textarea>

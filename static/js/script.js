@@ -8,6 +8,7 @@ const starBtns = document.querySelectorAll(".star-btn");
 const starContainer = document.getElementById("full-star-container");
 const starContainers = document.querySelectorAll(".full-star-container");
 const codeEditor = document.getElementById("code-editor");
+const copyBtns = document.querySelectorAll(".copy-btn");
 const codeEditorBtns = document.querySelectorAll(".code-editor-btn");
 const previewCode = document.getElementById("preview-code");
 const postTitle = document.getElementById("post-title");

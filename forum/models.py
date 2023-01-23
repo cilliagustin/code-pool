@@ -46,7 +46,8 @@ class Post(models.Model):
     def avg_rating(self):
         ratings = Rating.objects.filter(post=self)
         if ratings.exists():
-            return "{:.2f}".format(round(ratings.aggregate(Avg('value'))['value__avg'], 2))
+            return "{:.2f}".format(
+                round(ratings.aggregate(Avg('value'))['value__avg'], 2))
         return None
 
     def user_rating(self, user):
