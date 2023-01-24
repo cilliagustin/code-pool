@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.db.models import Q, Case, When, Value
 from .models import Post, Category, Rating
 from .forms import CommentForm, PostForm, EditForm
 
@@ -136,8 +137,23 @@ class CreateCategory(generic.CreateView):
 
 class CategoryList(generic.ListView):
     model = Category
-    queryset = Category.objects.order_by('name')
     template_name = 'category_list.html'
+
+    def get_queryset(self):
+        return Category.objects.filter(
+            Q(name__iexact='miscellaneous') | Q(name__isnull=False)
+        ).order_by(
+            Case(When(name__iexact='miscellaneous', then=Value(1)), default=Value(0)), 'name'
+        )
+
+
+class DeleteCategory(generic.DeleteView):
+    model = Category
+    template_name = 'delete_category.html'
+    success_url = reverse_lazy('category_list')
+
+    def get_queryset(self):
+        return Category.objects.filter(pk=self.kwargs.get('pk'))
 
 
 class Canvas(generic.ListView):

@@ -7,7 +7,7 @@ from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -16,7 +16,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('category_list')
 
 
 class Post(models.Model):

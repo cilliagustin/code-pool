@@ -10,36 +10,20 @@
                     <h1 class="categories-title text-center">Categories</h1>
                 </div>
                 {% for category in category_list %}
-                    {% if category.name != 'miscellaneous' %}
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                             <div class="category-card my-3 d-flex flex-wrap justify-content-center align-items-center w-100">
                                 <h3 class="mb-2 w-100 text-center">
-                                    {{ category }}
+                                    {{ category.name }}
                                 </h3>
                                 <a href="#" class="custom-btn blue mx-1">
                                     <p>Edit Category <i class="fa-solid fa-pencil"></i></p>
                                 </a>
-                                <a href="#" class="custom-btn red mx-1">
+                                <a href="{% url 'delete_category' category.pk %}" class="custom-btn red mx-1">
                                     <p>Delete Category <i class="fa-regular fa-circle-xmark"></i></p>
                                 </a>
                             </div>
                         </div>
-                    {% endif %}
                 {% endfor %}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="category-card my-3 d-flex flex-wrap justify-content-center align-items-center w-100">
-                        <h3 class="mb-2 w-100 text-center">
-                            miscellaneous
-                        </h3>
-                        <a href="#" class="custom-btn blue mx-1">
-                            <p>Edit Category <i class="fa-solid fa-pencil"></i></p>
-                        </a>
-                        <a href="#" class="custom-btn red mx-1">
-                            <p>Delete Category <i class="fa-regular fa-circle-xmark"></i></p>
-                        </a>
-                    </div>
-                </div>
-            </div>
         {% else %}
         <div class="row">
             <div class="col-12 col-md-10 offset-md-1 create-edit-post">
