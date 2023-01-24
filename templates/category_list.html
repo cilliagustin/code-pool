@@ -15,7 +15,7 @@
                                 <h3 class="mb-2 w-100 text-center">
                                     {{ category.name }}
                                 </h3>
-                                <a href="#" class="custom-btn blue mx-1">
+                                <a href="{% url 'edit_category' category.pk %}" class="custom-btn blue mx-1">
                                     <p>Edit Category <i class="fa-solid fa-pencil"></i></p>
                                 </a>
                                 <a href="{% url 'delete_category' category.pk %}" class="custom-btn red mx-1">
