@@ -33,6 +33,14 @@
                 <li>
                     <a href="{% url 'add_post' %}">New Post</a>
                 </li>
+                    {% if user.is_superuser %}
+                        <li>
+                            <a href="{% url 'category_list'%}">Browse Categories</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'add_category'%}">New Category</a>
+                        </li>
+                    {% endif %}
                 <li>
                     <a href="{% url 'account_logout' %}">Logout</a>
                 </li>
