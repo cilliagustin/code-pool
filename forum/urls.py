@@ -25,5 +25,6 @@ urlpatterns = [
         'posts/delete_post/<slug:slug>',
         views.DeletePost.as_view(), name='delete_post'),
     path('new_post/', views.CreatePost.as_view(), name='add_post'),
+    path('new_category/', views.CreateCategory.as_view(), name='add_category'),
     path('canvas', views.Canvas.as_view(), name='canvas'),
 ]
