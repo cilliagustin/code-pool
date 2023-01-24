@@ -134,6 +134,12 @@ class CreateCategory(generic.CreateView):
     fields = '__all__'
 
 
+class CategoryList(generic.ListView):
+    model = Category
+    queryset = Category.objects.order_by('name')
+    template_name = 'category_list.html'
+
+
 class Canvas(generic.ListView):
     model = Post
     template_name = 'canvas.html'
