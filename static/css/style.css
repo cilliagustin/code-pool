@@ -432,26 +432,7 @@ footer .links a i {
     padding: 3px 0;
     border-radius: 6px;
     text-decoration: none;
-}
-
-.preview-card .preview-card-footer .category-label[data-category="card"]{
-    background: var(--red);
-}
-
-.preview-card .preview-card-footer .category-label[data-category="button"]{
     background: var(--blue);
-}
-
-.preview-card .preview-card-footer .category-label[data-category="navbar"]{
-    background: var(--green);
-}
-
-.preview-card .preview-card-footer .category-label[data-category="loader"]{
-    background: var(--cream);
-}
-
-.preview-card .preview-card-footer .category-label[data-category="miscellaneous"]{
-    background: var(--yellow);
 }
 
 
