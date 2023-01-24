@@ -1185,6 +1185,31 @@ footer .links a i {
     color: var(--cream);
 }
 
+/* #### Categories control #### */
+.category-list{
+    min-height: calc(100vh - 76px)
+}
+.categories-title{
+    color: var(--cream);
+    margin-top: 50px;
+}
+.category-card{
+    border-radius: 3px;
+    background: var(--dark-gray);
+    padding: 10px;
+}
+
+.category-card h3{
+    color: var(--cream);
+}
+
+.category-card .custom-btn{
+    margin: 2px;
+    font-size: .8rem;
+    width: 92px;
+    height: 35px;
+}
+
 /* #### MediaQueries #### */
 
 /* small devices */
