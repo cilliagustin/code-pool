@@ -7,8 +7,8 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 create-edit-post">
-            {% if user.username == post.author.username %}
-                <h1>Edit your Post</h1>
+            {% if user.username == post.author.username or user.is_superuser %}
+                <h1>Edit this Post</h1>
                 <div class="form-group">
                     <form method="POST" class="mb-5">
                         {% csrf_token %}
@@ -26,7 +26,7 @@
             {% else %}
             <div class="h-100 w-100 d-flex justify-content-center align-items-center">
                 <div class="alert alert-danger" role="alert">
-                    Sorry, only <span class="fw-bold">{{ post.author }}</span> can edit this post.
+                    Sorry, only <span class="fw-bold">{{ post.author }}</span> or <span class="fw-bold">the admin</span> can edit this post.
                 </div>
             </div>
             {% endif %}

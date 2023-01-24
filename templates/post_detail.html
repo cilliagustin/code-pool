@@ -16,7 +16,7 @@
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
                     {% if user.is_authenticated %}
                         <div class="edit-fav-container d-flex justify-content-center align-items-center">
-                            {% if user.username == post.author.username %}
+                            {% if user.username == post.author.username or user.is_superuser %}
                             <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
                             <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
                             {% endif %}
