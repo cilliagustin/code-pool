@@ -129,6 +129,12 @@ class DeletePost(generic.DeleteView):
     success_url = reverse_lazy('home')
 
 
+class EditCategory(generic.UpdateView):
+    model = Category
+    template_name = 'edit_category.html'
+    fields = '__all__'
+
+
 class CreateCategory(generic.CreateView):
     model = Category
     template_name = 'add_category.html'

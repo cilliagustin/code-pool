@@ -28,6 +28,9 @@ urlpatterns = [
     path('new_category/', views.CreateCategory.as_view(), name='add_category'),
     path('category_list/', views.CategoryList.as_view(), name='category_list'),
     path(
+        'category/edit_category/<int:pk>',
+        views.EditCategory.as_view(), name='edit_category'),
+    path(
         'category/delete_category/<int:pk>',
         views.DeleteCategory.as_view(), name='delete_category'),
     path('canvas', views.Canvas.as_view(), name='canvas'),
