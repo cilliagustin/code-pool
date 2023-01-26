@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.db.models import Q, Case, When, Value
 from .models import Post, Category, Rating
-from .forms import CommentForm, PostForm, EditForm
+from .forms import CommentForm, PostForm, EditForm, CategoryForm
 
 
 class IndexPostList(generic.ListView):
@@ -131,14 +131,14 @@ class DeletePost(generic.DeleteView):
 
 class EditCategory(generic.UpdateView):
     model = Category
+    form_class = CategoryForm
     template_name = 'edit_category.html'
-    fields = '__all__'
 
 
 class CreateCategory(generic.CreateView):
     model = Category
+    form_class = CategoryForm
     template_name = 'add_category.html'
-    fields = '__all__'
 
 
 class CategoryList(generic.ListView):
