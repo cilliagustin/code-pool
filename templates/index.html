@@ -39,7 +39,7 @@
                         </div>
                         <div class="preview-card-footer d-flex flex-wrap justify-content-start align-items-start">
                             <p class="author">Author: <span class="text-white">{{ post.author }}</span></p>
-                            <p class="updated-on">Last modified: <span class="text-white">{{ post.updated_date}}</span></p>
+                            <p class="updated-on w-100">Last modified: <span class="text-white">{{ post.updated_date}}</span></p>
                             <div class="rating-section d-flex flex-column justify-content-start align-items-center">
                                 {% if post.avg_rating %}
                                     <h4 class="text-secondary">Average rating ({{ post.avg_rating }})</h4>
@@ -68,9 +68,16 @@
                                     </div>
                                 {% endif %}
                             </div>
-                            <a href="{% url 'category' post.category %}" class="category-label d-flex align-items-center justify-content-center">
-                                <p>{{ post.category }}</p>
-                            </a>
+                            <div class="badges-container">  
+                                {% if request.user in post.bookmark.all %}
+                                <a href="{% url 'bookmark_posts' %}" class="custom-badge d-flex align-items-center justify-content-center">
+                                    <p><i class="fa-solid fa-bookmark"></i> Bookmarked</p>
+                                </a>
+                                {% endif %}
+                                <a href="{% url 'category' post.category %}" class="custom-badge badge-category d-flex align-items-center justify-content-center">
+                                    <p>{{ post.category }}</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

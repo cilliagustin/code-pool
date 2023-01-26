@@ -76,9 +76,14 @@
                                     </div>
                                 {% endif %}
                             </div>
-                            <a href="{% url 'category' post.category %}" class="category-label d-flex align-items-center justify-content-center">
-                                <p>{{ post.category }}</p>
-                            </a>
+                            <div class="badges-container">  
+                                <a href="{% url 'bookmark_posts' %}" class="custom-badge d-flex align-items-center justify-content-center">
+                                    <p><i class="fa-solid fa-bookmark"></i> Bookmarked</p>
+                                </a>
+                                <a href="{% url 'category' post.category %}" class="custom-badge badge-category d-flex align-items-center justify-content-center">
+                                    <p>{{ post.category }}</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
