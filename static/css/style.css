@@ -22,6 +22,7 @@
     --yellow: rgb(255, 205, 57);
     --red: rgb(132, 32, 41);
     --green: rgb(71, 159, 118);
+    --orange: rgb(237 154 84);
 }
 
 body {
@@ -200,6 +201,7 @@ textarea {
     text-decoration: none;
     color: white;
     margin-right: auto;
+    font-size: .8rem;
 }
 
 #navbar button {
@@ -333,6 +335,27 @@ footer .links a i {
     color: var(--white);
     font-size: 22px;
     margin: 0 3px;
+}
+
+/* custom badge */
+.custom-badge {
+    width: 110px;
+    height: auto;
+    margin: 2px 0;
+    padding: 3px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    background: var(--orange);
+}
+
+
+.custom-badge p{
+    font-size: .6rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--darkest-gray);
+    text-transform: capitalize;
+    font-family: 'Roboto Mono', monospace;
 }
 
 /* Preview Cards */
@@ -645,9 +668,10 @@ footer .links a i {
 .code-editor .code-editor-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1.5fr 1fr 1fr auto auto 1fr;
+    grid-template-rows: 1.5fr .5fr 1.25fr 1fr auto auto 1fr;
     grid-template-areas:
         "title title title"
+        "cat cat cat"
         "author author author"
         "date date date"
         "editFavDiv editFavDiv editFavDiv"
@@ -663,12 +687,23 @@ footer .links a i {
     text-align: center;
 }
 
-.code-editor .code-editor-header p {
-    margin: 0 0 0 8px;
+.code-editor .code-editor-header p{
+    margin:0 8px;
+}
+
+.code-editor .code-editor-header .custom-badge {
+    grid-area: cat;
+    justify-self: end;
+    margin-right: 8px;
+}
+
+.code-editor .code-editor-header .custom-badge p{
+    margin: 0;
 }
 
 .code-editor .code-editor-header .author {
     grid-area: author;
+    align-self: center;
 }
 
 .code-editor .code-editor-header .updated-on {
@@ -1285,7 +1320,7 @@ footer .links a i {
     }
 
     #navbar .links ul li a {
-        margin: 0 8px 0;
+        margin: 0 4px 0;
     }
 
     .overlay {
@@ -1330,9 +1365,10 @@ footer .links a i {
     /* #### Post detail #### */
     /* Code editor */
     .code-editor .code-editor-header {
-        grid-template-rows: 1.5fr 1fr auto auto 1fr;
+        grid-template-rows: 1.5fr .5fr 1.25fr auto auto 1fr;
         grid-template-areas:
             "title title title"
+            "cat cat cat"
             "author date date"
             "editFavDiv editFavDiv editFavDiv"
             "ratingDiv ratingDiv ratingDiv"
@@ -1342,6 +1378,10 @@ footer .links a i {
     .code-editor .code-editor-header .updated-on {
         justify-self: end;
         margin-right: 8px;
+    }
+
+    .code-editor .code-editor-header .updated-on {
+        align-self: center;
     }
 }
 

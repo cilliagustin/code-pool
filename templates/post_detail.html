@@ -11,7 +11,10 @@
         <div class="col p-0">
             <div id="code-editor" class="code-editor" data-open="true">
                 <div class="code-editor-header">
-                    <h1>{{ post.title}}</h1>
+                    <h1 class="mb-4">{{ post.title}}</h1>
+                    <a href="{% url 'category' post.category %}" class="custom-badge d-flex align-items-center justify-content-center">
+                        <p>{{ post.category }}</p>
+                    </a>
                     <p class="author">Created by: {{ post.author}}</p>
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
                     {% if user.is_authenticated %}
