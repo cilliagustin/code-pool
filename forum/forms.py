@@ -3,9 +3,20 @@ from django import forms
 
 choices = Category.objects.all().values_list('name', 'name')
 choice_list = [choice for choice in choices]
+resetCss = """ /*Reset CSS for all browsers (suggested)*/
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+"""
 
 
 class PostForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['css_content'].initial = resetCss
+        
     class Meta:
         model = Post
         fields = (
