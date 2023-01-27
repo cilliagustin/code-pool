@@ -2,14 +2,6 @@
 /* #### General Styling #### */
 
 :root {
-    --blue-shade-1: rgb(13, 16, 33);
-    --blue-shade-2: rgb(24, 33, 62);
-    --blue-shade-3: rgb(27, 36, 69);
-    --blue-shade-4: rgb(49, 57, 93);
-
-
-
-
     --main-gray: rgb(39, 49, 62);
     --highlight-gray: rgb(50, 61, 77);
     --dark-gray: rgb(28, 39, 50);
