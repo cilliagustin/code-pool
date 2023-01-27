@@ -2,6 +2,14 @@
 /* #### General Styling #### */
 
 :root {
+    --blue-shade-1: rgb(13, 16, 33);
+    --blue-shade-2: rgb(24, 33, 62);
+    --blue-shade-3: rgb(27, 36, 69);
+    --blue-shade-4: rgb(49, 57, 93);
+
+
+
+
     --main-gray: rgb(39, 49, 62);
     --highlight-gray: rgb(50, 61, 77);
     --dark-gray: rgb(28, 39, 50);
@@ -455,26 +463,11 @@ footer .links a i {
 }
 .preview-card .preview-card-footer .custom-badge {
     width: 100%;
-    height: auto;
-    margin: 2px 0;
-    padding: 3px 0;
-    border-radius: 6px;
-    text-decoration: none;
     background: var(--green);
 }
 
 .preview-card .preview-card-footer .custom-badge.badge-category {
     background: var(--blue);
-}
-
-
-.preview-card .preview-card-footer .custom-badge p{
-    font-size: .6rem;
-    font-weight: 600;
-    margin: 0;
-    color: var(--darkest-gray);
-    text-transform: capitalize;
-    font-family: 'Roboto Mono', monospace;
 }
 
 .rating-section h4 {
@@ -555,6 +548,10 @@ footer .links a i {
 #filter-navigation ul li a.active::before {
     transform: scaleX(1);
     transform-origin: center;
+}
+
+.post-display{
+    min-height: calc(45vh - 75px);
 }
 
 /* Bootstrap Alert */
@@ -839,7 +836,7 @@ footer .links a i {
     display: none;
     border: none;
     border-radius: 3px;
-    background: var(--black-texture-background);
+    background: var(--dark-gray);
     color: var(--white);
     font-size: 12px;
     font-family: 'Roboto Mono', monospace;
