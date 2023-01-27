@@ -1,4 +1,8 @@
 // #### SLUGIFY ####
+/**
+ * Transforms text to slug, deletes special characters
+ * turns uppercase to lowercase and deletes doubles "-"
+ */
 function slugify(title, slug) {
     let str = title.value;
     str = str.replace(/^\s+|\s+$/g, ''); // trim
@@ -27,11 +31,14 @@ postTitle.addEventListener('input', () => {
 // #### PREVIEW CODE ####
 previewCode.addEventListener('click', (e) => {
     e.preventDefault()
+    // show hidden iframe
     document.querySelector('.create-edit-iframe-container').classList.add('open');
 
+    //get data
     let htmlCode = document.querySelector('.HTML-code').value;
     let cssCode = document.querySelector('.CSS-code').value;
     let jsCode = document.querySelector('.JS-code').value;
     let iframe = document.querySelector('iframe');
+    //call runEditor function
     runEditor(iframe, htmlCode, cssCode, jsCode);
 })

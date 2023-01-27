@@ -2,6 +2,8 @@
 // Fill stars on hover
 starBtns.forEach(btn=>{
     btn.addEventListener('mouseover', (e)=>{
+        /* gets value of hovered star and pass it
+         to compareVal function */
         const val = e.target.getAttribute("value");
         starBtns.forEach(btn=>{
             compareVal(btn, val)
@@ -9,19 +11,39 @@ starBtns.forEach(btn=>{
     })
 })
 
+/* trigger fillUserRating function when mouse
+leaves stars to return to original value */
 starBtns.forEach(btn=>{
     btn.addEventListener('mouseleave', fillUserRating)
 })
 
+/**
+ * Checks the value (data rating) and
+ * triggers the compareVal function. If the
+ * value is not a number (None) it gives the stars
+ * a gray outline and empty icon
+ */
 function fillUserRating(){
     const val = ratingForm.getAttribute("data-rating");
     if(!isNaN(val)){
         starBtns.forEach(btn=>{
             compareVal(btn, val)
         })
+    } else {
+        starBtns.forEach(btn=>{
+            btn.firstChild.classList.remove("fa-solid");
+            btn.firstChild.classList.add("fa-regular", "text-secondary");
+        })
     }
 }
 
+/** 
+ * compares the value given with the value of
+ * each button. If the button value is eual or
+ * less to the given value gives a yellow outline
+ * and filled star icon, otherwise a gray outline
+ * and empty star icon
+*/
 function compareVal(btn, val){
     if(btn.getAttribute("value") <= val){
         btn.firstChild.classList.remove("fa-regular", "text-secondary");
@@ -35,6 +57,9 @@ function compareVal(btn, val){
 // #### COPY CODE TO CLIPBOARD
 copyBtns.forEach(btn=>{
     btn.addEventListener("click", e =>{
+        /* Gets code type of target and finds textArea
+        with same code type, copies the text to clipboard
+        and triggers alert*/
         const codeType = e.target.previousElementSibling.getAttribute("data-code-type");
         const code = document.querySelector(`textarea[data-code-type="${codeType}"]`);
         code.select();
@@ -55,7 +80,9 @@ copyBtns.forEach(btn=>{
     })
 })
 
-
+/**
+ * Creates alert and set timeout to close it
+ */
 function createPopUp(content) {
     const alertPlaceholder = document.querySelector("#liveAlertPlaceholder");
     alertPlaceholder.innerHTML = content;
@@ -64,6 +91,9 @@ function createPopUp(content) {
 
 let timeoutToClose;
 
+/**
+ * Clears timeout if exists and deletes content
+ */
 function closePopUp() {
     clearTimeout(timeoutToClose);
     let popUpContent = document.querySelector("#liveAlertPlaceholder");

@@ -46,6 +46,10 @@ function addYear() {
 }
 
 // #### CODE EDITOR FUNCTION ####
+/**
+ * takes value from variables htmlCode, cssCode and jsCode and
+ * writes the code inside the iframe
+*/
 function runEditor(iframe, htmlCode, cssCode, jsCode) {
   const code = `${htmlCode} <style>${cssCode}</style><script>${jsCode}</script>`
   const iframeContent = iframe.contentWindow.document;
@@ -55,6 +59,11 @@ function runEditor(iframe, htmlCode, cssCode, jsCode) {
 }
 
 // #### DISPLAY AVG RATING ####
+/**
+ * gets the average rating and gives opacity 1 to 
+ * the hidden stars. If the number has decimals the 
+ * last star gets cut to display only that percentage
+ */
 function displayAvgRating(container){
   let val = container.getAttribute("data-avg-rating");
   let integer = parseInt((val.charAt(0)));
