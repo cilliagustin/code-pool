@@ -7,6 +7,23 @@
 
 {% block content %}
 
+{% if form.errors %}
+  <div id="error-modal" class="alert alert-danger d-flex flex-column">
+      <p>Oops... there´s been a mistake</p>
+      <button id="close-error-modal"><i class="fa-solid fa-xmark alert-link"></i></button>
+      <ul>
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ field.label }}: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+      </ul>
+  </div>
+{% endif %}
+
 <div class="container">
   <div class="row">
     <div class="col-12 auth">
