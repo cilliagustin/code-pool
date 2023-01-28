@@ -192,6 +192,7 @@ textarea {
     background-color: var(--main-gray);
     position: fixed;
     z-index: 10;
+    top: 0;
 }
 
 #navbar a {
@@ -337,6 +338,51 @@ footer .links a i {
     margin: 0 3px;
 }
 
+/* Full Screen modal */
+#full-screen-modal{
+    position: fixed;
+    z-index: 7;
+    min-height: calc(100vh - 40px);
+    width: 100%;
+    top: 40px;
+    left: 0;
+}
+
+#full-screen-modal nav{
+    background: var(--main-gray);
+}
+
+#full-screen-modal nav p{
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--cream);
+    margin: 0 0 0 15px;
+}
+
+#full-screen-modal nav button{
+    background: none;
+    border: none;
+}
+
+#full-screen-modal nav button i{
+    font-size: 1.8rem;
+    margin: 2px 15px;
+    color: var(--text-gray);
+    transition: all .5s ease-in-out;
+    pointer-events: none;
+}
+
+#full-screen-modal nav button:hover i{
+    color: var(--cream);
+    transform: rotate(180deg);
+}
+
+#full-screen-modal iframe{
+    flex-grow: 1;
+    background: whitesmoke;
+}
+
 /* custom badge */
 .custom-badge {
     width: 110px;
@@ -423,6 +469,7 @@ footer .links a i {
 .preview-card .preview-card-body iframe {
     height: 100%;
     width: 100%;
+    pointer-events: none;
 }
 
 
