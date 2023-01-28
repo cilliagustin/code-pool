@@ -1272,6 +1272,40 @@ footer .links a i {
     color: var(--cream);
 }
 
+/* error modal */
+
+#error-modal{
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    width: 280px;
+    height: auto;
+}
+
+#error-modal p{
+    font-size: 14px;
+    margin: 0;
+}
+
+#error-modal button{
+    margin-left: auto;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+#error-modal button i{
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+#error-modal ul{
+    margin: 0;
+}
+#error-modal ul li{
+    font-size: 12px;
+}
+
 /* #### Categories control #### */
 .category-list{
     min-height: calc(100vh - 76px)
