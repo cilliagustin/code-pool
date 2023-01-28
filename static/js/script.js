@@ -14,7 +14,6 @@ const codeEditorBtns = document.querySelectorAll(".code-editor-btn");
 const previewCode = document.getElementById("preview-code");
 const postTitle = document.getElementById("post-title");
 const postSlug = document.getElementById("post-slug");
-const authFormInputs = document.querySelectorAll(".auth-card form p input[type='text'], .auth-card form p input[type='password'], .auth-card form p input[type='email']")
 
 
 // ##### GENERAL FUNCTIONS #####
@@ -94,6 +93,16 @@ document.body.addEventListener("click", e=>{
       document.body.style.top = '';
       window.scrollTo(0, parseInt(scrollY || '0') * -1);
     }
+})
+
+
+// #### ERROR MODAL (AUTH) ####
+//close error modal
+document.body.addEventListener("click", e=>{
+  //if target is close modal button delete modal
+  if(e.target.getAttribute("id") === "close-error-modal"){
+    e.target.parentElement.remove()
+  }
 })
 
 // #### CODE EDITOR FUNCTION ####
