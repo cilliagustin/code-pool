@@ -3,6 +3,7 @@ const largeMediaQuery = window.matchMedia('(min-width: 768px)');
 const navbar = document.querySelector("nav");
 const navButton = document.getElementById("hamb");
 const overlay = document.getElementById("overlay");
+const fullScreenBtns = document.querySelectorAll(".full-screen-btn");
 const ratingForm = document.getElementById("rating-form");
 const starBtns = document.querySelectorAll(".star-btn");
 const starContainer = document.getElementById("full-star-container");
@@ -44,6 +45,56 @@ largeMediaQuery.addEventListener('change', navbarWindowResize);
 function addYear() {
   document.getElementById("footerYear").innerHTML = new Date().getFullYear();
 }
+
+// #### FULL SCREEN FUNCTION ####
+/**
+ * opens a modal that occupies the fullscreen and displays the
+ * code in an iframe
+ */
+function fullScreen(btn){
+  // get values from textareas
+  let previewCardBody = btn.parentElement.nextElementSibling;
+  let htmlCode = previewCardBody.querySelector('[data-code-html]').value;
+  let cssCode = previewCardBody.querySelector('[data-code-css]').value;
+  let jsCode = previewCardBody.querySelector('[data-code-js]').value;
+  
+  //create modal
+  const modal = document.createElement("div");
+  modal.setAttribute("id", "full-screen-modal");
+  modal.classList.add("d-flex", "flex-column");
+  modal.innerHTML = `
+  <nav class="d-flex w-100 align-items-center justify-content-between">
+  <p>Viewing code on full screen</p>
+  <button class="close-iframe"><i class="fa-regular fa-circle-xmark"></i></button>
+  </nav>
+  <iframe id="full-screen-iframe" src="{% url 'canvas' %}" title="blank canvas"></iframe>`;
+  
+  // insert modal before footer
+  const footer = document.querySelector("footer");
+  document.body.insertBefore(modal, footer)
+
+  //block scroll
+  document.body.style.top = `-${window.scrollY}px`;
+  document.body.style.position = 'fixed';
+
+  const iframe = document.getElementById("full-screen-iframe")
+  // call run editor function
+  runEditor(iframe, htmlCode, cssCode, jsCode)
+}
+
+//close full screen modal
+document.body.addEventListener("click", e=>{
+    if(e.target.classList.contains("close-iframe")){
+      //close modal
+      const modal = document.getElementById("full-screen-modal");
+      modal.remove()
+      //re-enable body scroll
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+})
 
 // #### CODE EDITOR FUNCTION ####
 /**

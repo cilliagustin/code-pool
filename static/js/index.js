@@ -55,7 +55,12 @@ function initTypewriter() {
     new TypeWriter(titleWord, words);
 }
 
-
+//activates fullScreen function with each btn
+fullScreenBtns.forEach(btn=>{
+    btn.addEventListener("click", e =>{
+      fullScreen(e.target)
+    })
+  })
 
 //#### Init index functions ####
 document.addEventListener('DOMContentLoaded', ()=>{
