@@ -186,8 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let cssCode = document.getElementById("cssCode").value
     let jsCode = document.getElementById("jsCode").value
 
-    //get the users rating
-    fillUserRating();
+    //get the users rating if rating form exists
+    if(ratingForm){
+        fillUserRating();
+    }
     // get the avg rating
     displayAvgRating(starContainer);
     // run code editor
