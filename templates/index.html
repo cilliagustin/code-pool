@@ -29,7 +29,7 @@
                         <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
                             <h3 class="my-3">{{ post.title }}</h3>
                             <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><p>View Code</p></a>
-                            <button class="custom-btn black"><p>Full Screen</p></button>
+                            <button class="custom-btn black full-screen-btn"><p>Full Screen</p></button>
                         </div>
                         <div class="preview-card-body">
                             <textarea data-code-html >{{ post.html_content }}</textarea>
