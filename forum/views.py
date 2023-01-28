@@ -101,8 +101,10 @@ class FilterBookmark(generic.ListView):
         return context
 
     def get_queryset(self):
-        user = self.request.user
-        return Post.objects.filter(bookmark=user)
+        if self.request.user.is_authenticated:
+            return Post.objects.filter(bookmark=self.request.user)
+        else:
+            return Post.objects.none()
 
 
 class CreatePost(generic.CreateView):
