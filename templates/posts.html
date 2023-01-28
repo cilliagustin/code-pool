@@ -21,9 +21,11 @@
                             <a href="{% url 'category' category %}"> {{ category }}</a>
                         </li>  
                         {% endfor %}
+                        {% if user.is_authenticated %}
                         <li>
                             <a href="{% url 'bookmark_posts' %}">bookmarked</a>
                         </li>  
+                        {% endif %}
                         <li>
                             <a class="active" href="{% url 'posts' %}">All posts</a>
                         </li>  
