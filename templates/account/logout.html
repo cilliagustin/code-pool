@@ -10,6 +10,7 @@
   <div class="row">
     <div class="col-12 col-md-8 offset-md-1 signout">
       <h1>{% trans "Sign Out" %}</h1>
+      <p>Signed as <span class="text-white">{{ user }}</span></p>
       <p>{% trans 'Are you sure you want to sign out?' %}</p>
       <form method="post" action="{% url 'account_logout' %}">
         {% csrf_token %}
