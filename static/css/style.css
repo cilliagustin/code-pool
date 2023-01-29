@@ -6,6 +6,7 @@
     --highlight-gray: rgb(50, 61, 77);
     --dark-gray: rgb(28, 39, 50);
     --darkest-gray: rgb(22, 31, 40);
+    --darkest-gray2: rgb(15, 21, 27);
     --text-gray: rgb(118, 118, 118);
     --cream: rgb(191, 192, 192);
     --white: rgb(229, 229, 229);
@@ -904,18 +905,12 @@ footer .links a i {
 }
 
 /* Comments */
-.comments h2 {
-    text-align: center;
-    color: white;
-}
 
 .comment-card {
     background: var(--main-gray);
     width: 100%;
     min-height: 120px;
     height: auto;
-    margin: 3px 0px;
-    border-radius: 3px;
     overflow: hidden;
     display: flex;
     flex-flow: column;
@@ -930,10 +925,23 @@ footer .links a i {
     color: var(--text-gray);
 }
 
+.comment-card.darker{
+    background: var(--darkest-gray);
+}
+
+.comment-card.darker div{
+    background: var(--darkest-gray2);
+}
+
 .comment-card div p {
     margin: 0;
 }
 
+.comment-card .comment-header .custom-badge {
+    padding: 2px 6px;
+    width: auto;
+    background: var(--cream);
+}
 .comment-card .comment-header p {
     font-size: 14px;
 }

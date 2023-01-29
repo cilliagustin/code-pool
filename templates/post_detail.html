@@ -6,7 +6,7 @@
 {% load crispy_forms_tags %}
 
 <div id="liveAlertPlaceholder"></div>
-<div class="container-fluid">
+<div class="container-fluid mb-4">
     <div class="row">
         <div class="col p-0">
             <div id="code-editor" class="code-editor" data-open="true">
@@ -18,7 +18,7 @@
                     <p class="author">Created by: {{ post.author}}</p>
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
                     {% if user.is_authenticated %}
-                        <div class="edit-fav-container d-flex justify-content-center align-items-center">
+                        <div class="edit-fav-container mb-3 d-flex justify-content-center align-items-center">
                             {% if user.username == post.author.username or user.is_superuser %}
                             <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
                             <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
@@ -105,15 +105,20 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-lg-8">
-            <div class="col-12 comments">
-                <h2>Comments</h2>
-            </div>
+    <div class="row mt-4">
+        <div class="col-12 px-0 col-lg-8">
+            <h2 class="text-center mb-3 text-white">Comments</h2>
             {% for comment in comments %}
+                {% if forloop.counter0|divisibleby:2 %}
                 <div class="comment-card">
-                    <div class="comment-header">
+                {% else %}
+                <div class="comment-card darker">
+                {% endif %}
+                    <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
                         <p class="author"><span>{{ comment.name }}</span> wrote:</p>
+                        {% if user.username == comment.name or user.is_superuser %}
+                        <a href="{% url 'delete_comment' comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
+                        {% endif %}
                     </div>
                     <p class="comment">{{ comment.body }}</p>
                     <div class="comment-footer">
@@ -132,7 +137,7 @@
             {% endfor %}
         </div>
         <div class="col-12 col-lg-4 user-comment">
-            <h2>Leave a comment:</h2>
+            <h2 class="mb-3 mt-lg-0 mt-3">Leave a comment:</h2>
             {% if commented %}
                 <div class="alert alert-success" role="alert">
                     Your comment is awaiting approval
