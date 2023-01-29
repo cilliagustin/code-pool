@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.db.models import Q, Case, When, Value
-from .models import Post, Category, Rating
+from .models import Post, Comment, Category, Rating
 from .forms import CommentForm, PostForm, EditForm, CategoryForm
 
 
@@ -63,6 +63,18 @@ class PostDetail(View):
             comment.save()
             context["commented"] = True
         return render(request, "post_detail.html", context)
+
+
+class DeleteComment(generic.DeleteView):
+    model = Comment
+    template_name = 'delete_comment.html'
+
+    def get_success_url(self):
+        post_slug = Comment.objects.get(pk=self.kwargs.get('pk')).post.slug
+        return reverse('post_detail', kwargs={'slug': post_slug})
+
+    def get_queryset(self):
+        return Comment.objects.filter(pk=self.kwargs.get('pk'))
 
 
 class RatingView(View):
