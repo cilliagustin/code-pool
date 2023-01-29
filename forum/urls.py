@@ -10,6 +10,9 @@ urlpatterns = [
         'category/delete_comment/<int:pk>',
         views.DeleteComment.as_view(), name='delete_comment'),
     path(
+        'approve_comment/<int:pk>/', views.ApproveComment.as_view(),
+        name='approve_comment'),
+    path(
         'add_remove_bookmark/<slug:slug>',
         views.PostBookmark.as_view(), name='post_bookmark'),
     path(

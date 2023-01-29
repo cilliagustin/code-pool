@@ -29,12 +29,14 @@ class PostDetail(View):
     def get_context(self, request, slug):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
+        comments = post.comments.order_by('approved', 'created_on')
         user_rating = None
         is_bookmarked = False
         if request.user.is_authenticated:
             user_rating = post.user_rating(request.user)
             is_bookmarked = post.bookmark.filter(id=request.user.id).exists()
+        if not request.user.is_superuser:
+            comments = comments.filter(approved=True)
         context = {
             "user": request.user,
             "user_rating": user_rating,
@@ -43,7 +45,7 @@ class PostDetail(View):
             "is_bookmarked": is_bookmarked,
             "commented": False,
             "comment_form": CommentForm(),
-            "avg_rating": post.avg_rating(),
+            "avg_rating": post.avg_rating()
         }
         return context
 
@@ -75,6 +77,18 @@ class DeleteComment(generic.DeleteView):
 
     def get_queryset(self):
         return Comment.objects.filter(pk=self.kwargs.get('pk'))
+
+
+class ApproveComment(View):
+
+    def post(self, request, pk):
+        if not request.user.is_superuser:
+            return HttpResponseForbidden()
+
+        comment = get_object_or_404(Comment, pk=pk)
+        comment.approved = True
+        comment.save()
+        return redirect('post_detail', slug=comment.post.slug)
 
 
 class RatingView(View):
