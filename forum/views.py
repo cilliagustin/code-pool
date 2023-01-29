@@ -26,7 +26,7 @@ class AllPostList(generic.ListView):
 
 
 class PostDetail(View):
-    def get(self, request, slug, *args, **kwargs):
+    def get_context(self, request, slug):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
@@ -35,21 +35,34 @@ class PostDetail(View):
         if request.user.is_authenticated:
             user_rating = post.user_rating(request.user)
             is_bookmarked = post.bookmark.filter(id=request.user.id).exists()
+        context = {
+            "user": request.user,
+            "user_rating": user_rating,
+            "post": post,
+            "comments": comments,
+            "is_bookmarked": is_bookmarked,
+            "commented": False,
+            "comment_form": CommentForm(),
+            "avg_rating": post.avg_rating(),
+        }
+        return context
 
-        return render(
-            request,
-            "post_detail.html",
-            {
-                "user": request.user,
-                "user_rating": user_rating,
-                "post": post,
-                "comments": comments,
-                "is_bookmarked": is_bookmarked,
-                "commented": False,
-                "comment_form": CommentForm(),
-                "avg_rating": post.avg_rating(),
-            },
-        )
+    def get(self, request, slug, *args, **kwargs):
+        context = self.get_context(request, slug)
+        return render(request, "post_detail.html", context)
+
+    def post(self, request, slug, *args, **kwargs):
+        context = self.get_context(request, slug)
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.post = context["post"]
+            comment.save()
+            context["commented"] = True
+        return render(request, "post_detail.html", context)
 
 
 class RatingView(View):
