@@ -126,6 +126,7 @@
                     {% if user.is_superuser %}
                     <div class="comment-card unapproved {% if forloop.counter|divisibleby:2 %}darker{% endif %}">
                         <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
+                            <p class="w-100 text-center fw-bold">Comment waiting for approval</p>
                             <p class="author"><span>{{ comment.name }}</span> wrote:</p>
                             {% if user.username == comment.name or user.is_superuser %}
                             <a href="{% url 'delete_comment' comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
@@ -157,7 +158,7 @@
 
 
 
-        
+
         <div class="col-12 col-lg-4 user-comment">
             <h2 class="mb-3 mt-lg-0 mt-3">Leave a comment:</h2>
             {% if commented %}
