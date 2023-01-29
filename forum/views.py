@@ -9,7 +9,7 @@ from .forms import CommentForm, PostForm, EditForm, CategoryForm
 
 class IndexPostList(generic.ListView):
     model = Post
-    queryset = Post.objects.order_by('-created_on')
+    queryset = Post.objects.order_by('-created_on')[:6]
     template_name = 'index.html'
 
 
