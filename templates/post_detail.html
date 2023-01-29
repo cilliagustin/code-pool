@@ -109,22 +109,39 @@
         <div class="col-12 px-0 col-lg-8">
             <h2 class="text-center mb-3 text-white">Comments</h2>
             {% for comment in comments %}
-                {% if forloop.counter0|divisibleby:2 %}
-                <div class="comment-card">
-                {% else %}
-                <div class="comment-card darker">
-                {% endif %}
+                {% if comment.approved %}
+                <div class="comment-card {% if forloop.counter|divisibleby:2 %}darker{% endif %}">
                     <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
                         <p class="author"><span>{{ comment.name }}</span> wrote:</p>
                         {% if user.username == comment.name or user.is_superuser %}
                         <a href="{% url 'delete_comment' comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
                         {% endif %}
                     </div>
-                    <p class="comment">{{ comment.body }}</p>
+                    <p class="comment">{{ comment.body }} {{ comment.status }}</p>
                     <div class="comment-footer">
                         <p class="date">Written on {{ comment.created_on }}</p>
                     </div>
                 </div>
+                {% else %}
+                    {% if user.is_superuser %}
+                    <div class="comment-card unapproved {% if forloop.counter|divisibleby:2 %}darker{% endif %}">
+                        <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
+                            <p class="author"><span>{{ comment.name }}</span> wrote:</p>
+                            {% if user.username == comment.name or user.is_superuser %}
+                            <a href="{% url 'delete_comment' comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
+                            {% endif %}
+                        </div>
+                        <p class="comment">{{ comment.body }} {{ comment.status }}</p>
+                        <div class="comment-footer">
+                            <form class="d-inline me-auto" action="{% url 'approve_comment' comment.pk %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="custom-badge approve"><p>Approve comment</p></button>
+                            </form>
+                            <p class="date">Written on {{ comment.created_on }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endif %}
             {% empty %}
             <div class="comment-card">
                 <div class="comment-header">
@@ -136,6 +153,11 @@
             </div>
             {% endfor %}
         </div>
+
+
+
+
+        
         <div class="col-12 col-lg-4 user-comment">
             <h2 class="mb-3 mt-lg-0 mt-3">Leave a comment:</h2>
             {% if commented %}

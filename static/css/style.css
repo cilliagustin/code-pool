@@ -925,6 +925,20 @@ footer .links a i {
     color: var(--text-gray);
 }
 
+.comment-card .custom-badge {
+    padding: 2px 6px;
+    width: auto;
+    background: var(--red);
+}
+
+.comment-card .custom-badge.approve {
+    background: var(--green);
+}
+
+.comment-card .custom-badge p{
+    font-size: 12px;
+}
+
 .comment-card.darker{
     background: var(--darkest-gray);
 }
@@ -933,18 +947,48 @@ footer .links a i {
     background: var(--darkest-gray2);
 }
 
+.comment-card.unapproved{
+    background: var(--white);
+}
+
+.comment-card.unapproved div{
+    background: var(--cream);
+}
+
+.comment-card.unapproved.darker{
+    background: rgb(212, 211, 211);
+}
+
+.comment-card.unapproved.darker div{
+    background: rgb(143, 142, 142);
+}
+
+.comment-card.unapproved .comment-header > p ,
+.comment-card.unapproved .comment-footer > p {
+    color: var(--highlight-gray);
+}
+.comment-card.unapproved .comment-header > p span,
+.comment-card.unapproved .comment-footer > p span,
+.comment-card.unapproved p.comment{
+    color: var(--darkest-gray);
+}
+
+.comment-card.unapproved .custom-badge {
+    border: none;
+}
+
+.comment-card.unapproved .custom-badge p{
+    color: var(--white);
+}
+
 .comment-card div p {
     margin: 0;
 }
 
-.comment-card .comment-header .custom-badge {
-    padding: 2px 6px;
-    width: auto;
-    background: var(--cream);
-}
-.comment-card .comment-header p {
+.comment-card p {
     font-size: 14px;
 }
+
 
 .comment-card .comment {
     flex-grow: 1;
@@ -968,6 +1012,7 @@ footer .links a i {
 .comment-card .comment {
     color: var(--white);
 }
+
 
 .user-comment h2 {
     color: var(--white);
