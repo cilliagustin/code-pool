@@ -1,3 +1,11 @@
+// #### FULL SCREEN BTN ####
+//activates fullScreen function with the btn
+const fullScreenBtn = fullScreenBtns[0];
+fullScreenBtn.addEventListener("click", e =>{
+    fullScreen(e.target)
+  })
+
+
 // #### STAR BTN CONTROL ####
 // Fill stars on hover
 starBtns.forEach(btn=>{

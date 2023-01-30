@@ -51,11 +51,25 @@ function addYear() {
  * code in an iframe
  */
 function fullScreen(btn){
-  // get values from textareas
-  let previewCardBody = btn.parentElement.nextElementSibling;
-  let htmlCode = previewCardBody.querySelector('[data-code-html]').value;
-  let cssCode = previewCardBody.querySelector('[data-code-css]').value;
-  let jsCode = previewCardBody.querySelector('[data-code-js]').value;
+
+  //declare variables
+  let htmlCode
+  let cssCode
+  let jsCode
+
+
+  // if the page has preview cards get value from those
+  if(document.querySelector(".preview-card") !== null){
+    let previewCardBody = btn.parentElement.nextElementSibling;
+    htmlCode = previewCardBody.querySelector('[data-code-html]').value;
+    cssCode = previewCardBody.querySelector('[data-code-css]').value;
+    jsCode = previewCardBody.querySelector('[data-code-js]').value;
+  // If the page is code editor get values from there
+  } else {
+    htmlCode = document.getElementById("htmlCode").value
+    cssCode = document.getElementById("cssCode").value
+    jsCode = document.getElementById("jsCode").value
+  }
   
   //create modal
   const modal = document.createElement("div");
