@@ -205,5 +205,6 @@ class DeleteCategory(generic.DeleteView):
 
 def canvas_view(request):
     response = HttpResponse()
+    response['X-Frame-Options'] = 'ALLOWALL'
     response['Access-Control-Allow-Origin'] = 'https://code-pool-agustin-cilli.herokuapp.com'
     return response
