@@ -17,8 +17,9 @@
                     </a>
                     <p class="author">Created by: {{ post.author}}</p>
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
+                    <div class="edit-fav-container mb-3 d-flex flex-wrap justify-content-center align-items-center">
+                        <button class="custom-btn black full-screen-btn"><p>Full Screen <i class="fa-solid fa-up-right-and-down-left-from-center"></i></p></button>
                     {% if user.is_authenticated %}
-                        <div class="edit-fav-container mb-3 d-flex justify-content-center align-items-center">
                             {% if user.username == post.author.username or user.is_superuser %}
                             <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
                             <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
@@ -31,8 +32,8 @@
                                     <button type="submit" class="custom-btn green"><p>Bookmark <i class="fa-regular fa-bookmark"></i></p></button>
                                 {% endif %}
                             </form>
-                        </div>
-                    {% endif %}
+                            {% endif %}
+                    </div>
                     <div class="rating-section pb-4 d-flex flex-column justify-content-start align-items-center flex-md-row justify-content-md-center align-items-md-start">
                         {% if user.is_authenticated %}
                         <div class="mx-md-3 d-flex flex-column justify-content-start align-items-center">
