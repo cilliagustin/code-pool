@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path
+from .views import canvas_view
 
 
 urlpatterns = [
@@ -39,5 +40,5 @@ urlpatterns = [
     path(
         'category/delete_category/<int:pk>',
         views.DeleteCategory.as_view(), name='delete_category'),
-    path('canvas', views.Canvas.as_view(), name='canvas'),
+    path('canvas/', canvas_view, name='canvas'),
 ]
