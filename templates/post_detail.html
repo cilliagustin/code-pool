@@ -53,7 +53,7 @@
                             {% endif %}
                         </div>
                         {% endif %}
-                        <div class="mx-md-3 mt-3 mt-md-0 d-flex flex-column justify-content-start align-items-center flex-column justify-content-start align-items-center">
+                        <div class="mx-md-3 mt-3 mt-md-0 d-flex flex-column justify-content-start align-items-center">
                             {% if avg_rating %}
                                 <h4>Average rating ({{ avg_rating }})</h4>
                                 <div class="avg-star-container d-flex align-items-center">
@@ -70,6 +70,7 @@
                                         <i class="fa-solid fa-star" data-value="5"></i>
                                     </div>
                                 </div>
+                                <p>Ammount of votes: {{ post.num_ratings }}</p>
                                 {% else %}
                                 <h4 class="text-secondary">No rating available</h4>
                                 <div class="avg-star-container">

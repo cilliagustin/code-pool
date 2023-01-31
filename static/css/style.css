@@ -1510,6 +1510,14 @@ footer .links a i {
     .code-editor .code-editor-header .updated-on {
         align-self: center;
     }
+
+    .code-editor .code-editor-header .rating-section > div{
+        min-height: 90px;
+    }
+    
+    .code-editor .code-editor-header .rating-section > div > p{
+        margin-top: auto;
+    }
 }
 
 /* #### Animations #### */
