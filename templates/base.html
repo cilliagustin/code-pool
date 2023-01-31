@@ -54,6 +54,11 @@
                 {% endif %}
             </ul>
         </div>
+        {% if user.is_authenticated %}
+            <div class="username d-flex align-items-center justify-content-start">
+                <p class="m-0 ms-5 text-white">Logged as {{ user.username }}</p>
+            </div>
+        {% endif %}
     </nav>
     <div data-open="false" class="overlay" id="overlay"></div>
     
