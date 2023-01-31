@@ -198,8 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if(ratingForm){
         fillUserRating();
     }
-    // get the avg rating
-    displayAvgRating(starContainer);
+    // get the avg rating if post was rated
+    if(starContainer){
+        displayAvgRating(starContainer);
+    }
     // run code editor
     runEditor(iframe, htmlCode, cssCode, jsCode)
 
