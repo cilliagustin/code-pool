@@ -59,6 +59,9 @@ class Post(models.Model):
         except Rating.DoesNotExist:
             return None
 
+    def num_ratings(self):
+        return Rating.objects.filter(post=self).count()
+
 
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
