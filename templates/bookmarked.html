@@ -50,6 +50,7 @@
                                 <div class="rating-section d-flex flex-column justify-content-start align-items-center">
                                     {% if post.avg_rating %}
                                         <h4 class="text-secondary">Average rating ({{ post.avg_rating }})</h4>
+                                        <p class="text-secondary">Number of votes: {{ post.num_ratings }}</p>
                                         <div class="avg-star-container d-flex align-items-center">
                                             <i class="fa-regular fa-star text-secondary"></i>
                                             <i class="fa-regular fa-star text-secondary"></i>

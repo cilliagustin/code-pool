@@ -414,7 +414,7 @@ footer .links a i {
 .preview-card {
     background: var(--black-texture-background);
     width: 100%;
-    min-height: 500px;
+    min-height: 550px;
     height: 55vh;
     max-height: 600px;
     margin: .75rem 0;
@@ -494,6 +494,11 @@ footer .links a i {
 
 .preview-card .preview-card-footer .rating-section h4{
     font-size: 1.2rem;
+    margin: 0;
+}
+
+.preview-card .preview-card-footer .rating-section p{
+    margin: 0;
 }
 
 .preview-card .preview-card-footer .rating-section .avg-star-container i {
