@@ -27,8 +27,8 @@
                     <div class="preview-card d-flex flex-column">
                         <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
                             <h3 class="my-3">{{ post.title }}</h3>
-                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><p>View Code</p></a>
-                            <button class="custom-btn black full-screen-btn"><p>Full Screen</p></button>
+                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><span>View Code</span></a>
+                            <button class="custom-btn black full-screen-btn"><span>Full Screen</span></button>
                         </div>
                         <div class="preview-card-body">
                             <textarea data-code-html >{{ post.html_content }}</textarea>
@@ -49,7 +49,7 @@
                                         <i class="fa-regular fa-star text-secondary"></i>
                                         <i class="fa-regular fa-star text-secondary"></i>
                                         <i class="fa-regular fa-star text-secondary"></i>
-                                        <div id="full-star-container" class="full-star-container d-flex align-items-center" data-avg-rating="{{ post.avg_rating }}">
+                                        <div class="full-star-container d-flex align-items-center" data-avg-rating="{{ post.avg_rating }}">
                                             <i class="fa-solid fa-star" data-value="1"></i>
                                             <i class="fa-solid fa-star" data-value="2"></i>
                                             <i class="fa-solid fa-star" data-value="3"></i>
@@ -83,7 +83,7 @@
                 </div>
             {% endfor %}
                 <div class="col-12 my-3 d-flex align-items-center justify-content-center">
-                    <a href="{% url 'posts' %}" class="custom-btn"><p>View all</p></a>
+                    <a href="{% url 'posts' %}" class="custom-btn"><span>View all</span></a>
                 </div>
         </div>
     </div>

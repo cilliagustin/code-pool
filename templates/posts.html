@@ -37,8 +37,8 @@
                     <div class="preview-card d-flex flex-column">
                         <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
                             <h3 class="my-3">{{ post.title }}</h3>
-                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><p>View Code</p></a>
-                            <button class="custom-btn black full-screen-btn"><p>Full Screen</p></button>
+                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><span>View Code</span></a>
+                            <button class="custom-btn black full-screen-btn"><span>Full Screen</span></button>
                         </div>
                         <div class="preview-card-body">
                             <textarea data-code-html >{{ post.html_content }}</textarea>
@@ -59,7 +59,7 @@
                                         <i class="fa-regular fa-star text-secondary"></i>
                                         <i class="fa-regular fa-star text-secondary"></i>
                                         <i class="fa-regular fa-star text-secondary"></i>
-                                        <div id="full-star-container" class="full-star-container d-flex align-items-center" data-avg-rating="{{ post.avg_rating }}">
+                                        <div class="full-star-container d-flex align-items-center" data-avg-rating="{{ post.avg_rating }}">
                                             <i class="fa-solid fa-star" data-value="1"></i>
                                             <i class="fa-solid fa-star" data-value="2"></i>
                                             <i class="fa-solid fa-star" data-value="3"></i>
@@ -97,10 +97,10 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         {% if page_obj.has_previous %}
-                        <li><a href="?page={{ page_obj.previous_page_number }}" class="custom-btn mx-1"><p>&laquo; PREV</p></a></li>
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="custom-btn mx-1"><span>&laquo; PREV</span></a></li>
                         {% endif %}
                         {% if page_obj.has_next %}
-                        <li><a href="?page={{ page_obj.next_page_number }}" class="custom-btn mx-1"><p>NEXT &raquo;</p></a></li>
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="custom-btn mx-1"><span>NEXT &raquo;</span></a></li>
                         {% endif %}
                     </ul>
                 </nav>

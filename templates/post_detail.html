@@ -18,18 +18,18 @@
                     <p class="author">Created by: {{ post.author}}</p>
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
                     <div class="edit-fav-container mb-3 d-flex flex-wrap justify-content-center align-items-center">
-                        <button class="custom-btn black full-screen-btn"><p>Full Screen <i class="fa-solid fa-up-right-and-down-left-from-center"></i></p></button>
+                        <button class="custom-btn black full-screen-btn"><span>Full Screen <i class="fa-solid fa-up-right-and-down-left-from-center"></i></span></button>
                     {% if user.is_authenticated %}
                             {% if user.username == post.author.username or user.is_superuser %}
-                            <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><p>Edit Post <i class="fa-solid fa-pencil"></i></p></a>
-                            <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><p>Delete Post <i class="fa-regular fa-circle-xmark"></i></p></a>
+                            <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><span>Edit Post <i class="fa-solid fa-pencil"></i></span></a>
+                            <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><span>Delete Post <i class="fa-regular fa-circle-xmark"></i></span></a>
                             {% endif %}
                             <form class="d-inline" action="{% url 'post_bookmark' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if is_bookmarked %}
-                                    <button type="submit" class="custom-btn green-inverted"><p>Bookmarked <i class="fa-solid fa-bookmark"></i></p></button>
+                                    <button type="submit" class="custom-btn green-inverted"><span>Bookmarked <i class="fa-solid fa-bookmark"></i></span></button>
                                 {% else %}
-                                    <button type="submit" class="custom-btn green"><p>Bookmark <i class="fa-regular fa-bookmark"></i></p></button>
+                                    <button type="submit" class="custom-btn green"><span>Bookmark <i class="fa-regular fa-bookmark"></i></span></button>
                                 {% endif %}
                             </form>
                             {% endif %}
@@ -173,7 +173,7 @@
             <form method="POST">
                 {{ comment_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="custom-btn"><p>Submit</p></button>
+                <button type="submit" class="custom-btn"><span>Submit</span></button>
             </form>
             {% else %}
             <p>Please <a href="{% url 'account_signup' %}">Register</a> or <a href="{% url 'account_login' %}">Login</a> to comment.</p>
