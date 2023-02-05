@@ -1,28 +1,13 @@
 # CODEPOOL
 
-In this section, you will include a few paragraphs providing an overview of your project.
-Essentially, this part is your "sales pitch".
+Codepool is an innovative website designed specifically for web developers. It's a one-stop-shop for all your code component needs, providing you with access to a vast collection of HTML, CSS, and JS snippets created and shared by the community. As a registered user, you can contribute to the pool of knowledge by uploading your own code components, whether they be simple buttons, stylish navbars, or complex loaders. The platform makes it easy for you to showcase your skills with coders from around the world.
 
-At this stage, you should have a name for your project so use it!
-Don't introduce the project as a "portfolio project" for the diploma.
+Codepool also provides a platform for users to rate and comment on other users' posts, helping to build a community of developers who support and encourage each other. You can keep track of your favorite code snippets by bookmarking them, saving them for later use or referencing. The platform is user-friendly, making it simple to find what you're looking for, and the code can be accessed and previewed by everyone, even non-registered users.
 
-In this section, describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
+Whether you're a seasoned developer or just starting out, Codepool is the perfect place to expand your knowledge and build your code library. With its growing community of coders and wealth of resources, you'll never run out of new and exciting code components to explore. So why wait? Join Codepool today and take your coding skills to the next level!
 
-Consider adding a mockup image using the "Am I Responsive" website.
-Here's your deployed site as an example:
-https://ui.dev/amiresponsive?url=https://code-pool-agustin-cilli.herokuapp.com
 
-Screenshots for the README and testing should not be inside of `assets/` or `static/` image folders.
-(reminder: `assets/` and `static/` are for files used on the live site, not documentation)
-Consider adding a new folder called `documentation`, and add the amiresponsive screenshot inside of that folder.
-To add the image into your README, use this format:
-(assuming you have a new folder called `documentation` with an image called "mockup.png")
-
-![screenshot](documentation/mockup.png)
-
-Note: Markdown files (.md) should not contain HTML elements like `img`, `br`, `div`, `a`, etc, only Markdown formatting.
-Find out more about using Markdown elements here:
-https://pandao.github.io/editor.md/en.html
+* placeholder for Am I Responsive
 
 ## UX
 
