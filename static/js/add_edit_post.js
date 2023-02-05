@@ -24,13 +24,13 @@ function slugify(title, slug) {
 
 // Trigger slugify
 postTitle.addEventListener('input', () => {
-    slugify(postTitle, postSlug)
-})
+    slugify(postTitle, postSlug);
+});
 
 
 // #### PREVIEW CODE ####
 previewCode.addEventListener('click', (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // show hidden iframe
     document.querySelector('.create-edit-iframe-container').classList.add('open');
 
@@ -41,4 +41,4 @@ previewCode.addEventListener('click', (e) => {
     let iframe = document.querySelector('iframe');
     //call runEditor function
     runEditor(iframe, htmlCode, cssCode, jsCode);
-})
+});
