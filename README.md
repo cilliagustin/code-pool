@@ -11,7 +11,9 @@ Whether you're a seasoned developer or just starting out, Codepool is the perfec
 
 ## UX
 
-In this section, you will briefly explain your design processes.
+The user experience of Codepool is designed to be modern and intuitive, with a dark theme that is both visually appealing and easy on the eyes. When you first access the website, you are presented with a list of posts, each previewed in a compact card that provides basic information about the code component. The card includes the title, author, last modified date, rating, and category, as well as a preview of the code displayed within an iframe. This card are also used in the post, categories and bookmarked templates.
+
+The templates for adding or editing posts and categories have a minimalistic design, focusing on efficiency and ease of use for both regular users and superusers. The interface is clean and straightforward, with clear fields for entering necessary information, streamlining the process and allowing for quick and hassle-free updates to your code components. This design approach ensures that the user experience is fast and focused, allowing you to easily keep your code library organized and up-to-date.
 
 ### Colour Scheme
 
