@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="html-button-container d-flex justify-content-center align-items-center">
-                        <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt</span>HTML<span>&gt</span></button>
+                        <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt;</span>HTML<span>&gt;</span></button>
                         <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
                     </div>
                     <div class="css-button-container d-flex justify-content-center align-items-center">
@@ -138,7 +138,7 @@
                         <div class="comment-footer">
                             <form class="d-inline me-auto" action="{% url 'approve_comment' comment.pk %}" method="POST">
                                 {% csrf_token %}
-                                <button type="submit" class="custom-badge approve"><p>Approve comment</p></button>
+                                <button type="submit" class="custom-badge approve"><span>Approve comment</span></button>
                             </form>
                             <p class="date">Written on {{ comment.created_on }}</p>
                         </div>

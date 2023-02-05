@@ -415,7 +415,8 @@ footer .links a i {
 }
 
 
-.custom-badge p{
+.custom-badge p,
+.custom-badge span{
     font-size: .6rem;
     font-weight: 600;
     margin: 0;
@@ -955,7 +956,8 @@ footer .links a i {
     background: var(--green);
 }
 
-.comment-card .custom-badge p{
+.comment-card .custom-badge p,
+.comment-card .custom-badge span{
     font-size: 12px;
 }
 
@@ -997,7 +999,8 @@ footer .links a i {
     border: none;
 }
 
-.comment-card.unapproved .custom-badge p{
+.comment-card.unapproved .custom-badge p,
+.comment-card.unapproved .custom-badge span{
     color: var(--white);
 }
 
