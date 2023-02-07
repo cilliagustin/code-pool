@@ -52,17 +52,9 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 
 ### Typography
 
-Explain any fonts and icon libraries used, like Google Fonts and/or Font Awesome.
+The site uses a mix of fonts to create a unique and modern look. This are provided by [Google Fonts](https://fonts.google.com/) The default font is [Roboto](https://fonts.google.com/specimen/Roboto), which provides a clean and versatile base. [Raleway](https://fonts.google.com/specimen/Raleway) is used for buttons, adding a touch of personality. [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) is used for badges, textareas (that are styled as terminals) and main titles in index, posts and filtered posts templates to give a modern and computerized look. Finally, [Fira Sans](https://fonts.google.com/specimen/Fira+Sans) is used for some titles and the navbar, providing a bold and distinctive touch. These font choices work together to create a cohesive and visually appealing design.
 
-Consider adding a link to each font used, and the Font Awesome site if used (or similar icon library).
-
-Example:
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
-
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
+[Font Awesome](https://fontawesome.com/) is also used to add different icons throughout the website
 
 ## User Stories
 
