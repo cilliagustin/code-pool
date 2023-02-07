@@ -2,20 +2,14 @@
 /* #### General Styling #### */
 
 :root {
-    --main-gray: rgb(39, 49, 62);
-    --highlight-gray: rgb(50, 61, 77);
-    --dark-gray: rgb(28, 39, 50);
-    --darkest-gray: rgb(22, 31, 40);
-    --darkest-gray2: rgb(15, 21, 27);
+    --gray-1: rgb(50, 61, 77);
+    --gray-2: rgb(39, 49, 62);
+    --gray-3: rgb(28, 39, 50);
+    --gray-4: rgb(22, 31, 40);
+    --gray-5: rgb(15, 21, 27);
     --text-gray: rgb(118, 118, 118);
     --cream: rgb(191, 192, 192);
     --white: rgb(229, 229, 229);
-    --black-texture-background:
-        radial-gradient(at top left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 40%),
-        radial-gradient(at bottom left, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 60%),
-        radial-gradient(at top right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 60%),
-        radial-gradient(at bottom right, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 50%),
-        linear-gradient(var(--dark-gray), var(--dark-gray));
     --html-orange: rgb(247, 98, 28);
     --css-blue: rgb(0, 167, 221);
     --js-yellow: rgb(247, 193, 52);
@@ -24,10 +18,16 @@
     --red: rgb(132, 32, 41);
     --green: rgb(71, 159, 118);
     --orange: rgb(237 154 84);
+    --black-texture-background:
+        radial-gradient(at top left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 40%),
+        radial-gradient(at bottom left, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at top right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at bottom right, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 50%),
+        linear-gradient(var(--gray-3), var(--gray-3));
 }
 
 body {
-    background: var(--highlight-gray);
+    background: var(--gray-1);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -90,7 +90,7 @@ textarea {
 }
 
 .custom-btn:hover span {
-    color: var(--highlight-gray);
+    color: var(--gray-1);
 }
 
 .custom-btn.black span {
@@ -98,7 +98,7 @@ textarea {
 }
 
 .custom-btn.black:hover span {
-    color: var(--dark-gray);
+    color: var(--gray-3);
 }
 
 .custom-btn.yellow {
@@ -114,7 +114,7 @@ textarea {
 }
 
 .custom-btn.yellow:hover span {
-    color: var(--dark-gray);
+    color: var(--gray-3);
 }
 
 .custom-btn.green {
@@ -130,7 +130,7 @@ textarea {
 }
 
 .custom-btn.green:hover span {
-    color: var(--dark-gray);
+    color: var(--gray-3);
 }
 
 .custom-btn.green-inverted {
@@ -146,7 +146,7 @@ textarea {
 }
 
 .custom-btn.green-inverted span {
-    color: var(--dark-gray);
+    color: var(--gray-3);
 }
 
 .custom-btn.green-inverted:hover span {
@@ -166,7 +166,7 @@ textarea {
 }
 
 .custom-btn.blue:hover span {
-    color: var(--dark-gray);
+    color: var(--gray-3);
 }
 
 .custom-btn.red {
@@ -194,7 +194,7 @@ textarea {
     justify-content: flex-end;
     align-items: center;
     padding: 10px;
-    background-color: var(--main-gray);
+    background-color: var(--gray-2);
     position: fixed;
     z-index: 11;
     top: 0;
@@ -274,7 +274,7 @@ textarea {
 #navbar .username{
     height: 0px;
     width: 100%;
-    background: var(--dark-gray);
+    background: var(--gray-3);
     position: absolute;
     top: 100%;
     left: 0;
@@ -337,7 +337,7 @@ footer {
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--main-gray);
+    background-color: var(--gray-2);
 }
 
 footer p {
@@ -369,7 +369,7 @@ footer .links a i {
 }
 
 #full-screen-modal nav{
-    background: var(--main-gray);
+    background: var(--gray-2);
 }
 
 #full-screen-modal nav p{
@@ -420,7 +420,7 @@ footer .links a i {
     font-size: .6rem;
     font-weight: 600;
     margin: 0;
-    color: var(--darkest-gray);
+    color: var(--gray-4);
     text-transform: capitalize;
     font-family: 'Roboto Mono', monospace;
 }
@@ -435,7 +435,7 @@ footer .links a i {
     max-height: 600px;
     margin: .75rem 0;
     border-radius: 4px;
-    border: 1px solid var(--dark-gray);
+    border: 1px solid var(--gray-3);
     overflow: hidden;
 }
 
@@ -464,7 +464,7 @@ footer .links a i {
 }
 
 .preview-card .preview-card-header .custom-btn:hover span {
-    color: var(--dark-gray);
+    color: var(--gray-3);
 }
 
 .preview-card .preview-card-header .updated-on {
@@ -556,7 +556,7 @@ footer .links a i {
 /* Filter posts navigation */
 
 #filter-navigation {
-    background: var(--darkest-gray);
+    background: var(--gray-4);
     width: min(90%, 400px);
     margin: 1.5rem auto;
     border-radius: 4px;
@@ -834,7 +834,7 @@ footer .links a i {
     height: 100%;
     width: auto;
     border: none;
-    background: var(--darkest-gray);
+    background: var(--gray-4);
 }
 
 .code-editor .code-editor-header div .copy-btn i{
@@ -847,7 +847,7 @@ footer .links a i {
     border: none;
     color: var(--text-gray);
     font-weight: 600;
-    background: var(--dark-gray);
+    background: var(--gray-3);
 }
 
 .code-editor .code-editor-header .code-editor-btn#htmlBtn:hover span,
@@ -876,12 +876,12 @@ footer .links a i {
 }
 
 .code-editor .code-editor-header .code-editor-btn[data-open="true"] {
-    background: var(--highlight-gray);
+    background: var(--gray-1);
     color: var(--white);
 }
 
 .code-editor .code-editor-header .code-editor-btn[data-open="true"]~.copy-btn{
-    background: var(--main-gray);
+    background: var(--gray-2);
 }
 
 .code-editor .code-editor-code {
@@ -901,7 +901,7 @@ footer .links a i {
     display: none;
     border: none;
     border-radius: 3px;
-    background: var(--dark-gray);
+    background: var(--gray-3);
     color: var(--white);
     font-size: 12px;
     font-family: 'Roboto Mono', monospace;
@@ -928,7 +928,7 @@ footer .links a i {
 /* Comments */
 
 .comment-card {
-    background: var(--main-gray);
+    background: var(--gray-2);
     width: 100%;
     min-height: 120px;
     height: auto;
@@ -938,7 +938,7 @@ footer .links a i {
 }
 
 .comment-card div {
-    background: var(--dark-gray);
+    background: var(--gray-3);
     width: 100%;
     min-height: 30px;
     height: auto;
@@ -962,11 +962,11 @@ footer .links a i {
 }
 
 .comment-card.darker{
-    background: var(--darkest-gray);
+    background: var(--gray-4);
 }
 
 .comment-card.darker div{
-    background: var(--darkest-gray2);
+    background: var(--gray-5);
 }
 
 .comment-card.unapproved{
@@ -987,12 +987,12 @@ footer .links a i {
 
 .comment-card.unapproved .comment-header > p ,
 .comment-card.unapproved .comment-footer > p {
-    color: var(--highlight-gray);
+    color: var(--gray-1);
 }
 .comment-card.unapproved .comment-header > p span,
 .comment-card.unapproved .comment-footer > p span,
 .comment-card.unapproved p.comment{
-    color: var(--darkest-gray);
+    color: var(--gray-4);
 }
 
 .comment-card.unapproved .custom-badge {
@@ -1070,7 +1070,7 @@ footer .links a i {
 }
 
 .user-comment form .custom-btn:hover span {
-    color: var(--highlight-gray);
+    color: var(--gray-1);
 }
 
 
@@ -1107,7 +1107,7 @@ footer .links a i {
 }
 
 .create-edit-post form div button::before {
-    background: var(--highlight-gray);
+    background: var(--gray-1);
 }
 
 
@@ -1144,7 +1144,7 @@ footer .links a i {
 }
 
 .auth .auth-card {
-    background: var(--darkest-gray);
+    background: var(--gray-4);
     min-height: 350px;
     width: 300px;
     border-radius: 3px;
@@ -1227,7 +1227,7 @@ footer .links a i {
     padding: 0 3px;
     border-top: none;
     border-bottom: none;
-    background: var(--darkest-gray);
+    background: var(--gray-4);
     padding: 0 3px;
     transition: 1s all ease-out;
     color: var(--cream);
@@ -1317,7 +1317,7 @@ footer .links a i {
 }
 
 .auth .auth-card form button::before {
-    background: var(--darkest-gray);
+    background: var(--gray-4);
 }
 
 .auth .auth-card form button p {
@@ -1341,7 +1341,7 @@ footer .links a i {
 }
 
 .signout form button::before {
-    background: var(--highlight-gray);
+    background: var(--gray-1);
 }
 
 .signout form button p {
@@ -1392,7 +1392,7 @@ footer .links a i {
 }
 .category-card{
     border-radius: 3px;
-    background: var(--dark-gray);
+    background: var(--gray-3);
     padding: 10px;
 }
 
