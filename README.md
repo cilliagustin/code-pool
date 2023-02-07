@@ -17,37 +17,36 @@ The templates for adding or editing posts and categories have a minimalistic des
 
 ### Colour Scheme
 
-Explain your colours and the colour scheme.
+The color of rgb(50, 61, 77) sets the tone for the website. The navbar and footer are also in a dark shade, using the color rgb(39, 49, 62). The forms for registering and logging in use the color rgb(22, 31, 40), providing a contrast to the lighter elements of the site. Buttons on the site come in a range of colors, including white, gray, orange, yellow, green, and red, adding visual interest and highlighting important actions. The preview cards are given additional depth with a dark gradient texture, making the code components stand out. The text throughout the site is mainly white, with gray tones used to emphasize certain parts and guide the user's eye.
 
-- `#000000` used for primary text.
-- `#E84610` used for primary highlights.
-- `#4A4A4F` used for secondary text.
-- `#009FE3` used for secondary highlights.
-
-Consider adding a link and screenshot for your colour scheme using "coolors".
-https://coolors.co/generate
-
-When you add a colour to the palette, the URL is dynamically updated, making it easier for you to return back to your colour palette later if needed.
-
-Example:
-
-I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette.
-
-![screenshot](documentation/coolors.png)
-
-If you've used CSS `:root` variables, consider also including a code snippet here!
+![screenshot](documentation/palette.png)
 
 I've used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
 
 ```css
 :root {
-    /* P = Primary | S = Secondary */
-    --p-text: #000000;
-    --p-highlight: #E84610;
-    --s-text: #4A4A4F;
-    --s-highlight: #009FE3;
-    --white: #FFFFFF;
-    --black: #000000;
+    --gray-1: rgb(50, 61, 77);
+    --gray-2: rgb(39, 49, 62);
+    --gray-3: rgb(28, 39, 50);
+    --gray-4: rgb(22, 31, 40);
+    --gray-5: rgb(15, 21, 27);
+    --text-gray: rgb(118, 118, 118);
+    --cream: rgb(191, 192, 192);
+    --white: rgb(229, 229, 229);
+    --html-orange: rgb(247, 98, 28);
+    --css-blue: rgb(0, 167, 221);
+    --js-yellow: rgb(247, 193, 52);
+    --blue: rgb(91, 191, 186);
+    --yellow: rgb(255, 205, 57);
+    --red: rgb(132, 32, 41);
+    --green: rgb(71, 159, 118);
+    --orange: rgb(237 154 84);
+    --black-texture-background:
+        radial-gradient(at top left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 40%),
+        radial-gradient(at bottom left, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at top right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 255, 0) 60%),
+        radial-gradient(at bottom right, rgba(0, 0, 0, .5) 10%, rgba(0, 0, 255, 0) 50%),
+        linear-gradient(var(--gray-3), var(--gray-3));
 }
 ```
 
