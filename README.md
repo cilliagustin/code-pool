@@ -93,31 +93,229 @@ Instructions on how to do Markdown `tables` start on line #213 on this site: htt
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
-### Home Page Wireframes
+### Index Wireframes
+<details>
+<summary>View Wireframes</summary>
 
 | Size | Screenshot |
 | --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/mobile-home.png) |
-| Tablet | ![screenshot](documentation/wireframes/tablet-home.png) |
-| Desktop | ![screenshot](documentation/wireframes/desktop-home.png) |
+| Mobile | ![screenshot](documentation/wireframes/index-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/index-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/index-desktop.png) |
 
-### About Page Wireframes
+</details>
 
-| Size | Screenshot |
-| --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/mobile-about.png) |
-| Tablet | ![screenshot](documentation/wireframes/tablet-about.png) |
-| Desktop | ![screenshot](documentation/wireframes/desktop-about.png) |
-
-### Contact Page Wireframes
+### Posts Wireframes
+<details>
+<summary>View Wireframes</summary>
 
 | Size | Screenshot |
 | --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/mobile-contact.png) |
-| Tablet | ![screenshot](documentation/wireframes/tablet-contact.png) |
-| Desktop | ![screenshot](documentation/wireframes/desktop-contact.png) |
+| Mobile | ![screenshot](documentation/wireframes/posts-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/posts-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/posts-desktop.png) |
 
-Repeat for any addition wireframe pages you have.
+</details>
+
+
+
+### Category filtered Posts Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/category-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/category-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/category-desktop.png) |
+
+</details>
+
+
+
+### Bookmarked filtered Posts Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/bookmarked-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/bookmarked-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/bookmarked-desktop.png) |
+
+</details>
+
+
+
+### Post Detail Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/post-detail-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/post-detail-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/post-detail-desktop.png) |
+
+</details>
+
+
+
+### Edit Post Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/edit-post-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/edit-post-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/edit-post-desktop.png) |
+
+</details>
+
+
+
+### Delete Post Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/delete-post-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/delete-post-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/delete-post-desktop.png) |
+
+</details>
+
+
+
+### Delete Comment Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/delete-comment-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/delete-comment-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/delete-comment-desktop.png) |
+
+</details>
+
+
+
+### Add Post Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/new-component-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/new-component-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/new-component-desktop.png) |
+
+</details>
+
+
+
+### Category List Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/browse-category-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/browse-category-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/browse-category-desktop.png) |
+
+</details>
+
+
+
+### Add Category Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/new-category-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/new-category-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/new-category-desktop.png) |
+
+</details>
+
+
+
+### Edit Category Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/edit-category-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/edit-category-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/edit-category-desktop.png) |
+
+</details>
+
+
+
+### Delete Category Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/delete-category-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/delete-category-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/delete-category-desktop.png) |
+
+</details>
+
+
+
+### SignIn Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/sign-in-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/sign-in-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/sign-in-desktop.png) |
+
+</details>
+
+
+
+### SignUp Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/sign-up-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/sign-up-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/sign-up-desktop.png) |
+
+</details>
+
+
+
+### SignOut Wireframes
+<details>
+<summary>View Wireframes</summary>
+
+| Size | Screenshot |
+| --- | --- |
+| Mobile | ![screenshot](documentation/wireframes/sign-out-mobile.png) |
+| Tablet | ![screenshot](documentation/wireframes/sign-out-tablet.png) |
+| Desktop | ![screenshot](documentation/wireframes/sign-out-desktop.png) |
+
+</details>
+
+
+
+
 
 ## Features
 
