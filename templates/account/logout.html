@@ -12,12 +12,13 @@
       <h1>{% trans "Sign Out" %}</h1>
       <p>Signed as <span class="text-white">{{ user }}</span></p>
       <p>{% trans 'Are you sure you want to sign out?' %}</p>
-      <form method="post" action="{% url 'account_logout' %}">
+      <form method="post" class="d-flex justify-content-start" action="{% url 'account_logout' %}">
         {% csrf_token %}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
         <button type="submit" class="custom-btn"><span>{% trans 'Sign Out' %}</span></button>
+        <a href="{% url 'home' %}" class="custom-btn ms-1"><span>No, take me back!</span></a>
       </form>
     </div>
   </div>
