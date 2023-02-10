@@ -1,59 +1,55 @@
 /* jshint esversion: 11 */
 // #### Typewritter effect ####
-class TypeWriter {
-  constructor(titleWord, words) {
-    this.titleWord = titleWord;
-    this.words = words;
-    this.txt = '';
-    this.wordIndex = 0;
-    this.type();
-    this.isDeleting = false;
-  }
+function initTypewriter() {
+  const titleWord = document.getElementById("title-word");
+  const words = ["code", "ideas", "knowledge"];
+  type(titleWord, words);
+}
 
-  type() {
-    const current = this.wordIndex % this.words.length;
-    const fullTxt = this.words[current];
+function type(titleWord, words) {
+  let txt = '';
+  let wordIndex = 0;
+  let isDeleting = false;
+
+  const typing = () => {
+    const current = wordIndex % words.length;
+    const fullTxt = words[current];
 
     // Check if deleting
-    if (this.isDeleting) {
-      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    if (isDeleting) {
+      txt = fullTxt.substring(0, txt.length - 1);
     } else {
-      this.txt = fullTxt.substring(0, this.txt.length + 1);
+      txt = fullTxt.substring(0, txt.length + 1);
     }
 
     // Insert txt into element
-    this.titleWord.innerHTML = this.txt;
+    titleWord.innerHTML = txt;
 
     // Initial Type Speed
     let typeSpeed = 300;
 
-    if (this.isDeleting) {
+    if (isDeleting) {
       typeSpeed /= 2;
     }
 
     // If word is complete
-    if (!this.isDeleting && this.txt === fullTxt) {
+    if (!isDeleting && txt === fullTxt) {
       // Make pause at end
-      typeSpeed = 3000;
+      typeSpeed = 2000;
       // Set delete to true
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-      this.isDeleting = false;
+      isDeleting = true;
+    } else if (isDeleting && txt === '') {
+      isDeleting = false;
       // Move to next word
-      this.wordIndex++;
+      wordIndex++;
       // Pause before start typing
       typeSpeed = 500;
     }
 
-    setTimeout(() => this.type(), typeSpeed);
-  }
-}
+    setTimeout(typing, typeSpeed);
+  };
 
-// Init typewriter
-function initTypewriter() {
-  const titleWord = document.getElementById("title-word");
-  const words = ["code", "ideas", "knowledge"];
-  new TypeWriter(titleWord, words);
+  typing();
 }
 
 //activates fullScreen function with each btn
