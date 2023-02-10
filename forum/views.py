@@ -190,7 +190,7 @@ class CategoryList(generic.ListView):
         return Category.objects.filter(
             Q(name__iexact='miscellaneous') | Q(name__isnull=False)
         ).order_by(
-            Case(When(name__iexact='miscellaneous', then=Value(1)), default=Value(0)), 'name'
+            Case(When(name__iexact='miscellaneous', then=Value(1)), default=Value(0)), 'name'  # noqa
         )
 
 
@@ -206,5 +206,5 @@ class DeleteCategory(generic.DeleteView):
 def canvas_view(request):
     response = HttpResponse()
     response['X-Frame-Options'] = 'ALLOWALL'
-    response['Access-Control-Allow-Origin'] = 'https://code-pool-agustin-cilli.herokuapp.com'
+    response['Access-Control-Allow-Origin'] = 'https://code-pool-agustin-cilli.herokuapp.com'  # noqa
     return response
