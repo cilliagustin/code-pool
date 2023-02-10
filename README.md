@@ -86,10 +86,6 @@ In this section, list all of your user stories for the project.
 
 ## Wireframes
 
-In this section, display your wireframe screenshots using a Markdown `table`.
-
-Instructions on how to do Markdown `tables` start on line #213 on this site: https://pandao.github.io/editor.md/en.html
-
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
@@ -401,50 +397,60 @@ Feel free to delete any unused items below as necessary.
 
 ## Database Design
 
-Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models.
-Understanding the relationships between different tables can save time later in the project.
-
-Using your defined models (one example below), create an ERD with the relationships identified.
 
 ```python
-class Product(models.Model):
+class Post(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='forum_posts'
+        )
+    updated_date = models.DateTimeField(auto_now=True)
+    html_content = models.TextField()
+    css_content = models.TextField()
+    js_content = models.TextField(blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(
-        "Category", null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=254)
-    description = models.TextField()
-    has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
-
-    def __str__(self):
-        return self.name
+        Category, max_length=60, on_delete=models.CASCADE,
+        related_name='catego')
+    bookmark = models.ManyToManyField(
+        User, related_name="forum_favorutes", blank=True
+        )
 ```
 
-A couple recommendations for building free ERDs:
-- [Draw.io](https://draw.io)
-- [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
+```python
+class Category(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+```
 
-![screenshot](documentation/erd.png)
+```python
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    value = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)])
+```
 
-Using Markdown formatting to represent an example ERD table using the Product model above:
+```python
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments'
+    )
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='forum_comments',
+        null=True, blank=True
+        )
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+```
 
-- Table: **Product**
+<details>
+<summary>View related models</summary>
 
-    | **PK** | **id** (unique) | Type | Notes |
-    | --- | --- | --- | --- |
-    | **FK** | category | ForeignKey | FK to **Category** model |
-    | | sku | CharField | |
-    | | name | CharField | |
-    | | description | TextField | |
-    | | has_sizes | BooleanField | |
-    | | price | DecimalField | |
-    | | rating | DecimalField | |
-    | | image_url | URLField | |
-    | | image | ImageField | |
+![model](documentation/models.png) 
+
+</details>
 
 ## Agile Development Process
 
