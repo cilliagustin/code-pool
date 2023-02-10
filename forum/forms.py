@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields['css_content'].initial = resetCss
-        
+
     class Meta:
         model = Post
         fields = (
