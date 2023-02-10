@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 // #### FULL SCREEN BTN ####
 //activates fullScreen function with the btn
 const fullScreenBtn = fullScreenBtns[0];

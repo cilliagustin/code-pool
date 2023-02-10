@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 // #### SLUGIFY ####
 /**
  * Transforms text to slug, deletes special characters

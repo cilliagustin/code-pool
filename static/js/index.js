@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 // #### Typewritter effect ####
 class TypeWriter {
   constructor(titleWord, words) {

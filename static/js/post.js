@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 //activates fullScreen function with each btn
 fullScreenBtns.forEach(btn => {
   btn.addEventListener("click", e => {

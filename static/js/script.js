@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 const mediumMediaQuery = window.matchMedia('(min-width: 576px)');
 const largeMediaQuery = window.matchMedia('(min-width: 768px)');
 const navbar = document.querySelector("nav");
