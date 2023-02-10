@@ -31,19 +31,19 @@
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
           {% csrf_token %}
           <div class="wrapper">
-            <input type="text" name="username" autocomplete="username" minlength="1" maxlength="150" required="" id="id_username" fdprocessedid="9cuwi7">
+            <input type="text" name="username" autocomplete="username" minlength="1" maxlength="150" required="" id="id_username" >
             <label for="id_username">Username:</label>
           </div>
           <div class="wrapper">
-            <input type="email" name="email" autocomplete="email" id="id_email" fdprocessedid="ck0t7c">
+            <input type="email" name="email" autocomplete="email" id="id_email" >
             <label for="id_email">E-mail (optional):</label>
           </div>
           <div class="wrapper">
-            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" fdprocessedid="ldljj">
+            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" >
             <label for="id_password1">Password:</label>
           </div>
           <div class="wrapper">
-            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" fdprocessedid="qvqxrb">
+            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
             <label for="id_password2">Password (again):</label>
           </div>
           {% if redirect_field_value %}
