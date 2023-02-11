@@ -58,31 +58,31 @@ The site uses a mix of fonts to create a unique and modern look. This are provid
 
 ## User Stories
 
-In this section, list all of your user stories for the project.
+### Regular users (non registered)
 
-### New Site Users
-
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
+- As a User I can view all the code components shared so that copy them and use them in my own projects
+- As a User I can filter the code components by category or bookmarked posts so that I can easily find the post that I want
+- As a user I can open a component shared so that see the code used in HTML, CSS and Js
+- As a user I can View comments in posts so that see what other people think
+- As a user I can regsiter and become a registered user so that comment and like posts, and create my own posts
+- As a user I can preview shared elements so that decide if I am interested in the element before looking at the code
+- As a User I can view the newest code components shared on the home page so that I can easily be updated with the newest components
+- As a User I can open the iframe in full screen on the preview cards so that I can see the code component in a bigger scale
 
 ### Returning Site Users
 
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a registered user I can delete a post created by me so that I can remove it completely in case I don´t want it on the website
+- As a registered user I can edit my own posts so that make a correction in case I have a mistake
+- As a Registered User I can comment posts so that I can share my opinion about other users components
+- As a Registered User I can create a post with my code so that I can share and store somewhere the components I created
+- As a Registered User I can add or remove a post to bookmarked so that easily find it
+- As a Registered user I can rate a post from 1 to 5 so that share my opinion and view other users opinions
+- As a registered user I can delete my comments from any post so that take down my comment if i commented on the wrong post
 
 ### Site Admin
 
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
+- As a Site admin I can delete posts and comments so that manage the content in the site
+- As a Site Admin I can approve comments so that I can filter unnecessary comments in the website
 
 ## Wireframes
 
@@ -396,6 +396,8 @@ Feel free to delete any unused items below as necessary.
 - [AWS S3](https://aws.amazon.com/s3) used for online static file storage.
 
 ## Database Design
+
+Here are the different models created for the database. The only model not included is the user model that is a default model provided by Django.
 
 
 ```python
