@@ -115,8 +115,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### Category filtered Posts Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -128,8 +126,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Desktop | ![screenshot](documentation/wireframes/category-desktop.png) |
 
 </details>
-
-
 
 ### Bookmarked filtered Posts Wireframes
 <details>
@@ -143,8 +139,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### Post Detail Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -156,8 +150,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Desktop | ![screenshot](documentation/wireframes/post-detail-desktop.png) |
 
 </details>
-
-
 
 ### Edit Post Wireframes
 <details>
@@ -171,8 +163,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### Delete Post Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -184,8 +174,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Desktop | ![screenshot](documentation/wireframes/delete-post-desktop.png) |
 
 </details>
-
-
 
 ### Delete Comment Wireframes
 <details>
@@ -199,8 +187,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### Add Post Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -212,8 +198,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Desktop | ![screenshot](documentation/wireframes/new-component-desktop.png) |
 
 </details>
-
-
 
 ### Category List Wireframes
 <details>
@@ -227,8 +211,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### Add Category Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -240,8 +222,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Desktop | ![screenshot](documentation/wireframes/new-category-desktop.png) |
 
 </details>
-
-
 
 ### Edit Category Wireframes
 <details>
@@ -255,8 +235,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### Delete Category Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -268,8 +246,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Desktop | ![screenshot](documentation/wireframes/delete-category-desktop.png) |
 
 </details>
-
-
 
 ### SignIn Wireframes
 <details>
@@ -283,8 +259,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### SignUp Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -297,8 +271,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 </details>
 
-
-
 ### SignOut Wireframes
 <details>
 <summary>View Wireframes</summary>
@@ -310,10 +282,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Desktop | ![screenshot](documentation/wireframes/sign-out-desktop.png) |
 
 </details>
-
-
-
-
 
 ## Features
 
@@ -378,39 +346,26 @@ Hint: the more, the merrier!
     - It would be useful to create a template where administrators can see all the information related to posts and comments in one place, rather than having to access the post details to edit or delete them.
 
 - Page for Registered Users:
-    - A page where registered users can view their own information, as well as all the posts and comments they have made.
+    - A page where users can view information about registered users, as well as all the posts and comments they have made. This page could also include a profile picture and links to their social media profiles, such as LinkedIn or GitHub.
 
 
 ## Tools & Technologies Used
 
-In this section, you should explain the various tools and technologies used to develop the project.
-Make sure to put a link (where applicable) to the source, and explain what each was used for.
-Some examples have been provided, but this is just a sample only, your project might've used others.
-Feel free to delete any unused items below as necessary.
-
 - [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 - [CSS](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
 - [CSS :root variables](https://www.w3schools.com/css/css3_variables.asp) used for reusable styles throughout the site.
-- [CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) and/or [CSS Grid](https://www.w3schools.com/css/css_grid.asp) used for an enhanced responsive layout.
+- [CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) and [CSS Grid](https://www.w3schools.com/css/css_grid.asp) used for an enhanced responsive layout.
 - [Bootstrap](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- [Materialize](https://materializecss.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [JavaScript](https://www.javascript.com) used for user interaction on the site.
 - [Python](https://www.python.org) used as the back-end programming language.
 - [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [GitHub](https://github.com) used for secure online code storage.
-- [GitHub Pages](https://pages.github.com) used for hosting the deployed front-end site.
 - [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
 - [Markdown Builder by Tim Nelson](https://traveltimn.github.io/markdown-builder) used to help generate the Markdown files.
-- [Flask](https://flask.palletsprojects.com) used as the Python framework for the site.
 - [Django](https://www.djangoproject.com) used as the Python framework for the site.
-- [MongoDB](https://www.mongodb.com) used as the non-relational database management with Flask.
-- [SQLAlchemy](https://www.sqlalchemy.org) used as the relational database management with Flask.
-- [PostgreSQL](https://www.postgresql.org) used as the relational database management.
 - [ElephantSQL](https://www.elephantsql.com) used as the Postgres database.
 - [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
 - [Cloudinary](https://cloudinary.com) used for online static file storage.
-- [Stripe](https://stripe.com) used for online secure payments of ecommerce products/services.
-- [AWS S3](https://aws.amazon.com/s3) used for online static file storage.
 
 ## Database Design
 
