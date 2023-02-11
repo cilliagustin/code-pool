@@ -58,6 +58,8 @@ The site uses a mix of fonts to create a unique and modern look. This are provid
 
 ## User Stories
 
+The user stories were broken down with 3 types of users in mind: "users" (non-registered users who can access the website), "Registered Users," and "Site Admins."
+
 ### Regular users (non registered)
 
 - As a User I can view all the code components shared so that copy them and use them in my own projects
@@ -69,7 +71,7 @@ The site uses a mix of fonts to create a unique and modern look. This are provid
 - As a User I can view the newest code components shared on the home page so that I can easily be updated with the newest components
 - As a User I can open the iframe in full screen on the preview cards so that I can see the code component in a bigger scale
 
-### Returning Site Users
+### Registered Users
 
 - As a registered user I can delete a post created by me so that I can remove it completely in case I don´t want it on the website
 - As a registered user I can edit my own posts so that make a correction in case I have a mistake
@@ -315,34 +317,54 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## Features
 
-In this section, you should go over the different parts of your project,
-and describe each in a sentence or so.
-
-You will need to explain what value each of the features provides for the user,
-focusing on who this website is for, what it is that they want to achieve,
-and how your project is the best way to help them achieve these things.
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-IMPORTANT: Remember to always include a screenshot of each individual feature!
-
 ### Existing Features
 
-- **Feature #1**
+- **Navbar**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The navbar on your website has a dark theme with white links for a contrasting appearance. On mobile devices, the navbar collapses into a hamburger menu for a more compact viewing experience. When opened, the menu displays a column of links coming from the right edge of the screen, casting an overlay on the rest of the page.
+    The navbar is dynamically populated based on the user's status, providing personalized information and access to relevant features. For all users, the links to the index, all posts template, log in/register, and log out are displayed. Registered users are able to see the link to create a new post, while only the site admin is able to see the links to view the list of categories and create a new one. When a regisred user hovers the navbar it will wxtend to show the user´s username.
 
 ![screenshot](documentation/feature01.png)
 
-- **Feature #2**
+- **Preview Card**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The preview card is a feature that provides basic information about a post on the website. It is visible on the index, posts, categories filtered posts, and bookmarked templates. The preview card displays the post title, the author's last modification date, and a small preview of the code displayed in an iframe. Additionally, there are two buttons: one that links to the post detail for that specific post, and another that shows the iframe in full screen. The average rating of the post is also displayed, along with a badge indicating the post's category. If a registered user has bookmarked the post, a small badge will also be displayed to note this.
+
+![screenshot](documentation/feature01.png)
+
+- **Post Detail Header**
+
+    - The post detail header is an important feature on the website that displays key information about each post. This includes the post title, author, last modification date, category, and bookmarked status. If the user is a registered user, they can bookmark the post for future reference and, if they are the creator of the post or a site admin, they can also delete or edit the post. The average rating of the post is visible to all users, as well as the number of votes it has received. Only registered users can rate the post by using the five rating buttons. The full screen button is also available for all users to easily view the post's code in a larger format.
 
 ![screenshot](documentation/feature02.png)
 
-- **Feature #3**
+- **Rating system**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The rating system on the website allows registered users to rate posts with a star rating system. The rating system is represented by 5 buttons in the form of empty stars. When a user hovers over a button, the style changes to fill them and add them color reflecting the selected rating and the previous stars are also updated. Upon clicking one of these buttons, the user's vote is recorded and added to the total rating of the post. The average rating of the post is visible to all users and is represented by icons. These icons dynamically change their design based on the average rating, with full stars representing a high rating and partially filled stars representing the decimals.
+
+![screenshot](documentation/feature02.png)
+
+- **Post Detail Body**
+
+    - The post detail body feature provides a detailed view of the code for a specific post. There are three buttons that allow users to show or hide the different text areas where the HTML, CSS, and JS code are written. On small screens, only one text area will be displayed at a time. There are also buttons that allow users to easily copy the code from each text area to their clipboard. In addition to the text areas, there is another iframe that allows users to interact with and see the code in action.
+
+![screenshot](documentation/feature03.png)
+
+- **Comment Section**
+
+    - The comment section of the post detail page displays all of the comments made by users. The comments are displayed in small cards, each with a different color to distinguish them easily. The cards include the author's name, the comment body, and the date it was created. The author of the comment can delete their comment using a button that is only visible to them or the site admin. All comments must be approved by the site admin, who can view and approve them using a button in this section (this comments are always positioned on top with a different color so the admin can distinguish them). At the bottom of the comment section is a text area where registered users can write and submit their own comments. This feature allows for a rich and interactive community experience where users can engage with one another and share their thoughts and ideas.
+
+![screenshot](documentation/feature03.png)
+
+- **Filter Posts Navigation**
+
+    - The filter posts navigation feature is a dynamic navigation element that provides users with quick and easy access to different categories of posts. It is populated with all the categories, bookmarked posts (for registered users only), and a link to view all posts. This feature allows users to quickly filter posts based on their interests or needs. Clicking on a category, bookmarked post, or all posts link will call the corresponding view and display only the selected posts.
+
+![screenshot](documentation/feature03.png)
+
+- **Browse Categories Section**
+
+    - The browse categories section is a feature used exclusively by site administrators as it allows them to manage and maintain the different categories available for posts on the website. The section displays all the post categories in a list format and provides two important links for each category. The first link allows the administrator to delete the category and the second link allows them to edit it. This section provides a centralized and organized way for administrators to manage the categories on the website and helps to keep the content of the site organized and easily accessible to users.
 
 ![screenshot](documentation/feature03.png)
 
@@ -352,17 +374,12 @@ Hint: the more, the merrier!
 
 ### Future Features
 
-Do you have additional ideas that you'd like to include on your project in the future?
-Fantastic! List them here!
-It's always great to have plans for future improvements!
-Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
+- Admin Panel:
+    - It would be useful to create a template where administrators can see all the information related to posts and comments in one place, rather than having to access the post details to edit or delete them.
 
-- Cool new feature #1
-    - Any additional notes about this feature.
-- Cool new feature #2
-    - Any additional notes about this feature.
-- Cool new feature #3
-    - Any additional notes about this feature.
+- Page for Registered Users:
+    - A page where registered users can view their own information, as well as all the posts and comments they have made.
+
 
 ## Tools & Technologies Used
 
