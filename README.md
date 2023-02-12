@@ -449,16 +449,6 @@ It also helped with milestone iterations on a weekly basis.
 
     ![screenshot](documentation/gh-issues-closed.png)
 
-### MoSCoW Prioritization
-
-I've decomposed my Epics into stories prior to prioritizing and implementing them.
-Using this approach, I was able to apply the MoSCow prioritization and labels to my user stories within the Issues tab.
-
-- **Must Have**: guaranteed to be delivered (*max 60% of stories*)
-- **Should Have**: adds significant value, but not vital (*the rest ~20% of stories*)
-- **Could Have**: has small impact if left out (*20% of stories*)
-- **Won't Have**: not a priority for this iteration
-
 ## Testing
 
 For all testing, please refer to the [TESTING.md](TESTING.md) file.
@@ -594,15 +584,15 @@ You can fork this repository by using the following steps:
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
-### Local VS Deployment
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
-
 ## Credits
 
-In this section you need to reference where you got your content, media, and extra help from.
-It is common practice to use code from other repositories and tutorials,
-however, it is important to be very specific about these sources to avoid plagiarism.
+*[Codepen](https://codepen.io/) was the main influence to the concept of the website.
+*[Create A Simple Django Blog](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) playlist was used as an inspiration to create the different views and also to lear about how to implement categories and the forms in the website.
+*[Create Your Own Live Web Editor using HTML, CSS, and JavaScript](https://dev.to/varshithvhegde/create-your-own-live-web-editor-using-html-css-and-javascript-3j73) to learn how to create my own code editor.
+*[Create slug from string in Javascript](https://gist.github.com/codeguy/6684588) I took that Js function to create my own slugs for the posts.
+*[Pure JavaScript Type Writer Effect](https://www.youtube.com/watch?v=POX3dT-pB4E&t=197s&ab_channel=TraversyMedia) to learn how to create a typewritter effect, although it was changed later to avoid using a contructor.
+*[Copy Text to Clipboard](https://www.w3schools.com/howto/howto_js_copy_clipboard.asp) to learn how to copy a text to clipboard using Js.
+
 
 ### Content
 
