@@ -336,10 +336,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ![screenshot](documentation/feature03.png)
 
-Repeat as necessary for as many features as your site contains.
-
-Hint: the more, the merrier!
-
 ### Future Features
 
 - Admin Panel:
@@ -430,12 +426,10 @@ class Comment(models.Model):
 
 ### GitHub Projects
 
-[GitHub Projects](https://github.com/cilliagustin/codepool/projects) served as an Agile tool for this project.
-It isn't a specialized tool, but with the right tags and project creation/issue assignments, it can be made to work.
+[GitHub Projects](https://github.com/cilliagustin/codepool/projects) served as a versatile Agile tool for this project, though it may not be specifically designed for this purpose. However, with proper tagging and project management, it was effectively utilized.
 
-Through it, user stories, issues, and milestone tasks were planned, then tracked on a weekly basis using the basic Kanban board.
+This platform allowed for effective planning and tracking of user stories, tasks, and project milestones through the use of a simple Kanban board, updated on a weekly basis.
 
-Consider adding a basic screenshot of your Projects Board.
 
 ![screenshot](documentation/gh-projects.png)
 
@@ -446,7 +440,6 @@ There, I used my own **User Story Template** to manage user stories.
 
 It also helped with milestone iterations on a weekly basis.
 
-Consider adding a screenshot of your Open and Closed Issues.
 
 - [Open Issues](https://github.com/cilliagustin/codepool/issues)
 
