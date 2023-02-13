@@ -78,18 +78,29 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
 
-The CI Python Linter can be used two different ways.
-- Copy/Paste your Python code directly into the linter.
-- As an API, using the "raw" URL appended to the linter URL.
-    - To find the "raw" URL, navigate to your file directly on the GitHub repo.
-    - On that page, GitHub provides a button on the right called "Raw" that you can click on.
-    - From that new page, copy the full URL, and paste it after the CI Python Linter URL (with a `/` separator).
-    - Examples:
+#### Codepool folder
 
-    | File | CI URL | Raw URL | Combined |
-    | --- | --- | --- | --- |
-    | PP3 *run.py* file | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/run.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/run.py |
-    | Boutique Ado *settings.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/boutique_ado/settings.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/boutique_ado/settings.py |
+| File | CI URL | Raw URL | Combined |
+| --- | --- | --- | --- |
+| Codepool *asgi.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/asgi.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/asgi.py |
+| Codepool *settings.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/settings.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/settings.py |
+| Codepool *urls.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/urls.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/urls.py |
+| Codepool *wsgi.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/wsgi.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/wsgi.py |
+
+#### Forum folder
+
+| File | CI URL | Raw URL | Combined |
+| --- | --- | --- | --- |
+| Forum *admin.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/admin.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/admin.py |
+| Forum *apps.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/apps.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/apps.py |
+| Forum *forms.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/forms.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/forms.py |
+| Forum *models.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/models.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/models.py |
+| Forum *tests.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/tests.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/tests.py |
+| Forum *urls.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/urls.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/urls.py |
+| Forum *views.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/views.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/views.py |
+
+
+
 
 It's recommended to validate each file using the API URL.
 This will give you a custom URL which you can use on your testing documentation.
