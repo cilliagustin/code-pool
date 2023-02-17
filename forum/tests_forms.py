@@ -52,7 +52,7 @@ class TestPostForm(TestCase):
         form = PostForm()
         self.assertEqual(
             form.Meta.fields, [
-                'title', 'slug', 'category', 'html_content', 'css_content', 
+                'title', 'slug', 'category', 'html_content', 'css_content',
                 'js_content'
                 ]
         )
@@ -108,7 +108,7 @@ class TestEditForm(TestCase):
         form = EditForm()
         self.assertEqual(
             form.Meta.fields, [
-                'title', 'slug', 'category', 'html_content', 'css_content', 
+                'title', 'slug', 'category', 'html_content', 'css_content',
                 'js_content'
                 ]
         )
