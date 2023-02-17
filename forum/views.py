@@ -47,7 +47,7 @@ class PostDetail(View):
     them first by whether they are approved or not and then by their creation
     date. The context of the view includes the post, its comments, and various
     additional details such as the user's rating for the post, whether the post
-    is bookmarked by the user, the comment form, and the average rating for 
+    is bookmarked by the user, the comment form, and the average rating for
     the post. The view also handles comment form submissions and the approval
     of comments.
     """
