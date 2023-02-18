@@ -94,7 +94,7 @@ class TestRatingModel(TestCase):
             rating = Rating(user=self.user, post=self.post, value=0)
             rating.full_clean()
             rating.save()
-  
+
         with self.assertRaises(ValidationError):
             rating = Rating(user=self.user, post=self.post, value=6)
             rating.full_clean()
