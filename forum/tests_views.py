@@ -20,63 +20,105 @@ class TestAllPostListView(TestCase):
 
 
 class TestPostDetail(TestCase):
-    def test_post_detail_response(self):
-        category = Category.objects.create(
-            name='test'
-            )
-        user = User.objects.create(
-            username='testuser'
-            )
-        post = Post.objects.create(
-            title='test',
-            slug='test',
-            author=user,
-            category=category
-            )
-        response = self.client.get(f'/posts/{post.slug}')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'post_detail.html', 'base.html')
-
-
-class TestDeleteComment(TestCase):
-    def test_delete_comment_response(self):
-        category = Category.objects.create(
-            name='test'
-            )
-        user = User.objects.create(
-            username='testuser'
-            )
-        post = Post.objects.create(
-            title='test',
-            slug='test',
-            author=user,
-            category=category
-            )
-        comment = Comment.objects.create(author=user, body='test', post=post)
-        response = self.client.get(f'/category/delete_comment/{comment.id}')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'delete_comment.html', 'base.html')
-
-
-class TestApproveComment(TestCase):
     def setUp(self):
-        self.client = Client()
+        self.category = Category.objects.create(name='test')
         self.user = User.objects.create_user(
             username='testuser',
-            password='testpass'
+            password='12345'
             )
-        self.category = Category.objects.create(name='test')
         self.post = Post.objects.create(
-            title='test',
-            slug='test',
+            title='Test Post',
+            slug='test-post',
             author=self.user,
             category=self.category
             )
-        self.comment = Comment.objects.create(
+        self.comment1 = Comment.objects.create(
             author=self.user,
-            body='test',
+            post=self.post,
+            body='Test comment 1',
+            approved=True
+            )
+        self.comment2 = Comment.objects.create(
+            author=self.user,
+            post=self.post,
+            body='Test comment 2',
+            approved=True
+            )
+
+    def test_post_detail_response(self):
+        response = self.client.get(
+            reverse('post_detail', args=[self.post.slug])
+            )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'post_detail.html', 'base.html')
+
+    def test_comments_displayed_on_post_detail_page(self):
+        response = self.client.get(f'/posts/{self.post.slug}')
+        self.assertEqual(
+            list(response.context['comments']), [self.comment1, self.comment2]
+            )
+
+    def test_invalid_comment_form_submission(self):
+        data = {'body': ''}
+        response = self.client.post(f'/posts/{self.post.slug}', data)
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.context['commented'])
+        self.assertEqual(Comment.objects.count(), 2)
+
+    def test_create_comment(self):
+        self.client.login(username='testuser', password='12345')
+        response = self.client.post(reverse(
+            'post_detail', args=[self.post.slug]
+            ), {
+            'body': 'Test Comment',
+            'approved': True
+        })
+        self.assertEqual(self.post.comments.count(), 3)
+
+
+class TestDeleteComment(TestCase):
+    def setUp(self):
+        self.category = Category.objects.create(name='test')
+        self.author = User.objects.create_user(
+            username='testuser',
+            password='12345'
+            )
+        self.post = Post.objects.create(
+            title='Test Post',
+            slug='test-post',
+            author=self.author,
+            category=self.category
+            )
+        self.comment_author = User.objects.create_user(
+            username='commentauthor',
+            password='12345'
+            )
+        self.comment = Comment.objects.create(
+            author=self.comment_author,
+            body='Test comment',
             post=self.post
             )
+
+    def test_delete_comment_response(self):
+        self.client.force_login(self.author)
+        response = self.client.get(reverse(
+            'delete_comment', args=[self.comment.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'delete_comment.html', 'base.html')
+
+    def test_delete_comment_by_user(self):
+        user = User.objects.create_user(
+            username='testuser2',
+            password='12345'
+            )
+        self.client.force_login(user)
+        response = self.client.post(reverse(
+            'delete_comment', args=[self.comment.pk]
+            ))
+        self.assertRedirects(response, reverse(
+            'post_detail', args=[self.post.slug]
+            ))
+        self.assertEqual(Comment.objects.count(), 0)
 
 
 class TestApproveComment(TestCase):
@@ -156,7 +198,9 @@ class TestRatingView(TestCase):
         self.client.login(username='testuser', password='testpassword')
 
     def test_rate_post(self):
-        self.client.login(username='testuser', password='password')
+        self.client.login(
+            username='testuser',
+            password='password')
         response = self.client.post(reverse(
             'post_rating',
             kwargs={'slug': self.post.slug}
@@ -222,65 +266,156 @@ class TestFilterBookmarkView(TestCase):
 
 
 class TestCreatePostView(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='testuser',
+            email='testuser@example.com',
+            password='secret'
+        )
+        self.category = Category.objects.create(name='Test Category')
+
     def test_create_post_response(self):
-        response = self.client.get('/new_post/')
+        response = self.client.get(reverse('add_post'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'add_post.html', 'base.html')
 
+    def test_create_post(self):
+        self.client.force_login(self.user)
+        response = self.client.post(reverse('add_post'), {
+            'title': 'Test Post',
+            'slug': 'test-post',
+            'html_content': '<p>Test content</p>',
+            'css_content': 'body { color: red; }',
+            'category': self.category.pk,
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(Post.objects.filter(title='Test Post').exists())
+
 
 class TestEditPostView(TestCase):
-    def test_edit_post_response(self):
-        category = Category.objects.create(
-            name='test'
+    def setUp(self):
+        self.category = Category.objects.create(name='test')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
             )
-        user = User.objects.create(
-            username='testuser'
-            )
-        post = Post.objects.create(
+        self.post = Post.objects.create(
             title='test',
             slug='test',
-            author=user,
-            category=category
-            )
-        response = self.client.get(f'/posts/edit_post/{post.slug}')
+            html_content='<p>Old test content</p>',
+            author=self.user,
+            category=self.category
+        )
+        self.client = Client()
+        self.client.login(
+            username='testuser',
+            password='testpassword')
+
+    def test_edit_post_response(self):
+        response = self.client.get(reverse('edit_post', args=[self.post.slug]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'edit_post.html', 'base.html')
 
+    def test_edit_post(self):
+        response = self.client.post(reverse(
+            'edit_post', args=[self.post.slug]
+            ), {
+            'title': 'New Test Post',
+            'slug': 'new-test-post',
+            'html_content': '<p>New test content</p>',
+            'css_content': 'body { color: blue; }',
+            'category': self.category.pk,
+        })
+        self.assertEqual(response.status_code, 302)
+        post = Post.objects.get(slug='new-test-post')
+        self.assertEqual(post.title, 'New Test Post')
+        self.assertEqual(post.html_content, '<p>New test content</p>')
+
 
 class TestDeletePostView(TestCase):
-    def test_delete_post_response(self):
-        category = Category.objects.create(
-            name='test'
+    def setUp(self):
+        self.category = Category.objects.create(name='test')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='password'
             )
-        user = User.objects.create(
-            username='testuser'
-            )
-        post = Post.objects.create(
+        self.post = Post.objects.create(
             title='test',
             slug='test',
-            author=user,
-            category=category
-            )
-        response = self.client.get(f'/posts/delete_post/{post.slug}')
+            author=self.user,
+            category=self.category
+        )
+
+    def test_delete_post_response(self):
+        response = self.client.get(reverse(
+            'delete_post',
+            args=[self.post.slug]
+            ))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'delete_post.html', 'base.html')
 
+    def test_delete_post(self):
+        self.client.login(
+            username='testuser',
+            password='password'
+            )
+        response = self.client.post(reverse(
+            'delete_post',
+            args=[self.post.slug]
+            ))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Post.objects.filter(slug='test').exists())
+        self.assertRedirects(response, reverse('home'))
+
 
 class TestEditCategoryView(TestCase):
-    def test_edit_category_response(self):
-        category = Category.objects.create(
-            name='test'
+    def setUp(self):
+        self.category = Category.objects.create(name='test')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='password'
             )
-        response = self.client.get(f'/category/edit_category/{category.id}')
+
+    def test_edit_category_response(self):
+        response = self.client.get(
+            f'/category/edit_category/{self.category.id}'
+            )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'edit_category.html', 'base.html')
 
+    def test_edit_category(self):
+        self.client.login(username='testuser', password='password')
+        updated_name = 'updated test'
+        response = self.client.post(reverse(
+            'edit_category',
+            args=[self.category.id]), {
+            'name': updated_name,
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, f'/category_list/')
+        self.category.refresh_from_db()
+        self.assertEqual(self.category.name, updated_name)
+
 
 class TestCreateCategoryView(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='password'
+            )
+
     def test_create_category_response(self):
         response = self.client.get('/new_category/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'add_category.html', 'base.html')
+
+    def test_create_category(self):
+        self.client.force_login(self.user)
+        response = self.client.post(reverse('add_category'), {
+            'name': 'Test Category',
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(Category.objects.filter(name='Test Category').exists())
 
 
 class TestCategoryListView(TestCase):
@@ -291,13 +426,32 @@ class TestCategoryListView(TestCase):
 
 
 class TestDeleteCategoryView(TestCase):
-    def test_delete_category_response(self):
-        category = Category.objects.create(
-            name='test'
+    def setUp(self):
+        self.category = Category.objects.create(name='test')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='password'
             )
-        response = self.client.get(f'/category/delete_category/{category.id}')
+
+    def test_delete_category_response(self):
+        response = self.client.get(
+            f'/category/delete_category/{self.category.id}'
+            )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'delete_category.html', 'base.html')
+
+    def test_delete_category(self):
+        self.client.login(
+            username='testuser',
+            password='password'
+            )
+        response = self.client.post(reverse(
+            'delete_category',
+            args=[self.category.id]
+            ))
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Category.objects.filter(name='test').exists())
+        self.assertRedirects(response, reverse('category_list'))
 
 
 class TestCanvasView(TestCase):
