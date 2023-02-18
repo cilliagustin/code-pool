@@ -321,7 +321,11 @@ Below are the results from the various apps on my application that I've tested:
 | forum | views.py | 99% |
 | forum | test_views.py | 100% |
 
-The HTML Coverage file can ve viewed [here](htmlcov/index.html)
+<details>
+<summary>View HTML Report</summary>
+
+![screenshot](documentation/html-report.png) |
+</details>
 
 
 ## Bugs
