@@ -209,6 +209,9 @@ textarea {
     margin-right: auto;
     font-size: .8rem;
 }
+#navbar a img{
+    height: 35px;
+}
 
 #navbar button {
     height: 21px;
