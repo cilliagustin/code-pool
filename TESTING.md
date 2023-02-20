@@ -224,6 +224,19 @@ I've tested my deployed project using [Chrome](https://www.google.com/chrome), [
 
 </details>
 
+### New Category
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-new-category.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-new-category.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-new-category.jpeg) | Works as expected |
+
+</details>
+
 ### Sign In
 
 <details>
@@ -266,24 +279,179 @@ I've tested my deployed project using [Chrome](https://www.google.com/chrome), [
 
 ## Responsiveness
 
-Use this space to discuss testing the live/deployed site on various device sizes.
+I've tested my deployed project on multiple devices to check for responsiveness issues. The Screenshoots provided now for the desktop and mobile versions will be the same ones shown in the browser compatibility comparision since I have checked [Google Chrome](https://www.google.com/chrome) on my desktop and [Safari](https://support.apple.com/downloads/safari) on my Iphone 14. The screenshots used for the Tablet version were taken using a tablet resolution on Chrome developer tools.
 
-The minimum requirement is for the following 3 tests:
-- Mobile
-- Tablet
-- Desktop
+### Index
+<details>
+<summary>View Responsiveness Comparison</summary>
 
-**IMPORTANT**: You must provide screenshots of the tested responsiveness, to "prove" that you've actually tested them.
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-index-1.png) ![screenshot](documentation/screenshots/chrome-index-2.png)| Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-index-1.png) ![screenshot](documentation/screenshots/tablet-index-2.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-index-1.jpeg) ![screenshot](documentation/screenshots/safari-index-2.jpeg) | Works as expected |
 
-Using the "amiresponsive" mockup image (or similar) does not suffice the requirements.
-Consider using some of the built-in device sizes in the Developer Tools.
+</details>
 
-If you have tested the project on your actual mobile phone or tablet, consider also including screenshots of these as well.
-It showcases a higher level of manual tests, and can be seen as a positive inclusion!
 
-Sample responsiveness testing documentation:
+### Posts
 
-I've tested my deployed project on multiple devices to check for responsiveness issues.
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-posts-1.png) ![screenshot](documentation/screenshots/chrome-posts-2.png)| Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-posts-1.png) ![screenshot](documentation/screenshots/tablet-posts-2.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-posts-1.jpeg) ![screenshot](documentation/screenshots/safari-posts-2.jpeg) | Works as expected |
+
+</details>
+
+### Post-detail
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-post-detail-1.png) ![screenshot](documentation/screenshots/chrome-post-detail-2.png) [screenshot](documentation/screenshots/chrome-post-detail-3.png)| Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-post-detail-1.png) ![screenshot](documentation/screenshots/tablet-post-detail-2.png) [screenshot](documentation/screenshots/tablet-post-detail-3.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-post-detail-1.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-2.jpeg) [screenshot](documentation/screenshots/safari-post-detail-3.jpeg) | Works as expected |
+
+</details>
+
+### Edit Post
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-edit-post-1.png) ![screenshot](documentation/screenshots/chrome-edit-post-2.png)| Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-edit-post-1.png) ![screenshot](documentation/screenshots/tablet-edit-post-2.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-edit-post-1.jpeg) ![screenshot](documentation/screenshots/safari-edit-post-2.jpeg) | Works as expected |
+
+</details>
+
+### Delete Post
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-delete-post.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-delete-post.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-delete-post.jpeg) | Works as expected |
+
+</details>
+
+### New Post
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-new-post-1.png) ![screenshot](documentation/screenshots/chrome-new-post-2.png)| Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-new-post-1.png) ![screenshot](documentation/screenshots/tablet-new-post-2.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-new-post-1.jpeg) ![screenshot](documentation/screenshots/safari-new-post-2.jpeg) | Works as expected |
+
+</details>
+
+
+### Categories
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-categories.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-categories.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-categories.jpeg) | Works as expected |
+
+</details>
+
+### Edit Category
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-edit-category.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-edit-category.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-edit-category.jpeg) | Works as expected |
+
+</details>
+
+### Delete Category
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-delete-category.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-delete-category.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-delete-category.jpeg) | Works as expected |
+
+</details>
+
+### New Category
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-new-category.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-new-category.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-new-category.jpeg) | Works as expected |
+
+</details>
+
+### Sign In
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-sign-in.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-sign-in.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-sign-in.jpeg) | Works as expected |
+
+</details>
+
+### Sign Up
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-sign-up.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-sign-up.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-sign-up.jpeg) | Works as expected |
+
+</details>
+
+### Log Out
+
+<details>
+<summary>View Responsiveness Comparison</summary>
+
+| Device | Screenshot | Notes |
+| --- | --- | --- |
+| Desktop | ![screenshot](documentation/screenshots/chrome-log-out.png) | Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-log-out.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-log-out.jpeg) | Works as expected |
+
+</details>
+
+
 
 | Device | Screenshot | Notes |
 | --- | --- | --- |
