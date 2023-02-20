@@ -83,7 +83,7 @@ class CommentForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
-        fields = ['name',]
+        fields = ['name', ]
 
         widgets = {
             'name': forms.TextInput(
