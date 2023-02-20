@@ -104,38 +104,165 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 
 ## Browser Compatibility
 
-Use this space to discuss testing the live/deployed site on various browsers.
+I've tested my deployed project using [Chrome](https://www.google.com/chrome), [Firefox](https://www.mozilla.org/firefox) and [Safari](https://support.apple.com/downloads/safari) to check for compatibility issues.
 
-Consider testing at least 3 different browsers, if available on your system.
-
-Recommended browsers to consider:
-- [Chrome](https://www.google.com/chrome)
-- [Firefox (Developer Edition)](https://www.mozilla.org/firefox/developer)
-- [Edge](https://www.microsoft.com/edge)
-- [Safari](https://support.apple.com/downloads/safari)
-- [Brave](https://brave.com/download)
-- [Opera](https://www.opera.com/download)
-
-**IMPORTANT**: You must provide screenshots of the tested browsers, to "prove" that you've actually tested them.
-
-Please note, there are services out there that can test multiple browser compatibilities at the same time.
-Some of these are paid services, but some are free.
-If you use these, you must provide a link to the source used for attribution, and multiple screenshots of the results.
-
-Sample browser testing documentation:
-
-I've tested my deployed project on multiple browsers to check for compatibility issues.
+### Index
+<details>
+<summary>View Browser Comparison</summary>
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
-| Chrome | ![screenshot](documentation/browser-chrome.png) | Works as expected |
-| Firefox | ![screenshot](documentation/browser-firefox.png) | Works as expected |
-| Edge | ![screenshot](documentation/browser-edge.png) | Works as expected |
-| Safari | ![screenshot](documentation/browser-safari.png) | Minor CSS differences |
-| Brave | ![screenshot](documentation/browser-brave.png) | Works as expected |
-| Opera | ![screenshot](documentation/browser-opera.png) | Minor differences |
-| Internet Explorer | ![screenshot](documentation/browser-iex.png) | Does not work as expected |
-| x | x | repeat for any other tested browsers |
+| Chrome | ![screenshot](documentation/screenshots/chrome-index-1.png) ![screenshot](documentation/screenshots/chrome-index-2.png)| Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-index-1.png) ![screenshot](documentation/screenshots/mozilla-index-2.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-index-1.jpeg) ![screenshot](documentation/screenshots/safari-index-2.jpeg) | Works as expected |
+
+</details>
+
+
+### Posts
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-posts-1.png) ![screenshot](documentation/screenshots/chrome-posts-2.png)| Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-posts-1.png) ![screenshot](documentation/screenshots/mozilla-posts-2.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-posts-1.jpeg) ![screenshot](documentation/screenshots/safari-posts-2.jpeg) | Works as expected |
+
+</details>
+
+### Post-detail
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-post-detail-1.png) ![screenshot](documentation/screenshots/chrome-post-detail-2.png) [screenshot](documentation/screenshots/chrome-post-detail-3.png)| Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-post-detail-1.png) ![screenshot](documentation/screenshots/mozilla-post-detail-2.png) [screenshot](documentation/screenshots/mozilla-post-detail-3.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-post-detail-1.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-2.jpeg) [screenshot](documentation/screenshots/safari-post-detail-3.jpeg) | Works as expected |
+
+</details>
+
+### Edit Post
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-edit-post-1.png) ![screenshot](documentation/screenshots/chrome-edit-post-2.png)| Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-edit-post-1.png) ![screenshot](documentation/screenshots/mozilla-edit-post-2.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-edit-post-1.jpeg) ![screenshot](documentation/screenshots/safari-edit-post-2.jpeg) | Works as expected |
+
+</details>
+
+### Delete Post
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-delete-post.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-delete-post.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-delete-post.jpeg) | Works as expected |
+
+</details>
+
+### New Post
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-new-post-1.png) ![screenshot](documentation/screenshots/chrome-new-post-2.png)| Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-new-post-1.png) ![screenshot](documentation/screenshots/mozilla-new-post-2.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-new-post-1.jpeg) ![screenshot](documentation/screenshots/safari-new-post-2.jpeg) | Works as expected |
+
+</details>
+
+
+### Categories
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-categories.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-categories.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-categories.jpeg) | Works as expected |
+
+</details>
+
+### Edit Category
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-edit-category.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-edit-category.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-edit-category.jpeg) | Works as expected |
+
+</details>
+
+### Delete Category
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-delete-category.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-delete-category.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-delete-category.jpeg) | Works as expected |
+
+</details>
+
+### Sign In
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-sign-in.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-sign-in.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-sign-in.jpeg) | Works as expected |
+
+</details>
+
+### Sign Up
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-sign-up.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-sign-up.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-sign-up.jpeg) | Works as expected |
+
+</details>
+
+### Log Out
+
+<details>
+<summary>View Browser Comparison</summary>
+
+| Browser | Screenshot | Notes |
+| --- | --- | --- |
+| Chrome | ![screenshot](documentation/screenshots/chrome-log-out.png) | Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-log-out.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-log-out.jpeg) | Works as expected |
+
+</details>
+
 
 ## Responsiveness
 
