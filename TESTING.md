@@ -294,7 +294,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 </details>
 
 
-### Posts
+### Posts 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -307,7 +307,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### Post-detail
+### Post-detail 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -320,7 +320,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### Edit Post
+### Edit Post 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -333,7 +333,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### Delete Post
+### Delete Post 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -346,7 +346,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### New Post
+### New Post 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -360,7 +360,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 </details>
 
 
-### Categories
+### Categories 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -373,7 +373,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### Edit Category
+### Edit Category 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -386,7 +386,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### Delete Category
+### Delete Category 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -399,7 +399,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### New Category
+### New Category 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -412,7 +412,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### Sign In
+### Sign In 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -425,7 +425,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 </details>
 
-### Sign Up
+### Sign Up 
 
 <details>
 <summary>View Responsiveness Comparison</summary>
@@ -450,19 +450,6 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-log-out.jpeg) | Works as expected |
 
 </details>
-
-
-
-| Device | Screenshot | Notes |
-| --- | --- | --- |
-| Mobile (DevTools) | ![screenshot](documentation/responsive-mobile.png) | Works as expected |
-| Tablet (DevTools) | ![screenshot](documentation/responsive-tablet.png) | Works as expected |
-| Desktop | ![screenshot](documentation/responsive-desktop.png) | Works as expected |
-| XL Monitor | ![screenshot](documentation/responsive-xl.png) | Scaling starts to have minor issues |
-| 4K Monitor | ![screenshot](documentation/responsive-4k.png) | Noticeable scaling issues |
-| Google Pixel 7 Pro | ![screenshot](documentation/responsive-pixel.png) | Works as expected |
-| iPhone 14 | ![screenshot](documentation/responsive-iphone.png) | Works as expected |
-| x | x | repeat for any other tested sizes |
 
 ## Lighthouse Audit
 
@@ -493,71 +480,119 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ## Defensive Programming
 
-Defensive programming (defensive design) is extremely important!
-
-When building projects that accept user inputs or forms, you should always test the level of security for each.
-Examples of this could include (not limited to):
-
-Forms:
-- Users cannot submit an empty form
-- Users must enter valid email addresses
-
-PP3 (Python-only):
-- Users must enter a valid letter/word/string when prompted
-- Users must choose from a specific list only
-
-Flask/Django:
-- Users cannot brute-force a URL to navigate to a restricted page
-- Users cannot perform CRUD functionality while logged-out
-- User-A should not be able to manipulate data belonging to User-B, or vice versa
-- Non-Authenticated users should not be able to access pages that require authentication
-- Standard users should not be able to access pages intended for superusers
-
-You'll want to test all functionality on your application, whether it's a standard form,
-or uses CRUD functionality for data manipulation on a database.
-Make sure to include the `required` attribute on any form-fields that should be mandatory.
-Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser).
-
-You should include any manual tests performed, and the expected results/outcome.
-
-Defensive programming was manually tested with the below user acceptance testing:
 
 | Page | User Action | Expected Result | Pass/Fail | Comments |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | 
+| Navbar | | | | | 
+| | Click on Logo / Home link | Redirection to Home page | Pass | |
+| | Click on Browse Posts Link | Redirection to Posts page | Pass | |
+| | Click on New Post Link | Redirection to New Post page | Pass | |
+| | Click on Browse Categories Link | Redirection to Categories page | Pass | |
+| | Click on New Category Link | Redirection New category page | Pass | |
+| | Click on Sign In Link | Redirection to Sign In page | Pass | |
+| | Click on Sign up Link | Redirection to Sign up page | Pass | |
+| | Click on Log Out Link | Redirection to Log Out page | Pass | |
 | Home Page | | | | |
-| | Click on Logo | Redirection to Home page | Pass | |
-| | Click on Home link in navbar | Redirection to Home page | Pass | |
-| Gallery Page | | | | |
-| | Click on Gallery link in navbar | Redirection to Gallery page | Pass | |
-| | Load gallery images | All images load as expected | Pass | |
-| Contact Page | | | | |
-| | Click on Contact link in navbar | Redirection to Contact page | Pass | |
-| | Enter first/last name | Field will accept freeform text | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter message in textarea | Field will accept freeform text | Pass | |
-| | Click the Submit button | Redirects user to form-dump | Pass | User must click 'Back' button to return |
-| Sign Up | | | | |
-| | Click on Sign Up button | Redirection to Sign Up page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password (twice) | Field will only accept password format | Pass | |
-| | Click on Sign Up button | Asks user to confirm email page | Pass | Email sent to user |
-| | Confirm email | Redirects user to blank Sign In page | Pass | |
-| Log In | | | | |
-| | Click on the Login link | Redirection to Login page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password | Field will only accept password format | Pass | |
-| | Click Login button | Redirects user to home page | Pass | |
-| Log Out | | | | |
-| | Click Logout button | Redirects user to logout page | Pass | Confirms logout first |
-| | Click Confirm Logout button | Redirects user to home page | Pass | |
-| Profile | | | | |
-| | Click on Profile button | User will be redirected to the Profile page | Pass | |
-| | Click on the Edit button | User will be redirected to the edit profile page | Pass | |
-| | Click on the My Orders link | User will be redirected to the My Orders page | Pass | |
-| | Brute forcing the URL to get to another user's profile | User should be given an error | Pass | Redirects user back to own profile |
+| | Click View Code Link on Preview Card | Redirection to Post Detail page | Pass | |
+| | Click Full Screen button on Preview Card | Opens an iframe that shows the code on Full Screen | Pass | |
+| | Click Post Category badge on Preview Card | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Post Bookmarked badge on Preview Card | Redirection to Bookmarked Filtered Posts page | Pass | This badge is only visible for registered users on posts they have prevously bookmarked |
+| | Click view all posts Link | Redirection to Posts page | Pass | | |
+| Posts Page | | | | |
+| | Click View Code Link on Preview Card | Redirection to Post Detail page | Pass | |
+| | Click Full Screen button on Preview Card | Opens an iframe that shows the code on Full Screen | Pass | |
+| | Click Post Category badge on Preview Card | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Post Bookmarked badge on Preview Card | Redirection to Bookmarked Filtered Posts page | Pass | This badge is only visible for registered users on posts they have prevously bookmarked |
+| | Click All Posts button on "Filter Navegation" element | Redirection to Posts page | Pass | |
+| | Click Category button on "Filter Navegation" element | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Bookmark button on "Filter Navegation" element | Redirection to Bookmarked Filtered Posts page | Pass | This button is only visible for Registered Users |
+| Filtered by Category Posts page | | | | |
+| | Click View Code Link on Preview Card | Redirection to Post Detail page | Pass | |
+| | Click Full Screen button on Preview Card | Opens an iframe that shows the code on Full Screen | Pass | |
+| | Click Post Category badge on Preview Card | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Post Bookmarked badge on Preview Card | Redirection to Bookmarked Filtered Posts page | Pass | This badge is only visible for registered users on posts they have prevously bookmarked |
+| | Click All Posts button on "Filter Navegation" element | Redirection to Posts page | Pass | |
+| | Click Category button on "Filter Navegation" element | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Bookmark button on "Filter Navegation" element | Redirection to Bookmarked Filtered Posts page | Pass | This button is only visible for Registered Users |
+| Bookmarked Filtered Posts Page | | | | |
+| | Forbid access to non registered users | Display an error message to non registered users trying to access manually the URL | Pass | |
+| | Click Full Screen button on Preview Card | Opens an iframe that shows the code on Full Screen | Pass | |
+| | Click Post Category badge on Preview Card | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Post Bookmarked badge on Preview Card | Redirection to Bookmarked Filtered Posts page | Pass | This badge is only visible for registered users on posts they have prevously bookmarked |
+| | Click All Posts button on "Filter Navegation" element | Redirection to Posts page | Pass | |
+| | Click Category button on "Filter Navegation" element | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Bookmark button on "Filter Navegation" element | Redirection to Bookmarked Filtered Posts page | Pass | This button is only visible for Registered Users |
+| Post Detail Page | | | | |
+| | Click Post Category badge | Redirection to Filtered by Category Posts page | Pass | |
+| | Click Full Screen button | Opens an iframe that shows the code on Full Screen | Pass | |
+| | Click Edit Post button | Redirection to Edit Post page | Pass | Only the author of the post or a superuser can view this button |
+| | Click Delete Post button | Redirection to Delete Post page | Pass | Only the author of the post or a superuser can view this button |
+| | Click Bookmarked button | Will change the state of the post (bookmark True or False) when clicked | Pass | Only registered users can view this button |
+| | Five Star Rating Form | Allows the user to rate or change the rating of a post when clicked. Also allows them to view their current rate submitted | Pass | Only registered users can view this form |
+| | Delete Comment button | Redirection to Delete Comment page | Pass | Only the author´s comment  or a superuser can view this button |
+| | Approve Comment button | Change status of comment from approved = False to True | Pass | Only a superuser can view this button |
+| | Comment form | Allows the User to enter a comment | Pass | Only a regsitered user can enter a comment. The string can not be empty |
+| Edit Post Page | | | | |
+| | Forbid access to non authrised users | Display an error message to users trying to access manually the URL (Only a superuser or the post author can access this form) | Pass | |
+| | Title Field | Field must be completed correctly to submit the form | Pass | |
+| | Slug Field | Field must be completed correctly to submit the form | Pass | this field is not visible for the user but is completed transforming the title to a slug using JavaScript |
+| | Category Field | A field must be selected to submit the form | Pass | |
+| | HTML content Field | Field must be completed correctly to submit the form | Pass | |
+| | CSS content Field | Field must be completed correctly to submit the form | Pass | |
+| | JS content Field | This field is not mandatory, can be entered empty | Pass | |
+| | Submit Button | Clicking this button will submit the form and edit the post | Pass | |
+| | Preview your code Button | Clicking this button will open an iframe and display the entered code | Pass | |
+| Delete Post Page | | | | |
+| | Forbid access to non authorised users | Display an error message to users trying to access manually the URL (Only a superuser or the post author can access this form) | Pass | |
+| | Delete Post Submit Button | Clicking the submit button will permanently delete the Post | Pass | |
+| Delete Comment Page | | | | |
+| | Forbid access to non authorised users | Display an error message to users trying to access manually the URL (Only a superuser or the post author can access this form) | Pass | |
+| | Delete Post Submit Button | Clicking the submit button will permanently delete the Post | Pass | |
+| New Post Page | | | | |
+| | Forbid access to non registered users | Display an error message to non registered users trying to access manually the URL | Pass | |
+| | Title Field | Field must be completed correctly to submit the form | Pass | |
+| | Slug Field | Field must be completed correctly to submit the form | Pass | this field is not visible for the user but is completed transforming the title to a slug using JavaScript |
+| | Category Field | A field must be selected to submit the form | Pass | |
+| | HTML content Field | Field must be completed correctly to submit the form | Pass | |
+| | CSS content Field | Field must be completed correctly to submit the form | Pass | |
+| | JS content Field | This field is not mandatory, can be entered empty | Pass | |
+| | Submit Button | Clicking this button will submit the form and create a new post | Pass | |
+| | Preview your code Button | Clicking this button will open an iframe and display the entered code | Pass | |
+| Categories Page | | | | |
+| | Forbid access to non superuser | Display an error message to non superuser trying to access manually the URL | Pass | |
+| | Click on Edit Category on Category Card | Redirection to Edit Category page  | Pass | |
+| | Click on Delete Category on Category Card | Redirection to Delete Category page  | Pass | |
+| Edit Category Page | | | | |
+| | Forbid access to non superuser | Display an error message to non superuser trying to access manually the URL | Pass | |
+| | Name Field | Field must be completed correctly to submit the form | Pass | |
+| | Submit Button | Clicking this button will submit the form and edit the category | Pass | |
+| Delete Category Page | | | | |
+| | Forbid access to non superuser | Display an error message to non superuser trying to access manually the URL | Pass | |
+| | Delete Post Submit Button | Clicking the submit button will permanently delete the Post | Pass | |
+| New Category Page | | | | |
+| | Forbid access to non superuser | Display an error message to non superuser trying to access manually the URL | Pass | |
+| | Name Field | Field must be completed correctly to submit the form | Pass | |
+| | Submit Button | Clicking this button will submit the form and edit the category | Pass | |
+| Sign In Page | | | | |
+| | Forbid access to registered users | If a already registered user tries to manually access the URL it will be redirected to the Home page | Pass | |
+| | Sign Pp form Link | Redirection to Sign Up page| Pass | |
+| | Username and Password fields | This fields must be entered with the correct information of a registered user to Sign In | Pass | |
+| | Submit Button | Clicking this button will submit the form in order to Sign In | Pass | |
+| Sign Up Page | | | | |
+| | Forbid access to registered users | If a already registered user tries to manually access the URL it will be redirected to the Home page | Pass | |
+| | Sign In form Link | Redirection to Sign In page| Pass | |
+| | Username field | Field must be completed correctly to submit the form | Pass | |
+| | Email field | This field is not mandatory, but if completed must use a valid email address | Pass | |
+| | Passwords field | Fields must be completed correctly and identically to submit the form | Pass | |
+| | Submit Button | Clicking this button will submit the form in order to Sign Up | Pass | |
+| Log Out Page | | | | |
+| | Forbid access to non registered users | If a non registered user tries to manually access the URL it will be redirected to the Home page | Pass | | |
+| | Submit Button | Clicking this button will submit the form in order to Log Out | Pass | |
+| | "No, Take me back" Button | Redirection to Home page | Pass | |
 
-Repeat for all other tests, as applicable to your own site.
-The aforementioned tests are just an example of a few different project scenarios.
+
+
+
 
 ## User Story Testing
 
