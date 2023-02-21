@@ -131,7 +131,7 @@
                             <p class="w-100 text-center fw-bold">Comment waiting for approval</p>
                             <p class="author"><span>{{ comment.author.username }}</span> wrote:</p>
                             {% if user.username == comment.author.username or user.is_superuser %}
-                            <a href="{% url 'delete_comment' comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
+                            <a href="{% url 'delete_comment' post.slug comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
                             {% endif %}
                         </div>
                         <p class="comment">{{ comment.body }} {{ comment.status }}</p>
