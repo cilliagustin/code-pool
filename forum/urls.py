@@ -8,7 +8,7 @@ urlpatterns = [
     path('posts', views.AllPostList.as_view(), name='posts'),
     path('posts/<slug:slug>', views.PostDetail.as_view(), name='post_detail'),
     path(
-        'category/delete_comment/<int:pk>',
+        'posts/<slug:slug>/delete_comment/<int:pk>',
         views.DeleteComment.as_view(), name='delete_comment'),
     path(
         'approve_comment/<int:pk>/', views.ApproveComment.as_view(),
