@@ -4,37 +4,29 @@ Return back to the [README.md](README.md) file.
 
 ## Code Validation
 
-Use the space to discuss code validation for any of your own code files (where applicable).
-You are not required to validate external libraries/frameworks, such as imported Bootstrap, Materialize, Font Awesome, etc.
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files. Since some of the pages requires authorisation to be accessed, some of the validation were done by checking the HTML file by entering the URL and some by copying and pasting the HTML code into the validator
 
-**IMPORTANT**: You must provide a screenshot for each file you validate.
+| Page |  Screenshot | Type of valiation |
+| --- | --- | --- |
+| Index | ![screenshot](documentation/screenshots/index-html-validation.png) | Validated by URL |
+| Posts | ![screenshot](documentation/screenshots/posts-html-validation.png) | Validated by URL |
+| Category Filtered Posts | ![screenshot](documentation/screenshots/posts-category-filtered-html-validation.png) | Validated by URL |
+| Bookmarked Posts | ![screenshot](documentation/screenshots/posts-bookmark-filtered-html-validation.png) | Validated by Input |
+| Post detail | ![screenshot](documentation/screenshots/post-detail-html-validation.png) | Validated by URL |
+| Edit Post | ![screenshot](documentation/screenshots/edit-post-html-validation.png) | Validated by Input |
+| Delete Post | ![screenshot](documentation/screenshots/delete-post-html-validation.png) | Validated by Input |
+| Delete Comment | ![screenshot](documentation/screenshots/delete-post-html-validation.png) | Validated by Input |
+| New Post | ![screenshot](documentation/screenshots/new-post-html-validation.png) | Validated by Input |
+| Categories | ![screenshot](documentation/screenshots/categories-html-validation.png) | Validated by Input |
+| Edit Category | ![screenshot](documentation/screenshots/edit-category-html-validation.png) | Validated by Input |
+| Delete Category | ![screenshot](documentation/screenshots/delete-category-html-validation.png) | Validated by Input |
+| Add Category | ![screenshot](documentation/screenshots/add-category-html-validation.png) | Validated by Input |
+| Log Out | ![screenshot](documentation/screenshots/log-out-html-validation.png) | Validated by Input |
+| Sign In | ![screenshot](documentation/screenshots/sign-in-html-validation.png) | Validated by URL |
+| Sign Up | ![screenshot](documentation/screenshots/sign-up-html-validation.png) | Validated by URL |
 
-**PRO TIP**: Always validate the live site pages, not your local code. There could be subtle/hidden differences.
 
-### HTML
 
-I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
-
-- If you are copying/pasting your HTML code, use this link: https://validator.w3.org/#validate_by_input
-- (*recommended*) If you are using the live deployed site pages, use this link: https://validator.w3.org/#validate_by_uri
-
-It's recommended to validate the live pages (each of them) using the deployed URL.
-This will give you a custom URL as well, which you can use on your testing documentation.
-It makes it easier to return back to a page to validate it again in the future.
-The URL will look something like this:
-
-- https://validator.w3.org/nu/?doc=https%3A%2F%2Fcilliagustin.github.io%2Fcodepool%2Findex.html
-
-Sample HTML code validation documentation (tables are extremely helpful!):
-
-| Page | W3C URL | Screenshot | Notes |
-| --- | --- | --- | --- |
-| Home | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcilliagustin.github.io%2Fcodepool%2Findex.html) | ![screenshot](documentation/html-validation-home.png) | Section lacks header h2-h6 warning |
-| Contact | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcilliagustin.github.io%2Fcodepool%2Fcontact.html) | ![screenshot](documentation/html-validation-contact.png) | obsolete iframe warnings |
-| Quiz | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcilliagustin.github.io%2Fcodepool%2Fquiz.html) | ![screenshot](documentation/html-validation-quiz.png) | Pass: No Errors |
-| Add Blog | n/a | ![screenshot](documentation/html-validation-add-blog.png) | Duplicate IDs found, and fixed |
-| Checkout | n/a | ![screenshot](documentation/html-validation-checkout.png) | Pass: No Errors |
-| x | x | x | repeat for all remaining HTML files |
 
 **IMPORTANT**: Python/Jinja syntax in HTML
 
