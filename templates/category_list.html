@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Category list{% endblock %}
+{% block title %}- Category list{% endblock %}
 {% block content %}
 
 <div class="container-fluid">
@@ -25,21 +25,19 @@
             </div>
         </div>
         {% endfor %}
-        {% else %}
-        <div class="row">
-            <div class="col-12 col-md-10 offset-md-1 create-edit-post">
-                <div class="h-100 w-100 d-flex justify-content-center align-items-center">
-                    <div class="alert alert-danger" role="alert">
-                        Sorry, only <span class="fw-bold">the admin</span> can view this page.
-                    </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1 create-edit-post">
+            <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+                <div class="alert alert-danger" role="alert">
+                    Sorry, only <span class="fw-bold">the admin</span> can view this page.
                 </div>
             </div>
         </div>
-        {% endif %}
     </div>
+    {% endif %}
+</div>
 
 
-
-
-
-    {% endblock %}
+{% endblock %}
