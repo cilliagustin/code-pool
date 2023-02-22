@@ -3,27 +3,28 @@
 {% block title %}Category list{% endblock %}
 {% block content %}
 
-    <div class="container-fluid">
-        {% if user.is_superuser %}
-            <div class="row category-list">
-                <div class="col-12 col-md-10 offset-md-1">
-                    <h1 class="categories-title text-center">Categories</h1>
-                </div>
-                {% for category in category_list %}
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="category-card my-3 d-flex flex-wrap justify-content-center align-items-center w-100">
-                                <h3 class="mb-2 w-100 text-center">
-                                    {{ category.name }}
-                                </h3>
-                                <a href="{% url 'edit_category' category.pk %}" class="custom-btn blue mx-1">
-                                    <span>Edit Category <i class="fa-solid fa-pencil"></i></span>
-                                </a>
-                                <a href="{% url 'delete_category' category.pk %}" class="custom-btn red mx-1">
-                                    <span>Delete Category <i class="fa-regular fa-circle-xmark"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                {% endfor %}
+<div class="container-fluid">
+    {% if user.is_superuser %}
+    <div class="row category-list">
+        <div class="col-12 col-md-10 offset-md-1">
+            <h1 class="categories-title text-center">Categories</h1>
+        </div>
+        {% for category in category_list %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="category-card my-3 d-flex flex-wrap justify-content-center align-items-center w-100">
+                <h3 class="mb-2 w-100 text-center">
+                    {{ category.name }}
+                </h3>
+                <a href="{% url 'edit_category' category.pk %}" class="custom-btn blue mx-1" aria-label="Edit category">
+                    <span>Edit Category <i class="fa-solid fa-pencil"></i></span>
+                </a>
+                <a href="{% url 'delete_category' category.pk %}" class="custom-btn red mx-1"
+                    aria-label="Delete category">
+                    <span>Delete Category <i class="fa-regular fa-circle-xmark"></i></span>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
         {% else %}
         <div class="row">
             <div class="col-12 col-md-10 offset-md-1 create-edit-post">
@@ -39,6 +40,6 @@
 
 
 
-    
 
-{% endblock %}
+
+    {% endblock %}

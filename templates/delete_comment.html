@@ -7,32 +7,33 @@
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 create-edit-post">
             {% if user.username == comment.name or user.is_superuser %}
-                <h1>Delete comment</h1>
-                <div class="w-100 my-4 mx-auto">
-                    <div class="comment-card">
-                            <div class="comment-header d-flex align-items-center justify-content-between">
-                                <p class="author"><span>{{ comment.name }}</span> wrote:</p>
-                            </div>
-                            <p class="comment">{{ comment.body }}</p>
-                            <div class="comment-footer">
-                                <p class="date">Written on {{ comment.created_on }}</p>
-                            </div>
-                        </div>
+            <h1>Delete comment</h1>
+            <div class="w-100 my-4 mx-auto">
+                <div class="comment-card">
+                    <div class="comment-header d-flex align-items-center justify-content-between">
+                        <p class="author"><span>{{ comment.name }}</span> wrote:</p>
+                    </div>
+                    <p class="comment">{{ comment.body }}</p>
+                    <div class="comment-footer">
+                        <p class="date">Written on {{ comment.created_on }}</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <form method="POST" class="mb-5">
-                        {% csrf_token %}
-                        <strong>Are you sure you want to delete this comment? This process is irreversible.</strong>
-                        <br>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="custom-btn mt-5"><span>Submit</span></button>
-                        </div>
-                    </form>
-                </div>
+            </div>
+            <div class="form-group">
+                <form method="POST" class="mb-5">
+                    {% csrf_token %}
+                    <strong>Are you sure you want to delete this comment? This process is irreversible.</strong>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="custom-btn mt-5" aria-label="Submit"><span>Submit</span></button>
+                    </div>
+                </form>
+            </div>
             {% else %}
             <div class="h-100 w-100 d-flex justify-content-center align-items-center">
                 <div class="alert alert-danger" role="alert">
-                    Sorry, only <span class="fw-bold">the comment´s author</span> or <span class="fw-bold">the admin</span> can view this page.
+                    Sorry, only <span class="fw-bold">the comment´s author</span> or <span class="fw-bold">the
+                        admin</span> can view this page.
                 </div>
             </div>
             {% endif %}
@@ -42,6 +43,6 @@
 
 
 
-    
+
 
 {%endblock%}

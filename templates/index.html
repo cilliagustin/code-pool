@@ -3,97 +3,108 @@
 {% block title %}{% endblock %}
 {% block content %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col main-banner">
-                <h1>{{ Post }}</h1>
-                <h1><span>Share your</span><span id="title-word"></span><span class="cursor">.</span></h1>
-                <p>Upload your components created in <span class="highlight-blue">HTML</span>, <span class="highlight-blue">CSS</span> and <span class="highlight-blue">JavaScript</span>. Share your ideas, get inspiration from other users and join the coversation!</p>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col main-banner">
+            <h1>{{ Post }}</h1>
+            <h1><span>Share your</span><span id="title-word"></span><span class="cursor">.</span></h1>
+            <p>Upload your components created in <span class="highlight-blue">HTML</span>, <span
+                    class="highlight-blue">CSS</span> and <span class="highlight-blue">JavaScript</span>. Share your
+                ideas, get inspiration from other users and join the coversation!</p>
         </div>
     </div>
+</div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-8 offset-2 new-components-title">
-                <h2 class="mt-3">Latest Components</h2>
-                <i class="fa-solid fa-bolt"></i>
-                <p>This were the newest components created by the community, copy and paste them into you projects!</p>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8 offset-2 new-components-title">
+            <h2 class="mt-3">Latest Components</h2>
+            <i class="fa-solid fa-bolt"></i>
+            <p>This were the newest components created by the community, copy and paste them into you projects!</p>
         </div>
-        <div class="row">
-            {% for post in post_list %}
-                <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4">
-                    <div class="preview-card d-flex flex-column">
-                        <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
-                            <h3 class="my-3">{{ post.title }}</h3>
-                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><span>View Code</span></a>
-                            <button class="custom-btn black full-screen-btn"><span>Full Screen</span></button>
-                        </div>
-                        <div class="preview-card-body">
-                            <textarea data-code-html >{{ post.html_content }}</textarea>
-                            <textarea data-code-css >{{ post.css_content }}</textarea>
-                            <textarea data-code-js >{{ post.js_content }}</textarea>
-                            <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
-                        </div>
-                        <div class="preview-card-footer d-flex flex-wrap justify-content-start align-items-start">
-                            <p class="author">Author: <span class="text-white">{{ post.author }}</span></p>
-                            <p class="updated-on w-100">Last modified: <span class="text-white">{{ post.updated_date}}</span></p>
-                            <div class="rating-section d-flex flex-column justify-content-start align-items-center">
-                                {% if post.avg_rating %}
-                                    <h4 class="text-secondary">Average rating ({{ post.avg_rating }})</h4>
-                                    <p class="text-secondary">Number of votes: {{ post.num_ratings }}</p>
-                                    <div class="avg-star-container d-flex align-items-center">
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <div class="full-star-container d-flex align-items-center" data-avg-rating="{{ post.avg_rating }}">
-                                            <i class="fa-solid fa-star" data-value="1"></i>
-                                            <i class="fa-solid fa-star" data-value="2"></i>
-                                            <i class="fa-solid fa-star" data-value="3"></i>
-                                            <i class="fa-solid fa-star" data-value="4"></i>
-                                            <i class="fa-solid fa-star" data-value="5"></i>
-                                        </div>
-                                    </div>
-                                {% else %}
-                                    <h4 class="text-secondary">No rating available</h4>
-                                    <div class="avg-star-container">
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="badges-container">  
-                                {% if request.user in post.bookmark.all %}
-                                <a href="{% url 'bookmark_posts' %}" class="custom-badge d-flex align-items-center justify-content-center">
-                                    <p><i class="fa-solid fa-bookmark"></i> Bookmarked</p>
-                                </a>
-                                {% endif %}
-                                <a href="{% url 'category' post.category %}" class="custom-badge badge-category d-flex align-items-center justify-content-center">
-                                    <p>{{ post.category }}</p>
-                                </a>
+    </div>
+    <div class="row">
+        {% for post in post_list %}
+        <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4">
+            <div class="preview-card d-flex flex-column">
+                <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
+                    <h3 class="my-3">{{ post.title }}</h3>
+                    <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"
+                        aria-label="Go to {{ post.title }} post page"><span>View Code</span></a>
+                    <button class="custom-btn black full-screen-btn" aria-label="View code in full screen"><span>Full
+                            Screen</span></button>
+                </div>
+                <div class="preview-card-body">
+                    <textarea data-code-html>{{ post.html_content }}</textarea>
+                    <textarea data-code-css>{{ post.css_content }}</textarea>
+                    <textarea data-code-js>{{ post.js_content }}</textarea>
+                    <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
+                </div>
+                <div class="preview-card-footer d-flex flex-wrap justify-content-start align-items-start">
+                    <p class="author">Author: <span class="text-white">{{ post.author }}</span></p>
+                    <p class="updated-on w-100">Last modified: <span class="text-white">{{ post.updated_date}}</span>
+                    </p>
+                    <div class="rating-section d-flex flex-column justify-content-start align-items-center">
+                        {% if post.avg_rating %}
+                        <h4 class="text-secondary">Average rating ({{ post.avg_rating }})</h4>
+                        <p class="text-secondary">Number of votes: {{ post.num_ratings }}</p>
+                        <div class="avg-star-container d-flex align-items-center">
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <div class="full-star-container d-flex align-items-center"
+                                data-avg-rating="{{ post.avg_rating }}">
+                                <i class="fa-solid fa-star" data-value="1"></i>
+                                <i class="fa-solid fa-star" data-value="2"></i>
+                                <i class="fa-solid fa-star" data-value="3"></i>
+                                <i class="fa-solid fa-star" data-value="4"></i>
+                                <i class="fa-solid fa-star" data-value="5"></i>
                             </div>
                         </div>
+                        {% else %}
+                        <h4 class="text-secondary">No rating available</h4>
+                        <div class="avg-star-container">
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="badges-container">
+                        {% if request.user in post.bookmark.all %}
+                        <a href="{% url 'bookmark_posts' %}"
+                            class="custom-badge d-flex align-items-center justify-content-center"
+                            aria-label="Go to bookmarked posts page">
+                            <p><i class="fa-solid fa-bookmark"></i> Bookmarked</p>
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'category' post.category %}"
+                            class="custom-badge badge-category d-flex align-items-center justify-content-center"
+                            aria-label="Go to category {{ category }} posts page">
+                            <p>{{ post.category }}</p>
+                        </a>
                     </div>
                 </div>
-            {% endfor %}
-                <div class="col-12 my-3 d-flex align-items-center justify-content-center">
-                    <a href="{% url 'posts' %}" class="custom-btn"><span>View all</span></a>
-                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-12 my-3 d-flex align-items-center justify-content-center">
+            <a href="{% url 'posts' %}" class="custom-btn" aria-label="Go to view all posts page"><span>View
+                    all</span></a>
         </div>
     </div>
+</div>
 
 
 
-    
+
 
 {% endblock %}
 
 {% block page_scripts %}
-  <script src="{% static 'js/index.js' %}"></script> 
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

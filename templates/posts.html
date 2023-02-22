@@ -3,114 +3,125 @@
 {% block title %}- Posts{% endblock %}
 {% block content %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col main-banner posts">
-                <h1><span>Posts</span><span class="cursor">.</span></h1>
-            </div>
-        </div>
-    </div>  
-
-    <div class="container-fluid post-display">
-        <div class="row">
-            <div class="col-12">
-                <nav id="filter-navigation">
-                    <ul>
-                        {% for category in categories %}
-                        <li>
-                            <a href="{% url 'category' category %}"> {{ category }}</a>
-                        </li>  
-                        {% endfor %}
-                        {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'bookmark_posts' %}">bookmarked</a>
-                        </li>  
-                        {% endif %}
-                        <li>
-                            <a class="active" href="{% url 'posts' %}">All posts</a>
-                        </li>  
-                    </ul>
-                </nav>
-            </div>
-            {% for post in post_list %}
-                <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4">
-                    <div class="preview-card d-flex flex-column">
-                        <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
-                            <h3 class="my-3">{{ post.title }}</h3>
-                            <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"><span>View Code</span></a>
-                            <button class="custom-btn black full-screen-btn"><span>Full Screen</span></button>
-                        </div>
-                        <div class="preview-card-body">
-                            <textarea data-code-html >{{ post.html_content }}</textarea>
-                            <textarea data-code-css >{{ post.css_content }}</textarea>
-                            <textarea data-code-js >{{ post.js_content }}</textarea>
-                            <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
-                        </div>
-                        <div class="preview-card-footer d-flex flex-wrap justify-content-start align-items-start">
-                            <p class="author">Author: <span class="text-white">{{ post.author }}</span></p>
-                            <p class="updated-on w-100">Last modified: <span class="text-white">{{ post.updated_date}}</span></p>
-                            <div class="rating-section d-flex flex-column justify-content-start align-items-center">
-                                {% if post.avg_rating %}
-                                    <h4 class="text-secondary">Average rating ({{ post.avg_rating }})</h4>
-                                    <p class="text-secondary">Number of votes: {{ post.num_ratings }}</p>
-                                    <div class="avg-star-container d-flex align-items-center">
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <div class="full-star-container d-flex align-items-center" data-avg-rating="{{ post.avg_rating }}">
-                                            <i class="fa-solid fa-star" data-value="1"></i>
-                                            <i class="fa-solid fa-star" data-value="2"></i>
-                                            <i class="fa-solid fa-star" data-value="3"></i>
-                                            <i class="fa-solid fa-star" data-value="4"></i>
-                                            <i class="fa-solid fa-star" data-value="5"></i>
-                                        </div>
-                                    </div>
-                                {% else %}
-                                    <h4 class="text-secondary">No rating available</h4>
-                                    <div class="avg-star-container">
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                        <i class="fa-regular fa-star text-secondary"></i>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="badges-container">  
-                                {% if request.user in post.bookmark.all %}
-                                <a href="{% url 'bookmark_posts' %}" class="custom-badge d-flex align-items-center justify-content-center">
-                                    <p><i class="fa-solid fa-bookmark"></i> Bookmarked</p>
-                                </a>
-                                {% endif %}
-                                <a href="{% url 'category' post.category %}" class="custom-badge badge-category d-flex align-items-center justify-content-center">
-                                    <p>{{ post.category }}</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-            <div class="col-12">
-                {% if is_paginated %}
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
-                        {% if page_obj.has_previous %}
-                        <li><a href="?page={{ page_obj.previous_page_number }}" class="custom-btn mx-1"><span>&laquo; PREV</span></a></li>
-                        {% endif %}
-                        {% if page_obj.has_next %}
-                        <li><a href="?page={{ page_obj.next_page_number }}" class="custom-btn mx-1"><span>NEXT &raquo;</span></a></li>
-                        {% endif %}
-                    </ul>
-                </nav>
-                {% endif %}
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col main-banner posts">
+            <h1><span>Posts</span><span class="cursor">.</span></h1>
         </div>
     </div>
+</div>
+
+<div class="container-fluid post-display">
+    <div class="row">
+        <div class="col-12">
+            <nav id="filter-navigation">
+                <ul>
+                    {% for category in categories %}
+                    <li>
+                        <a href="{% url 'category' category %}" aria-label="Go to category {{ category }} posts page">
+                            {{ category }}</a>
+                    </li>
+                    {% endfor %}
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'bookmark_posts' %}" aria-label="Go to bookmarked posts page">bookmarked</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a class="active" href="{% url 'posts' %}" aria-label="Go to all posts page">All posts</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {% for post in post_list %}
+        <div class="col-10 offset-1 col-md-6 offset-md-0 col-lg-4">
+            <div class="preview-card d-flex flex-column">
+                <div class="preview-card-header d-flex flex-wrap align-items-start justify-content-center">
+                    <h3 class="my-3">{{ post.title }}</h3>
+                    <a href="{% url 'post_detail' post.slug %}" class="custom-btn black"
+                        aria-label="Go to {{ post.title }} post page"><span>View Code</span></a>
+                    <button class="custom-btn black full-screen-btn" aria-label="View code in full screen"><span>Full
+                            Screen</span></button>
+                </div>
+                <div class="preview-card-body">
+                    <textarea data-code-html>{{ post.html_content }}</textarea>
+                    <textarea data-code-css>{{ post.css_content }}</textarea>
+                    <textarea data-code-js>{{ post.js_content }}</textarea>
+                    <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
+                </div>
+                <div class="preview-card-footer d-flex flex-wrap justify-content-start align-items-start">
+                    <p class="author">Author: <span class="text-white">{{ post.author }}</span></p>
+                    <p class="updated-on w-100">Last modified: <span class="text-white">{{ post.updated_date}}</span>
+                    </p>
+                    <div class="rating-section d-flex flex-column justify-content-start align-items-center">
+                        {% if post.avg_rating %}
+                        <h4 class="text-secondary">Average rating ({{ post.avg_rating }})</h4>
+                        <p class="text-secondary">Number of votes: {{ post.num_ratings }}</p>
+                        <div class="avg-star-container d-flex align-items-center">
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <div class="full-star-container d-flex align-items-center"
+                                data-avg-rating="{{ post.avg_rating }}">
+                                <i class="fa-solid fa-star" data-value="1"></i>
+                                <i class="fa-solid fa-star" data-value="2"></i>
+                                <i class="fa-solid fa-star" data-value="3"></i>
+                                <i class="fa-solid fa-star" data-value="4"></i>
+                                <i class="fa-solid fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        {% else %}
+                        <h4 class="text-secondary">No rating available</h4>
+                        <div class="avg-star-container">
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                            <i class="fa-regular fa-star text-secondary"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="badges-container">
+                        {% if request.user in post.bookmark.all %}
+                        <a href="{% url 'bookmark_posts' %}"
+                            class="custom-badge d-flex align-items-center justify-content-center"
+                            aria-label="Go to bookmarked posts page">
+                            <p><i class="fa-solid fa-bookmark"></i> Bookmarked</p>
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'category' post.category %}"
+                            class="custom-badge badge-category d-flex align-items-center justify-content-center"
+                            aria-label="Go to category {{ category }} posts page">
+                            <p>{{ post.category }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-12">
+            {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="custom-btn mx-1"
+                            aria-label="Previous page"><span>&laquo; PREV</span></a></li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="custom-btn mx-1"
+                            aria-label="Next page"><span>NEXT &raquo;</span></a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 {%endblock%}
 
 {% block page_scripts %}
-  <script src="{% static 'js/post.js' %}"></script> 
+<script src="{% static 'js/post.js' %}"></script>
 {% endblock %}

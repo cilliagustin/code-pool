@@ -1,86 +1,98 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Codepool is a one-stop-shop for all your code component needs. Access a vast collection of HTML, CSS, and JS snippets created and shared by the community. Contribute your own code components and showcase your skills with coders from around the world.">
-    <meta name="keywords" content="code components, HTML snippets, CSS snippets, JS snippets, web developers, community, registered user, buttons, navbars, loaders, showcase skills">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <meta name="description"
+        content="Codepool is a one-stop-shop for all your code component needs. Access a vast collection of HTML, CSS, and JS snippets created and shared by the community. Contribute your own code components and showcase your skills with coders from around the world.">
+    <meta name="keywords"
+        content="code components, HTML snippets, CSS snippets, JS snippets, web developers, community, registered user, buttons, navbars, loaders, showcase skills">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <script src="https://kit.fontawesome.com/6037b4c484.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'media/favicon.jpg' %}">
     <title>Codepool {% block title %}{% endblock title %}</title>
 </head>
+
 <body>
     <!-- NAVBAR -->
     <nav id="navbar" data-open="false">
-        <a href="{% url 'home' %}"><img src="{% static 'media/logo.png' %}" alt="Codepool Logo"></a>
-        <button id="hamb">
+        <a href="{% url 'home' %}" aria-label="Go to home page"></a>><img src="{% static 'media/logo.png' %}"
+            alt="Codepool Logo"></a>
+        <button id="hamb" aria-label="Toggle hamburger menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
         <div class="links">
             <ul>
-                
+
                 <li>
-                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'home' %}" aria-label="Go to home page">Home</a>
                 </li>
                 <li>
-                    <a href="{% url 'posts' %}">Browse Posts</a>
+                    <a href="{% url 'posts' %}" aria-label="Go to all posts page">Browse Posts</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'add_post' %}">New Post</a>
+                    <a href="{% url 'add_post' %}" aria-label="Go to new post page">New Post</a>
                 </li>
-                    {% if user.is_superuser %}
-                        <li>
-                            <a href="{% url 'category_list'%}">Browse Categories</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'add_category'%}">New Category</a>
-                        </li>
-                    {% endif %}
+                {% if user.is_superuser %}
                 <li>
-                    <a href="{% url 'account_logout' %}">Logout</a>
+                    <a href="{% url 'category_list'%}" aria-label="Go to browse categories page">Browse Categories</a>
+                </li>
+                <li>
+                    <a href="{% url 'add_category'%}" aria-label="Go to new category page">New Category</a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="{% url 'account_logout' %}" aria-label="Go to log out page">Logout</a>
                 </li>
                 {% else %}
                 <li>
-                    <a  href="{% url 'account_signup' %}">Register</a>
+                    <a href="{% url 'account_signup' %}" aria-label="Go to sign up page">Register</a>
                 </li>
                 <li>
-                    <a href="{% url 'account_login' %}">Login</a>
+                    <a href="{% url 'account_login' %}" aria-label="Go to sign in page">Login</a>
                 </li>
                 {% endif %}
             </ul>
         </div>
         {% if user.is_authenticated %}
-            <div class="username d-flex align-items-center justify-content-start">
-                <p class="m-0 ms-5 text-white">Logged as {{ user.username }}{% if user.is_superuser %} - Admin{% endif %}</p>
-            </div>
+        <div class="username d-flex align-items-center justify-content-start">
+            <p class="m-0 ms-5 text-white">Logged as {{ user.username }}{% if user.is_superuser %} - Admin{% endif %}
+            </p>
+        </div>
         {% endif %}
     </nav>
     <div data-open="false" class="overlay" id="overlay"></div>
-    
+
     <!-- CONTENT -->
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
-    
+
     <!-- FOOTER -->
     <footer>
         <p>Agustin Cilli - <span id="footerYear"></span></p>
         <div class="links">
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/cilliagustin?tab=repositories" aria-label="Open GitHub" target="_blank"
+                rel="noopener"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:cilli.agustin@gmail.com?subject=Contact" aria-label="Send Email" target="_blank"
+                rel="noopener"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
-    
-    <script src="{% static 'js/script.js' %}"></script> 
+
+    <script src="{% static 'js/script.js' %}"></script>
     {% block page_scripts %}
     {% endblock page_scripts %}
 </body>
+
 </html>

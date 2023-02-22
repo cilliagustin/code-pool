@@ -9,14 +9,14 @@
 {% if form.errors %}
 <div id="error-modal" class="alert alert-danger d-flex flex-wrap">
   <p>Oops... there´s been a mistake</p>
-  <button id="close-error-modal"><i class="fa-solid fa-xmark alert-link"></i></button>
-      <ul>
-        {% for field in form %}
-          {% for error in field.errors %}
-            <li>{{ error }}</li>
-          {% endfor %}
-        {% endfor %}
-      </ul>
+  <button id="close-error-modal" aria-label="Close modal"><i class="fa-solid fa-xmark alert-link"></i></button>
+  <ul>
+    {% for field in form %}
+    {% for error in field.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+    {% endfor %}
+  </ul>
 </div>
 {% endif %}
 
@@ -27,19 +27,21 @@
         <div class="card-header">
           <h1>{% trans "Sign Up" %}</h1>
         </div>
-        <p class="auth-desc">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+        <p class="auth-desc">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}"
+            aria-label="Go to sign in page">sign in</a>.{% endblocktrans %}</p>
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
           {% csrf_token %}
           <div class="wrapper">
-            <input type="text" name="username" autocomplete="username" minlength="1" maxlength="150" required="" id="id_username" >
+            <input type="text" name="username" autocomplete="username" minlength="1" maxlength="150" required=""
+              id="id_username">
             <label for="id_username">Username:</label>
           </div>
           <div class="wrapper">
-            <input type="email" name="email" autocomplete="email" id="id_email" >
+            <input type="email" name="email" autocomplete="email" id="id_email">
             <label for="id_email">E-mail (optional):</label>
           </div>
           <div class="wrapper">
-            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" >
+            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
             <label for="id_password1">Password:</label>
           </div>
           <div class="wrapper">
@@ -49,9 +51,10 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button type="submit" class="custom-btn blue"><span>{% trans "Sign Up" %} &raquo;</span></button>
+          <button type="submit" class="custom-btn blue" aria-label="Submit"><span>{% trans "Sign Up" %}
+              &raquo;</span></button>
         </form>
-        
+
 
       </div>
     </div>

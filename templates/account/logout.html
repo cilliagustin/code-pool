@@ -15,10 +15,11 @@
       <form method="post" class="d-flex justify-content-start" action="{% url 'account_logout' %}">
         {% csrf_token %}
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <button type="submit" class="custom-btn"><span>{% trans 'Sign Out' %}</span></button>
-        <a href="{% url 'home' %}" class="custom-btn ms-1"><span>No, take me back!</span></a>
+        <a href="{% url 'home' %}" class="custom-btn ms-1" aria-label="Go to Home Page"><span>No, take me
+            back!</span></a>
       </form>
     </div>
   </div>

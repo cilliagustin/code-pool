@@ -8,20 +8,20 @@
 {% block content %}
 
 {% if form.errors %}
-  <div id="error-modal" class="alert alert-danger d-flex flex-column">
-      <p>Oops... there´s been a mistake</p>
-      <button id="close-error-modal"><i class="fa-solid fa-xmark alert-link"></i></button>
-      <ul>
-        {% for error in form.non_field_errors %}
-          <li>{{ error }}</li>
-        {% endfor %}
-        {% for field in form %}
-          {% for error in field.errors %}
-            <li>{{ field.label }}: {{ error }}</li>
-          {% endfor %}
-        {% endfor %}
-      </ul>
-  </div>
+<div id="error-modal" class="alert alert-danger d-flex flex-column">
+  <p>Oops... there´s been a mistake</p>
+  <button id="close-error-modal" aria-label="Close modal"><i class="fa-solid fa-xmark alert-link"></i></button>
+  <ul>
+    {% for error in form.non_field_errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+    {% for field in form %}
+    {% for error in field.errors %}
+    <li>{{ field.label }}: {{ error }}</li>
+    {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
 {% endif %}
 
 <div class="container">
@@ -31,7 +31,8 @@
         <div class="card-header">
           <h1>{% trans "Sign In" %}</h1>
         </div>
-        <p class="auth-desc">{% blocktrans %}Please <a href="{{ signup_url }}">sign up</a> if you do not have an account with us.{% endblocktrans %}</p>
+        <p class="auth-desc">{% blocktrans %}Please <a href="{{ signup_url }}" aria-label="Go to sign up Page">sign
+            up</a> if you do not have an account with us.{% endblocktrans %}</p>
         <form class="login" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
           <div class="wrapper">
@@ -39,19 +40,21 @@
             <label for="id_login">Username:</label>
           </div>
           <div class="wrapper">
-            <input type="password" name="password" autocomplete="current-password" required="" id="id_password" >
+            <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
             <label for="id_password">Password:</label>
           </div>
           <div class="wrapper-checkbox">
             <input type="checkbox" name="remember" id="id_remember">
-            <label for="id_remember" class="checkbox-text">Remember Me<span class="question">?</span><span class="affirmation">!</span></label>
+            <label for="id_remember" class="checkbox-text">Remember Me<span class="question">?</span><span
+                class="affirmation">!</span></label>
             <label for="id_remember" class="checkbox-check"><i class="fa-solid fa-check"></i></label>
           </div>
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button class="primaryAction custom-btn blue" type="submit"><span>{% trans "Sign In" %}</span>
-            </button>
+          <button class="primaryAction custom-btn blue" type="submit"
+            aria-label="Submit"><span>{% trans "Sign In" %}</span>
+          </button>
         </form>
       </div>
     </div>

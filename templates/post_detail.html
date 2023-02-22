@@ -12,94 +12,126 @@
             <div id="code-editor" class="code-editor" data-open="true">
                 <div class="code-editor-header">
                     <h1 class="mb-4">{{ post.title}}</h1>
-                    <a href="{% url 'category' post.category %}" class="custom-badge d-flex align-items-center justify-content-center">
+                    <a href="{% url 'category' post.category %}" aria-label="Go to category {{ category }} posts page"
+                        class="custom-badge d-flex align-items-center justify-content-center">
                         <p>{{ post.category }}</p>
                     </a>
                     <p class="author">Created by: {{ post.author}}</p>
                     <p class="updated-on">Last modified: {{ post.updated_date}}</p>
                     <div class="edit-fav-container mb-3 d-flex flex-wrap justify-content-center align-items-center">
-                        <button class="custom-btn black full-screen-btn"><span>Full Screen <i class="fa-solid fa-up-right-and-down-left-from-center"></i></span></button>
-                    {% if user.is_authenticated %}
-                            {% if user.username == post.author.username or user.is_superuser %}
-                            <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"><span>Edit Post <i class="fa-solid fa-pencil"></i></span></a>
-                            <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"><span>Delete Post <i class="fa-regular fa-circle-xmark"></i></span></a>
+                        <button class="custom-btn black full-screen-btn"
+                            aria-label="View code in full screen"><span>Full Screen <i
+                                    class="fa-solid fa-up-right-and-down-left-from-center"></i></span></button>
+                        {% if user.is_authenticated %}
+                        {% if user.username == post.author.username or user.is_superuser %}
+                        <a href="{% url 'edit_post' post.slug %}" class="custom-btn blue"
+                            aria-label="Edit this post"><span>Edit Post <i class="fa-solid fa-pencil"></i></span></a>
+                        <a href="{% url 'delete_post' post.slug %}" class="custom-btn red"
+                            aria-label="Delete this post"><span>Delete Post <i
+                                    class="fa-regular fa-circle-xmark"></i></span></a>
+                        {% endif %}
+                        <form class="d-inline" action="{% url 'post_bookmark' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if is_bookmarked %}
+                            <button type="submit" class="custom-btn green-inverted"
+                                aria-label="Un-bookmark post"><span>Bookmarked <i
+                                        class="fa-solid fa-bookmark"></i></span></button>
+                            {% else %}
+                            <button type="submit" class="custom-btn green" aria-label="Bookmark post"><span>Bookmark <i
+                                        class="fa-regular fa-bookmark"></i></span></button>
                             {% endif %}
-                            <form class="d-inline" action="{% url 'post_bookmark' post.slug %}" method="POST">
-                                {% csrf_token %}
-                                {% if is_bookmarked %}
-                                    <button type="submit" class="custom-btn green-inverted"><span>Bookmarked <i class="fa-solid fa-bookmark"></i></span></button>
-                                {% else %}
-                                    <button type="submit" class="custom-btn green"><span>Bookmark <i class="fa-regular fa-bookmark"></i></span></button>
-                                {% endif %}
-                            </form>
-                            {% endif %}
+                        </form>
+                        {% endif %}
                     </div>
-                    <div class="rating-section pb-4 d-flex flex-column justify-content-start align-items-center flex-md-row justify-content-md-center align-items-md-start">
+                    <div
+                        class="rating-section pb-4 d-flex flex-column justify-content-start align-items-center flex-md-row justify-content-md-center align-items-md-start">
                         {% if user.is_authenticated %}
                         <div class="mx-md-3 d-flex flex-column justify-content-start align-items-center">
                             <h4>Rate this post</h4>
-                            <form method="post" id="rating-form" class="d-flex align-items-center" data-rating="{{ user_rating|default:'none' }}" action="{% url 'post_rating' post.slug %}">
+                            <form method="post" id="rating-form" class="d-flex align-items-center"
+                                data-rating="{{ user_rating|default:'none' }}"
+                                action="{% url 'post_rating' post.slug %}">
                                 {% csrf_token %}
-                                <button type="submit" class="star-btn" name="value" value="1"><i class="fa-regular fa-star text-secondary"></i></button>
-                                <button type="submit" class="star-btn" name="value" value="2"><i class="fa-regular fa-star text-secondary"></i></button>
-                                <button type="submit" class="star-btn" name="value" value="3"><i class="fa-regular fa-star text-secondary"></i></button>
-                                <button type="submit" class="star-btn" name="value" value="4"><i class="fa-regular fa-star text-secondary"></i></button>
-                                <button type="submit" class="star-btn" name="value" value="5"><i class="fa-regular fa-star text-secondary"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="1"
+                                    aria-label="Rate post with 1 star"><i
+                                        class="fa-regular fa-star text-secondary"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="2"
+                                    aria-label="Rate post with 2 stars"><i
+                                        class="fa-regular fa-star text-secondary"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="3"
+                                    aria-label="Rate post with 3 stars"><i
+                                        class="fa-regular fa-star text-secondary"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="4"
+                                    aria-label="Rate post with 4 stars"><i
+                                        class="fa-regular fa-star text-secondary"></i></button>
+                                <button type="submit" class="star-btn" name="value" value="5"
+                                    aria-label="Rate post with 5 stars"><i
+                                        class="fa-regular fa-star text-secondary"></i></button>
                             </form>
                             {% if user_rating %}
-                                <p>Your rating: {{ user_rating }}</p>
+                            <p>Your rating: {{ user_rating }}</p>
                             {% else %}
-                                <p class="text-muted">You haven't rated this post yet</p>
+                            <p class="text-muted">You haven't rated this post yet</p>
                             {% endif %}
                         </div>
                         {% endif %}
                         <div class="mx-md-3 mt-3 mt-md-0 d-flex flex-column justify-content-start align-items-center">
                             {% if avg_rating %}
-                                <h4>Average rating ({{ avg_rating }})</h4>
-                                <div class="avg-star-container d-flex align-items-center">
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <div id="full-star-container" class="full-star-container d-flex align-items-center" data-avg-rating="{{ avg_rating }}">
-                                        <i class="fa-solid fa-star" data-value="1"></i>
-                                        <i class="fa-solid fa-star" data-value="2"></i>
-                                        <i class="fa-solid fa-star" data-value="3"></i>
-                                        <i class="fa-solid fa-star" data-value="4"></i>
-                                        <i class="fa-solid fa-star" data-value="5"></i>
-                                    </div>
+                            <h4>Average rating ({{ avg_rating }})</h4>
+                            <div class="avg-star-container d-flex align-items-center">
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <div id="full-star-container" class="full-star-container d-flex align-items-center"
+                                    data-avg-rating="{{ avg_rating }}">
+                                    <i class="fa-solid fa-star" data-value="1"></i>
+                                    <i class="fa-solid fa-star" data-value="2"></i>
+                                    <i class="fa-solid fa-star" data-value="3"></i>
+                                    <i class="fa-solid fa-star" data-value="4"></i>
+                                    <i class="fa-solid fa-star" data-value="5"></i>
                                 </div>
-                                <p>Number of votes: {{ post.num_ratings }}</p>
-                                {% else %}
-                                <h4 class="text-secondary">No rating available</h4>
-                                <div class="avg-star-container">
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                    <i class="fa-regular fa-star text-secondary"></i>
-                                </div>
-                            {% endif %}                
+                            </div>
+                            <p>Number of votes: {{ post.num_ratings }}</p>
+                            {% else %}
+                            <h4 class="text-secondary">No rating available</h4>
+                            <div class="avg-star-container">
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                                <i class="fa-regular fa-star text-secondary"></i>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="html-button-container d-flex justify-content-center align-items-center">
-                        <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"><span>&lt;</span>HTML<span>&gt;</span></button>
-                        <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                        <button id="htmlBtn" class="code-editor-btn" data-open="true" data-code-type="html"
+                            aria-label="Toggle HTML code"><span>&lt;</span>HTML<span>&gt;</span></button>
+                        <button class="copy-btn" aria-label="Copy HTML code to clipboard"><i
+                                class="fa-regular fa-copy"></i></button>
                     </div>
                     <div class="css-button-container d-flex justify-content-center align-items-center">
-                        <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"><span>{</span>CSS<span>}</span></button>
-                        <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                        <button id="cssBtn" class="code-editor-btn" data-open="false" data-code-type="css"
+                            aria-label="Toggle CSS code"><span>{</span>CSS<span>}</span></button>
+                        <button class="copy-btn" aria-label="Copy CSS code to clipboard"><i
+                                class="fa-regular fa-copy"></i></button>
                     </div>
                     <div class="js-button-container d-flex justify-content-center align-items-center">
-                        <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"><span>(</span>JS<span>)</span></button>
-                        <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                        <button id="jsBtn" class="code-editor-btn" data-open="false" data-code-type="js"
+                            aria-label="Toggle Js code"><span>(</span>JS<span>)</span></button>
+                        <button class="copy-btn" aria-label="Copy JS code to clipboard"><i
+                                class="fa-regular fa-copy"></i></button>
                     </div>
                 </div>
                 <div class="code-editor-code">
-                    <textarea name="htmlCode" id="htmlCode" data-open="true" data-code-type="html" readonly>{{ post.html_content }}</textarea>
-                    <textarea name="cssCode" id="cssCode" data-open="false" data-code-type="css" readonly>{{ post.css_content }}</textarea>
-                    <textarea name="jsCode" id="jsCode" data-open="false" data-code-type="js" readonly>{{ post.js_content }}</textarea>
+                    <textarea name="htmlCode" id="htmlCode" data-open="true" data-code-type="html"
+                        readonly>{{ post.html_content }}</textarea>
+                    <textarea name="cssCode" id="cssCode" data-open="false" data-code-type="css"
+                        readonly>{{ post.css_content }}</textarea>
+                    <textarea name="jsCode" id="jsCode" data-open="false" data-code-type="js"
+                        readonly>{{ post.js_content }}</textarea>
                 </div>
                 <div class="code-editor-iframe">
                     <iframe src="{% url 'canvas' %}" title="blank canvas"></iframe>
@@ -111,47 +143,54 @@
         <div class="col-12 px-0 col-lg-8">
             <h2 class="text-center mb-3 text-white">Comments</h2>
             {% for comment in comments %}
-                {% if comment.approved %}
-                <div class="comment-card {% if forloop.counter|divisibleby:2 %}darker{% endif %}">
-                    <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
-                        <p class="author"><span>{{ comment.author.username }}</span> wrote:</p>
-                        {% if user.username == comment.author.username or user.is_superuser %}
-                        <a href="{% url 'delete_comment' post.slug comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
-                        {% endif %}
-                    </div>
-                    <p class="comment">{{ comment.body }} {{ comment.status }}</p>
-                    <div class="comment-footer">
-                        <p class="date">Written on {{ comment.created_on }}</p>
-                    </div>
-                </div>
-                {% else %}
-                    {% if user.is_superuser %}
-                    <div class="comment-card unapproved {% if forloop.counter|divisibleby:2 %}darker{% endif %}">
-                        <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
-                            <p class="w-100 text-center fw-bold">Comment waiting for approval</p>
-                            <p class="author"><span>{{ comment.author.username }}</span> wrote:</p>
-                            {% if user.username == comment.author.username or user.is_superuser %}
-                            <a href="{% url 'delete_comment' post.slug comment.pk %}" class="custom-badge"><p>Delete comment</p></a>
-                            {% endif %}
-                        </div>
-                        <p class="comment">{{ comment.body }} {{ comment.status }}</p>
-                        <div class="comment-footer">
-                            <form class="d-inline me-auto" action="{% url 'approve_comment' comment.pk %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit" class="custom-badge approve"><span>Approve comment</span></button>
-                            </form>
-                            <p class="date">Written on {{ comment.created_on }}</p>
-                        </div>
-                    </div>
+            {% if comment.approved %}
+            <div class="comment-card {% if forloop.counter|divisibleby:2 %}darker{% endif %}">
+                <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
+                    <p class="author"><span>{{ comment.author.username }}</span> wrote:</p>
+                    {% if user.username == comment.author.username or user.is_superuser %}
+                    <a href="{% url 'delete_comment' post.slug comment.pk %}" class="custom-badge"
+                        aria-label="Delete this comment">
+                        <p>Delete comment</p>
+                    </a>
                     {% endif %}
-                {% endif %}
+                </div>
+                <p class="comment">{{ comment.body }} {{ comment.status }}</p>
+                <div class="comment-footer">
+                    <p class="date">Written on {{ comment.created_on }}</p>
+                </div>
+            </div>
+            {% else %}
+            {% if user.is_superuser %}
+            <div class="comment-card unapproved {% if forloop.counter|divisibleby:2 %}darker{% endif %}">
+                <div class="comment-header d-flex flex-wrap align-items-center justify-content-between">
+                    <p class="w-100 text-center fw-bold">Comment waiting for approval</p>
+                    <p class="author"><span>{{ comment.author.username }}</span> wrote:</p>
+                    {% if user.username == comment.author.username or user.is_superuser %}
+                    <a href="{% url 'delete_comment' post.slug comment.pk %}" class="custom-badge"
+                        aria-label="Delete this comment">
+                        <p>Delete comment</p>
+                    </a>
+                    {% endif %}
+                </div>
+                <p class="comment">{{ comment.body }} {{ comment.status }}</p>
+                <div class="comment-footer">
+                    <form class="d-inline me-auto" action="{% url 'approve_comment' comment.pk %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="custom-badge approve" aria-label="Approve comment"><span>Approve
+                                comment</span></button>
+                    </form>
+                    <p class="date">Written on {{ comment.created_on }}</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
             {% empty %}
             <div class="comment-card">
                 <div class="comment-header">
                     <p class="author"><span>This post does not have any comments yet...</span></p>
                 </div>
                 <p class="comment">Write the first comment to start the conversation!</p>
-                <div class="comment-footer"> 
+                <div class="comment-footer">
                 </div>
             </div>
             {% endfor %}
@@ -164,19 +203,20 @@
         <div class="col-12 col-lg-4 user-comment">
             <h2 class="mb-3 mt-lg-0 mt-3">Leave a comment:</h2>
             {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
-                </div>
+            <div class="alert alert-success" role="alert">
+                Your comment is awaiting approval
+            </div>
             {% else %}
             {% if user.is_authenticated %}
             <p>Posting as <span>{{ user.username }}</span></p>
             <form method="POST">
                 {{ comment_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="custom-btn"><span>Submit</span></button>
+                <button type="submit" class="custom-btn" aria-label="Submit"><span>Submit</span></button>
             </form>
             {% else %}
-            <p>Please <a href="{% url 'account_signup' %}">Register</a> or <a href="{% url 'account_login' %}">Login</a> to comment.</p>
+            <p>Please <a href="{% url 'account_signup' %}" aria-label="Go to sign up page">Register</a> or <a
+                    href="{% url 'account_login' %}" aria-label="Go to sign in page">Login</a> to comment.</p>
             {% endif %}
             {% endif %}
         </div>
@@ -186,5 +226,5 @@
 {%endblock%}
 
 {% block page_scripts %}
-  <script src="{% static 'js/post_detail.js' %}"></script> 
+<script src="{% static 'js/post_detail.js' %}"></script>
 {% endblock %}
