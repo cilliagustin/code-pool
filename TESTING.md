@@ -588,24 +588,35 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ## User Story Testing
 
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
 
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
+### Regular users (non registered)
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature09.png) |
-| repeat for all remaining user stories | x |
+| As a User I can view all the code components shared so that copy them and use them in my own projects | ![screenshot](documentation/screenshots/user-story-view-all-posts.png) |
+| As a User I can filter the code components by category or bookmarked posts so that I can easily find the post that I want | ![screenshot](documentation/screenshots/user-story-filter-posts.png) |
+| As a user I can open a component shared so that see the code used in HTML, CSS and Js | ![screenshot](documentation/screenshots/user-story-open-a-component.png) |
+| As a user I can View comments in posts so that see what other people think | ![screenshot](documentation/screenshots/user-story-view-comment.png) |
+| As a user I can regsiter and become a registered user so that comment and like posts, and create my own posts | ![screenshot](documentation/screenshots/user-story-sign-up.png) |
+| As a user I can preview shared elements so that decide if I am interested in the element before looking at the code | ![screenshot](documentation/screenshots/user-story-preview-code.png) |
+| As a User I can view the newest code components shared on the home page so that I can easily be updated with the newest components | ![screenshot](documentation/screenshots/user-story-latest-posts.png) |
+| As a User I can open the iframe in full screen on the preview cards so that I can see the code component in a bigger scale | ![screenshot](documentation/screenshots/user-story-full-screen.png) |
+
+### Registered Users
+| User Story | Screenshot |
+| --- | --- |
+| As a registered user I can delete a post created by me so that I can remove it completely in case I don´t want it on the website | ![screenshot](documentation/screenshots/user-story-delete-post.png) |
+| As a registered user I can edit my own posts so that make a correction in case I have a mistake | ![screenshot](documentation/screenshots/user-story-edit-post.png) |
+| As a Registered User I can comment posts so that I can share my opinion about other users components | ![screenshot](documentation/screenshots/user-story-comment.png) |
+| As a Registered User I can create a post with my code so that I can share and store somewhere the components I created | ![screenshot](documentation/screenshots/user-story-new-post.png) |
+| As a Registered User I can add or remove a post to bookmarked so that easily find it | ![screenshot](documentation/screenshots/user-story-bookmark.png) |
+| As a Registered user I can rate a post from 1 to 5 so that share my opinion and view other users opinions | ![screenshot](documentation/screenshots/user-story-rate.png) |
+| As a registered user I can delete my comments from any post so that take down my comment if i commented on the wrong post | ![screenshot](documentation/screenshots/user-story-delete-comment.png) |
+
+### Site Admin
+| User Story | Screenshot |
+| --- | --- |
+| As a Site admin I can delete posts and comments so that manage the content in the site | ![screenshot](documentation/screenshots/user-story-delete-post-comment.png) |
+| As a Site Admin I can approve comments so that I can filter unnecessary comments in the website | ![screenshot](documentation/screenshots/user-story-approve-comment.png) |
 
 ## Automated Testing
 
