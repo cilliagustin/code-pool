@@ -622,29 +622,12 @@ You can fork this repository by using the following steps:
 | [TraversyMedia](https://www.youtube.com/watch?v=POX3dT-pB4E&t=197s&ab_channel=TraversyMedia) | Index | Creating a typewritter effect using Js |
 | [W3Schools](https://www.w3schools.com/howto/howto_js_copy_clipboard.asp) | Post Detail | how to copy a text to clipboard using Js |
 
-
 ### Media
 
-Use this space to provide attribution links to any images, videos, or audio files borrowed from online.
-A few examples have been provided below to give you some ideas.
-
-If you're the owner (or a close acquaintance) of all media files, then make sure to specify this.
-Let the assessors know that you have explicit rights to use the media files within your project.
-
-Ideally, you should provide an actual link to every media file used, not just a generic link to the main site!
-The list below is by no means exhaustive. Within the Code Institute Slack community, you can find more "free media" links
-by sending yourself the following command: `!freemedia`.
-
-| Source | Location | Type | Notes |
-| --- | --- | --- | --- |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+The images used in this project were all produced by my wife Milagros Mansilla
 
 ### Acknowledgements
 
 - I extend my gratitude to my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN), for their unwavering support during the entire project development process.
 
 - I would like to express my appreciation to the [Code Institute](https://codeinstitute.net) tutoring team and specifically Ed, who went above and beyond in helping resolve some project-related issues.
-
-
-
-
