@@ -44,10 +44,6 @@ class TestPostForm(TestCase):
             form.errors['css_content'][0], 'This field is required.'
             )
 
-    # def test_js_content_is_not_required(self):
-    #     form = PostForm({'js_content': ''})
-    #     self.assertTrue(form.is_valid())
-
     def test_fields_are_explicit_in_form_metaclass(self):
         form = PostForm()
         self.assertEqual(
@@ -99,10 +95,6 @@ class TestEditForm(TestCase):
         self.assertEqual(
             form.errors['css_content'][0], 'This field is required.'
             )
-
-    # def test_js_content_is_not_required(self):
-    #     form = EditForm({'js_content': ''})
-    #     self.assertTrue(form.is_valid())
 
     def test_fields_are_explicit_in_form_metaclass(self):
         form = EditForm()
