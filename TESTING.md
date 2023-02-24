@@ -4,6 +4,8 @@ Return back to the [README.md](README.md) file.
 
 ## Code Validation
 
+### HTML
+
 I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files. Since some of the pages requires authorisation to be accessed, some of the validation were done by checking the HTML file by entering the URL and some by copying and pasting the HTML code into the validator
 
 | Page |  Screenshot | Type of valiation |
@@ -24,28 +26,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Log Out | ![screenshot](documentation/screenshots/log-out-html-validation.png) | Validated by Input |
 | Sign In | ![screenshot](documentation/screenshots/sign-in-html-validation.png) | Validated by URL |
 | Sign Up | ![screenshot](documentation/screenshots/sign-up-html-validation.png) | Validated by URL |
-
-
-
-
-**IMPORTANT**: Python/Jinja syntax in HTML
-
-Python projects that use Jinja syntax, such as `{% for loops %}`, `{% url 'home' %}`, and `{{ variable|filter }}`
-will not validate properly if you're copying/pasting into the HTML validator.
-
-In order to properly validate these types of files, it's recommended to
-[validate by uri](https://validator.w3.org/#validate_by_uri) from the deployed Heroku pages.
-
-Unfortunately, pages that require a user to be logged-in and authenticated (CRUD functionality),
-will not work using this method, due to the fact that the HTML Validator (W3C) doesn't have
-access to login to your pages.
-In order to properly validate HTML pages with Jinja syntax for authenticated pages, follow these steps:
-
-- Navigate to the deployed pages which require authentication
-- Right-click anywhere on the page, and select **View Page Source** (usually `CTRL+U` or `⌘+U` on Mac).
-- This will display the entire "compiled" code, without any Jinja syntax.
-- Copy everything, and use the [validate by input](https://validator.w3.org/#validate_by_input) method.
-- Repeat this process for every page that requires a user to be logged-in/authenticated.
 
 ### CSS
 
@@ -444,31 +424,25 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 </details>
 
 ## Lighthouse Audit
-
-Use this space to discuss testing the live/deployed site's Lighthouse Audit reports.
-Avoid testing the local version (especially if developing in Gitpod), as this can have knock-on effects of performance.
-
-If you don't have Lighthouse in your Developer Tools,
-it can be added as an [extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk).
-
-Don't just test the home page (unless it's a single-page application).
-Make sure to test the Lighthouse Audit results for all of your pages.
-
-**IMPORTANT**: You must provide screenshots of the results, to "prove" that you've actually tested them.
-
-Sample Lighthouse testing documentation:
-
 I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
 
-| Page | Size | Screenshot | Notes |
-| --- | --- | --- | --- |
-| Home | Mobile | ![screenshot](documentation/lighthouse-home-mobile.png) | Some minor warnings |
-| Home | Desktop | ![screenshot](documentation/lighthouse-home-desktop.png) | Few warnings |
-| About | Mobile | ![screenshot](documentation/lighthouse-about-mobile.png) | Some minor warnings |
-| About | Desktop | ![screenshot](documentation/lighthouse-about-desktop.png) | Few warnings |
-| Gallery | Mobile | ![screenshot](documentation/lighthouse-gallery-mobile.png) | Slow response time due to large images |
-| Gallery | Desktop | ![screenshot](documentation/lighthouse-gallery-desktop.png) | Slow response time due to large images |
-| x | x | x | repeat for any other tested pages/sizes |
+| Page | Screenshot |
+| --- | --- |
+| Home | ![screenshot](documentation/lighthouse-index.png) |
+| Posts | ![screenshot](documentation/lighthouse-posts.png) |
+| Bookmarked Posts | ![screenshot](documentation/lighthouse-bookmarked-posts.png) |
+| Filtered by Category Posts | ![screenshot](documentation/lighthouse-category-filtered-posts.png) |
+| Post Detail | ![screenshot](documentation/lighthouse-post-detail.png) |
+| Edit Post | ![screenshot](documentation/lighthouse-edit-post.png) |
+| Delete Post | ![screenshot](documentation/lighthouse-edit-post.png) |
+| New Post | ![screenshot](documentation/lighthouse-new-post.png) |
+| Categories | ![screenshot](documentation/lighthouse-categories.png) |
+| Edit Category | ![screenshot](documentation/lighthouse-edit-category.png) |
+| Delete Category | ![screenshot](documentation/lighthouse-delete-category.png) |
+| New Category | ![screenshot](documentation/lighthouse-new-category.png) |
+| Sign In | ![screenshot](documentation/lighthouse-sign-in.png) |
+| Sign Up | ![screenshot](documentation/lighthouse-sign-up.png) |
+
 
 ## Defensive Programming
 
