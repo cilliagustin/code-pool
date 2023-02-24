@@ -102,7 +102,7 @@ class TestDeleteComment(TestCase):
     def test_delete_comment_response(self):
         self.client.force_login(self.author)
         response = self.client.get(reverse(
-            'delete_comment', args=[self.comment.pk]))
+            'delete_comment', args=[self.post.slug, self.comment.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'delete_comment.html', 'base.html')
 
@@ -113,7 +113,7 @@ class TestDeleteComment(TestCase):
             )
         self.client.force_login(user)
         response = self.client.post(reverse(
-            'delete_comment', args=[self.comment.pk]
+            'delete_comment', args=[self.post.slug, self.comment.pk]
             ))
         self.assertRedirects(response, reverse(
             'post_detail', args=[self.post.slug]
