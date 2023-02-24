@@ -111,9 +111,9 @@ I've tested my deployed project using [Chrome](https://www.google.com/chrome), [
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
-| Chrome | ![screenshot](documentation/screenshots/chrome-post-detail-1.png) ![screenshot](documentation/screenshots/chrome-post-detail-2.png) [screenshot](documentation/screenshots/chrome-post-detail-3.png)| Works as expected |
-| Firefox | ![screenshot](documentation/screenshots/mozilla-post-detail-1.png) ![screenshot](documentation/screenshots/mozilla-post-detail-2.png) [screenshot](documentation/screenshots/mozilla-post-detail-3.png) | Works as expected |
-| Safari | ![screenshot](documentation/screenshots/safari-post-detail-1.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-2.jpeg) [screenshot](documentation/screenshots/safari-post-detail-3.jpeg) | Works as expected |
+| Chrome | ![screenshot](documentation/screenshots/chrome-post-detail-1.png) ![screenshot](documentation/screenshots/chrome-post-detail-2.png) ![screenshot](documentation/screenshots/chrome-post-detail-3.png)| Works as expected |
+| Firefox | ![screenshot](documentation/screenshots/mozilla-post-detail-1.png) ![screenshot](documentation/screenshots/mozilla-post-detail-2.png) ![screenshot](documentation/screenshots/mozilla-post-detail-3.png) | Works as expected |
+| Safari | ![screenshot](documentation/screenshots/safari-post-detail-1.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-2.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-3.jpeg) | Works as expected |
 
 </details>
 
@@ -285,9 +285,9 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 
 | Device | Screenshot | Notes |
 | --- | --- | --- |
-| Desktop | ![screenshot](documentation/screenshots/chrome-post-detail-1.png) ![screenshot](documentation/screenshots/chrome-post-detail-2.png) [screenshot](documentation/screenshots/chrome-post-detail-3.png)| Works as expected |
-| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-post-detail-1.png) ![screenshot](documentation/screenshots/tablet-post-detail-2.png) [screenshot](documentation/screenshots/tablet-post-detail-3.png) | Works as expected |
-| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-post-detail-1.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-2.jpeg) [screenshot](documentation/screenshots/safari-post-detail-3.jpeg) | Works as expected |
+| Desktop | ![screenshot](documentation/screenshots/chrome-post-detail-1.png) ![screenshot](documentation/screenshots/chrome-post-detail-2.png) ![screenshot](documentation/screenshots/chrome-post-detail-3.png)| Works as expected |
+| Tablet (Devtools) | ![screenshot](documentation/screenshots/tablet-post-detail-1.png) ![screenshot](documentation/screenshots/tablet-post-detail-2.png) ![screenshot](documentation/screenshots/tablet-post-detail-3.png) | Works as expected |
+| Mobile (Iphone 14) | ![screenshot](documentation/screenshots/safari-post-detail-1.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-2.jpeg) ![screenshot](documentation/screenshots/safari-post-detail-3.jpeg) | Works as expected |
 
 </details>
 
