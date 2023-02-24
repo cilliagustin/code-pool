@@ -7,8 +7,6 @@ Codepool also provides a platform for users to rate and comment on other users' 
 Whether you're a seasoned developer or just starting out, Codepool is the perfect place to expand your knowledge and build your code library. With its growing community of coders and wealth of resources, you'll never run out of new and exciting code components to explore. So why wait? Join Codepool today and take your coding skills to the next level!
 
 
-* placeholder for Am I Responsive
-
 ## UX
 
 The user experience of Codepool is designed to be modern and intuitive, with a dark theme that is both visually appealing and easy on the eyes. When you first access the website, you are presented with a list of posts, each previewed in a compact card that provides basic information about the code component. The card includes the title, author, last modified date, rating, and category, as well as a preview of the code displayed within an iframe. This card are also used in the post, categories and bookmarked templates.
@@ -292,49 +290,74 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
     - The navbar on your website has a dark theme with white links for a contrasting appearance. On mobile devices, the navbar collapses into a hamburger menu for a more compact viewing experience. When opened, the menu displays a column of links coming from the right edge of the screen, casting an overlay on the rest of the page.
     The navbar is dynamically populated based on the user's status, providing personalized information and access to relevant features. For all users, the links to the index, all posts template, log in/register, and log out are displayed. Registered users are able to see the link to create a new post, while only the site admin is able to see the links to view the list of categories and create a new one. When a regisred user hovers the navbar it will wxtend to show the user´s username.
 
-![screenshot](documentation/feature01.png)
+<details>
+<summary>View Screenshot</summary>
 
+![screenshot](documentation/screenshots/features-navbar.png)
+</details>
 - **Preview Card**
 
     - The preview card is a feature that provides basic information about a post on the website. It is visible on the index, posts, categories filtered posts, and bookmarked templates. The preview card displays the post title, the author's last modification date, and a small preview of the code displayed in an iframe. Additionally, there are two buttons: one that links to the post detail for that specific post, and another that shows the iframe in full screen. The average rating of the post is also displayed, along with a badge indicating the post's category. If a registered user has bookmarked the post, a small badge will also be displayed to note this.
 
-![screenshot](documentation/feature01.png)
+<details>
+<summary>View Screenshot</summary>
 
+![screenshot](documentation/screenshots/features-preview-card.png)
+</details>
 - **Post Detail Header**
 
     - The post detail header is an important feature on the website that displays key information about each post. This includes the post title, author, last modification date, category, and bookmarked status. If the user is a registered user, they can bookmark the post for future reference and, if they are the creator of the post or a site admin, they can also delete or edit the post. The average rating of the post is visible to all users, as well as the number of votes it has received. Only registered users can rate the post by using the five rating buttons. The full screen button is also available for all users to easily view the post's code in a larger format.
 
-![screenshot](documentation/feature02.png)
+<details>
+<summary>View Screenshot</summary>
 
+![screenshot](documentation/screenshots/features-post-detail-header.png)
+</details>
 - **Rating system**
 
     - The rating system on the website allows registered users to rate posts with a star rating system. The rating system is represented by 5 buttons in the form of empty stars. When a user hovers over a button, the style changes to fill them and add them color reflecting the selected rating and the previous stars are also updated. Upon clicking one of these buttons, the user's vote is recorded and added to the total rating of the post. The average rating of the post is visible to all users and is represented by icons. These icons dynamically change their design based on the average rating, with full stars representing a high rating and partially filled stars representing the decimals.
 
-![screenshot](documentation/feature02.png)
+<details>
+<summary>View Screenshot</summary>
 
+![screenshot](documentation/screenshots/features-rating.png)
+</details>
 - **Post Detail Body**
 
     - The post detail body feature provides a detailed view of the code for a specific post. There are three buttons that allow users to show or hide the different text areas where the HTML, CSS, and JS code are written. On small screens, only one text area will be displayed at a time. There are also buttons that allow users to easily copy the code from each text area to their clipboard. In addition to the text areas, there is another iframe that allows users to interact with and see the code in action.
 
-![screenshot](documentation/feature03.png)
+<details>
+<summary>View Screenshot</summary>
 
+![screenshot](documentation/screenshots/features-post-detail-body.png)
+</details>
 - **Comment Section**
 
     - The comment section of the post detail page displays all of the comments made by users. The comments are displayed in small cards, each with a different color to distinguish them easily. The cards include the author's name, the comment body, and the date it was created. The author of the comment can delete their comment using a button that is only visible to them or the site admin. All comments must be approved by the site admin, who can view and approve them using a button in this section (this comments are always positioned on top with a different color so the admin can distinguish them). At the bottom of the comment section is a text area where registered users can write and submit their own comments. This feature allows for a rich and interactive community experience where users can engage with one another and share their thoughts and ideas.
 
-![screenshot](documentation/feature03.png)
+<details>
+<summary>View Screenshot</summary>
 
+![screenshot](documentation/screenshots/features-comment-section.png)
+</details>
 - **Filter Posts Navigation**
 
     - The filter posts navigation feature is a dynamic navigation element that provides users with quick and easy access to different categories of posts. It is populated with all the categories, bookmarked posts (for registered users only), and a link to view all posts. This feature allows users to quickly filter posts based on their interests or needs. Clicking on a category, bookmarked post, or all posts link will call the corresponding view and display only the selected posts.
 
-![screenshot](documentation/feature03.png)
+<details>
+<summary>View Screenshot</summary>
 
+![screenshot](documentation/screenshots/features-filter-posts.png)
+</details>
 - **Browse Categories Section**
 
     - The browse categories section is a feature used exclusively by site administrators as it allows them to manage and maintain the different categories available for posts on the website. The section displays all the post categories in a list format and provides two important links for each category. The first link allows the administrator to delete the category and the second link allows them to edit it. This section provides a centralized and organized way for administrators to manage the categories on the website and helps to keep the content of the site organized and easily accessible to users.
 
-![screenshot](documentation/feature03.png)
+<details>
+<summary>View Screenshot</summary>
+
+![screenshot](documentation/screenshots/features-categories.png)
+</details>
 
 ### Future Features
 
