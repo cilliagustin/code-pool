@@ -52,26 +52,26 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 
 #### Codepool folder
 
-| File | CI URL | Raw URL | Combined |
-| --- | --- | --- | --- |
-| Codepool *asgi.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/asgi.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/asgi.py |
-| Codepool *settings.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/settings.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/settings.py |
-| Codepool *urls.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/urls.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/urls.py |
-| Codepool *wsgi.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/wsgi.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/wsgi.py |
+| File | URL |
+| --- | --- |
+| Codepool *asgi.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/asgi.py |
+| Codepool *settings.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/settings.py |
+| Codepool *urls.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/urls.py |
+| Codepool *wsgi.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/codepool/wsgi.py |
 
 #### Forum folder
 
-| File | CI URL | Raw URL | Combined |
-| --- | --- | --- | --- |
-| Forum *admin.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/admin.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/admin.py |
-| Forum *apps.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/apps.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/apps.py |
-| Forum *forms.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/forms.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/forms.py |
-| Forum *models.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/models.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/models.py |
-| Forum *test_forms.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_forms.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_forms.py |
-| Forum *test_models.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_models.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_models.py |
-| Forum *test_views.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_views.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_views.py |
-| Forum *urls.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/urls.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/urls.py |
-| Forum *views.py* | `https://pep8ci.herokuapp.com/` | `https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/views.py` | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/views.py |
+| File | URL |
+| --- | --- |
+| Forum *admin.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/admin.py |
+| Forum *apps.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/apps.py |
+| Forum *forms.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/forms.py |
+| Forum *models.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/models.py |
+| Forum *test_forms.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_forms.py |
+| Forum *test_models.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_models.py |
+| Forum *test_views.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/test_views.py |
+| Forum *urls.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/urls.py |
+| Forum *views.py* | https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/cilliagustin/codepool/main/forum/views.py |
 
 
 ## Browser Compatibility
@@ -247,7 +247,6 @@ I've tested my deployed project using [Chrome](https://www.google.com/chrome), [
 | Safari | ![screenshot](documentation/screenshots/safari-log-out.jpeg) | Works as expected |
 
 </details>
-
 
 ## Responsiveness
 
@@ -556,12 +555,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | | Submit Button | Clicking this button will submit the form in order to Log Out | Pass | |
 | | "No, Take me back" Button | Redirection to Home page | Pass | |
 
-
-
-
-
 ## User Story Testing
-
 
 ### Regular users (non registered)
 | User Story | Screenshot |
@@ -635,7 +629,6 @@ Below are the results from the various apps on my application that I've tested:
 
 ![screenshot](documentation/html-report.png) |
 </details>
-
 
 ## Bugs
 
