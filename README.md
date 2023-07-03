@@ -1,5 +1,7 @@
 # CODEPOOL
 
+[View the live project here](https://code-pool-agustin-cilli.herokuapp.com/)
+
 Codepool is an innovative website designed specifically for web developers. It's a one-stop-shop for all your code component needs, providing you with access to a vast collection of HTML, CSS, and JS snippets created and shared by the community. As a registered user, you can contribute to the pool of knowledge by uploading your own code components, whether they be simple buttons, stylish navbars, or complex loaders. The platform makes it easy for you to showcase your skills with coders from around the world.
 
 Codepool also provides a platform for users to rate and comment on other users' posts, helping to build a community of developers who support and encourage each other. You can keep track of your favorite code snippets by bookmarking them, saving them for later use or referencing. The platform is user-friendly, making it simple to find what you're looking for, and the code can be accessed and previewed by everyone, even non-registered users.
